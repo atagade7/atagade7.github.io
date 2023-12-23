@@ -1,5 +1,5 @@
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am an Economics PhD student at LSE, where I work on innovation, labor, organizations and networks. I am associated with the economics of innovation research group at [INSEAD](https://www.insead.edu/economics-innovation-lab) and [Collège de France](https://www.college-de-france.fr/fr/centre-de-recherche-sur-economie-de-innovation), and with Center for Economic Performance ([CEP](https://cep.lse.ac.uk/)) at LSE.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I also help run the LSE Economics Applicant Mentoring Programme (AMP), about which you can find more [here](https://www.lse.ac.uk/economics/study/research/applicant-mentoring-programme).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I am always open for a chat about research and new ideas, so please feel free to reach out!
