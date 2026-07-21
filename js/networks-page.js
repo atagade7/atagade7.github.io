@@ -52,11 +52,13 @@
   citationCanvas.height = Math.floor(cHeight * dpr);
   cctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
+  // Cohesive muted qualitative palette (consistent mid lightness + moderate
+  // chroma so no cluster reads as neon), maroon anchoring the dominant one.
   const palette = [
-    "#7a231a", "#9b3f2a", "#7f5b1f", "#4f6d2f", "#23635e",
-    "#2e5f8e", "#4f4f9e", "#7a4a8d", "#8a4469", "#6a3f2b",
-    "#6a6f2a", "#2f6a47", "#266b79", "#3a5f90", "#5a4f8e",
-    "#8c5a2b", "#7b6a25", "#3f6a2f", "#2f5f7a", "#704782", "#555555",
+    "#7a231a", "#a85336", "#9c7a33", "#6d7b3a", "#3f7a54",
+    "#2f7a70", "#3a6d88", "#4b5691", "#6a4f8a", "#894f7c",
+    "#a3536a", "#8a5a3e", "#7d6a38", "#557040", "#357a6e",
+    "#41648a", "#585290", "#7a5286", "#96566a", "#6a6a6a",
   ];
 
   let currentData = null;

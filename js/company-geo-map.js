@@ -296,9 +296,9 @@
       pointStroke: "#5e170f",
     },
     assignee: {
-      ramp: ["#e8f1fb", "#b9d3ee", "#4f88bc", "#163f67"],
-      stroke: "#1c537c",
-      pointStroke: "#123650",
+      ramp: ["#fffaf8", "#f8ddd3", "#ee9d82", "#c44a30", "#7a231a"],
+      stroke: "#7a231a",
+      pointStroke: "#5e170f",
     },
   };
 
