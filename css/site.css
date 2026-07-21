@@ -173,22 +173,44 @@
   }
   .paper-detail:last-child { margin-bottom: 0; }
 
-  /* action links (Link / Slides / Abstract) live inline on the detail line,
-     dot-separated, at the same size as the surrounding text */
+  /* action links (Link / Slides / Abstract) inline on the detail line,
+     dot-separated; a soft rounded box appears on hover for affordance */
   .paper-detail a,
   .paper-detail .abstract-toggle {
     color: var(--accent);
     font: inherit;
     background: none;
     border: 0;
-    padding: 0;
+    padding: 1px 8px;
+    border-radius: 6px;
     text-decoration: none;
     cursor: pointer;
+    transition: background-color 0.15s ease;
   }
   .paper-detail a:hover,
-  .paper-detail .abstract-toggle:hover,
-  .paper-detail .abstract-toggle.open { text-decoration: underline; }
-  .paper-detail .sep { color: var(--muted); margin: 0 0.4em; }
+  .paper-detail .abstract-toggle:hover { background-color: rgba(122, 35, 26, 0.08); }
+  .paper-detail .abstract-toggle.open { background-color: rgba(122, 35, 26, 0.10); }
+
+  /* the "+" affordance on the Abstract toggle (rotates to × when open) */
+  .paper-detail .abstract-toggle .icon {
+    display: inline-block;
+    margin-left: 3px;
+    font-weight: 400;
+    transition: transform 0.25s ease;
+  }
+  .paper-detail .abstract-toggle.open .icon { transform: rotate(45deg); }
+
+  /* forthcoming entries: gray, non-active */
+  .paper-detail .abstract-toggle.pending { color: #9a9a9a; }
+  .paper-detail .abstract-toggle.pending:hover,
+  .paper-detail .abstract-toggle.pending.open { background-color: rgba(0, 0, 0, 0.05); }
+  .paper-detail .pending-note {
+    color: #9a9a9a;
+    font-style: italic;
+    padding: 1px 8px;
+  }
+
+  .paper-detail .sep { color: var(--muted); margin: 0 0.15em; }
 
   /* ---- abstract fold-out: expands in place below the buttons ---- */
   .abstract {
