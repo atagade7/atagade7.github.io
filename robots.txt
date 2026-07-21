@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://abhijittagade.github.io/sitemap.xml
+Sitemap: https://atagade7.github.io/sitemap.xml
