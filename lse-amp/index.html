@@ -23,6 +23,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/site.css">
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
 </head>
 <body>
 
@@ -55,6 +56,7 @@
 
       <nav class="side-nav" aria-label="Site navigation">
         <a href="../"><span class="arr">&#8592;</span> Home</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle colour theme">Dark mode</button>
       </nav>
     </aside>
 
@@ -177,5 +179,24 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btns = document.querySelectorAll('.theme-toggle');
+      function sync() {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        btns.forEach(function (b) { b.textContent = dark ? 'Light mode' : 'Dark mode'; });
+      }
+      sync();
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var dark = root.getAttribute('data-theme') === 'dark';
+          if (dark) { root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme', 'dark'); }
+          try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+          sync();
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

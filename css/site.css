@@ -101,6 +101,27 @@
   .side-nav a:hover { color: var(--accent); }
   .side-nav a .arr { font-size: 0.8em; }
 
+  /* dark-mode toggle — sits right under the nav links */
+  .theme-toggle {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px 0 0;
+    border: 0;
+    border-top: 1px solid var(--rule);
+    background: none;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  .theme-toggle:hover { color: var(--accent); }
+  .theme-toggle .tg-icon { margin-right: 7px; }
+
   /* ============================================================
      CONTENT
      ============================================================ */
@@ -325,3 +346,25 @@
   }
   .ref-list a, .res-list a { color: var(--accent); text-decoration: none; }
   .ref-list a:hover, .res-list a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+  /* ============================================================
+     DARK MODE  (toggled via [data-theme="dark"] on <html>)
+     Stark white fonts on a dark surface; maroon accent lifted to a
+     lighter clay so it stays visible on dark.
+     ============================================================ */
+  :root[data-theme="dark"] {
+    --bg:          #17181b;   /* dark surface        */
+    --text:        #ffffff;   /* stark white         */
+    --muted:       #ffffff;   /* white, not gray     */
+    --rule:        #34353a;   /* hairline on dark    */
+    --accent:      #e59079;   /* light clay (maroon lifted for contrast) */
+    --accent-dark: #f0ab97;
+  }
+  :root[data-theme="dark"] .abstract-inner { background: #212327; border-color: #34353a; }
+  :root[data-theme="dark"] .paper:hover { background-color: #212327; }
+  :root[data-theme="dark"] footer { background: #131417; }
+  :root[data-theme="dark"] .paper-detail a:hover,
+  :root[data-theme="dark"] .paper-detail .abstract-toggle:hover { background-color: rgba(229, 144, 121, 0.16); }
+  :root[data-theme="dark"] .paper-detail .abstract-toggle.open { background-color: rgba(229, 144, 121, 0.20); }
+  :root[data-theme="dark"] .abstract-toggle.pending,
+  :root[data-theme="dark"] .paper-detail .pending-note { color: #b3b3b3; }
