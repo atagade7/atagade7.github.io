@@ -17,13 +17,8 @@
   <link href="../dist/css/normalize.css" rel="stylesheet">
   <link href="../dist/css/skeleton.css" rel="stylesheet">
   <link href="../css/custom.css?v=22" rel="stylesheet">
-  <!-- Restyle the shell to match the main site's IBM Plex look (fonts only;
-       the maroon accent and layout already match custom.css). -->
-  <style>
-    body { font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-    input, button, select, textarea, optgroup { font-family: inherit; }
-    .site-title { font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif; letter-spacing: -0.02rem; }
-  </style>
+  <!-- Theme layer that aligns this tool with the main site's aesthetic. -->
+  <link href="../css/networks-theme.css?v=2" rel="stylesheet">
 </head>
 <body class="networks-page">
   <div class="container">
@@ -36,7 +31,7 @@
     </header>
 
     <section class="section-block section-block-first">
-      <h2 class="section-title">Explore A Company</h2>
+      <h2 class="section-title">Explore a Company</h2>
       <p class="section-intro">Search across 18,959 precomputed company pages. Load a firm to see its inventor network, technology footprint, and citation behavior.</p>
       <form id="company-form" class="network-controls">
         <label for="company-search">Company name</label>
