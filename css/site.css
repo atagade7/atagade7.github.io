@@ -165,7 +165,8 @@
     border-radius: 8px;
     transition: background-color 0.2s ease;
   }
-  .paper:hover { background-color: #f7f7f7; }
+  /* hover shading only on real pointer devices — avoids sticky :hover on touch */
+  @media (hover: hover) { .paper:hover { background-color: #f7f7f7; } }
   /* separator: a flat line inset past the rounded corners, so the hover
      shading's curves stay smooth and the line never reaches the corner */
   .paper + .paper::before {
@@ -211,8 +212,10 @@
     cursor: pointer;
     transition: background-color 0.15s ease;
   }
-  .paper-detail a:hover,
-  .paper-detail .abstract-toggle:hover { background-color: rgba(122, 35, 26, 0.08); }
+  @media (hover: hover) {
+    .paper-detail a:hover,
+    .paper-detail .abstract-toggle:hover { background-color: rgba(122, 35, 26, 0.08); }
+  }
   .paper-detail .abstract-toggle.open { background-color: rgba(122, 35, 26, 0.10); }
 
   /* the "+" affordance on the Abstract toggle (rotates to × when open) */
@@ -227,8 +230,10 @@
 
   /* forthcoming entries: gray, non-active */
   .paper-detail .abstract-toggle.pending { color: #9a9a9a; }
-  .paper-detail .abstract-toggle.pending:hover,
   .paper-detail .abstract-toggle.pending.open { background-color: rgba(0, 0, 0, 0.05); }
+  @media (hover: hover) {
+    .paper-detail .abstract-toggle.pending:hover { background-color: rgba(0, 0, 0, 0.05); }
+  }
   .paper-detail .pending-note {
     color: #9a9a9a;
     font-style: italic;
@@ -361,10 +366,12 @@
     --accent-dark: #f0ab97;
   }
   :root[data-theme="dark"] .abstract-inner { background: #212327; border-color: #34353a; }
-  :root[data-theme="dark"] .paper:hover { background-color: #212327; }
   :root[data-theme="dark"] footer { background: #131417; }
-  :root[data-theme="dark"] .paper-detail a:hover,
-  :root[data-theme="dark"] .paper-detail .abstract-toggle:hover { background-color: rgba(229, 144, 121, 0.16); }
+  @media (hover: hover) {
+    :root[data-theme="dark"] .paper:hover { background-color: #212327; }
+    :root[data-theme="dark"] .paper-detail a:hover,
+    :root[data-theme="dark"] .paper-detail .abstract-toggle:hover { background-color: rgba(229, 144, 121, 0.16); }
+  }
   :root[data-theme="dark"] .paper-detail .abstract-toggle.open { background-color: rgba(229, 144, 121, 0.20); }
   :root[data-theme="dark"] .abstract-toggle.pending,
   :root[data-theme="dark"] .paper-detail .pending-note { color: #b3b3b3; }
