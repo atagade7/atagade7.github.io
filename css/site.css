@@ -177,8 +177,11 @@
      dot-separated; a soft rounded box appears on hover for affordance */
   .paper-detail a,
   .paper-detail .abstract-toggle {
+    display: inline-block;       /* uniform box: same height for Link / Slides / Abstract */
+    vertical-align: baseline;
     color: var(--accent);
     font: inherit;
+    line-height: 1.4;
     background: none;
     border: 0;
     padding: 1px 8px;
@@ -195,6 +198,7 @@
   .paper-detail .abstract-toggle .icon {
     display: inline-block;
     margin-left: 3px;
+    line-height: 1;             /* keep the icon from inflating the button's box height */
     font-weight: 400;
     transition: transform 0.25s ease;
   }
