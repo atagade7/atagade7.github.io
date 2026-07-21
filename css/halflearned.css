@@ -1,0 +1,27 @@
+body {
+	  font-family: 'Roboto ', sans-serif;
+	  font-weight: 100;
+  }
+
+
+/* Email Pseudo link  */
+.pseudo-link {
+  color: #1EAEDB; }
+.pseudo-link:hover {
+  color: #0FA0CE; 
+	cursor: pointer;
+}
+
+
+
+/* Google scholar fontawesome */
+.icon-scholar {
+  content: url('../misc/google-scholar.svg');
+  height: 1em;
+  width: auto;
+}
+
+Add this .custom-image-size {
+  width: 50%; /* Adjust the percentage value to your desired width */
+  height: auto; /* This will maintain the aspect ratio of the image */
+}

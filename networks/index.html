@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Company Patent Intelligence | Abhijit Tagade</title>
+  <meta name="description" content="Precomputed company patent intelligence pages covering inventors, technologies, and citation behavior.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+  <link rel="icon" type="image/png" href="../favicon_io/LSE%20Logo.png">
+  <link rel="manifest" href="../favicon_io/site.webmanifest">
+  <link href="../dist/css/normalize.css" rel="stylesheet">
+  <link href="../dist/css/skeleton.css" rel="stylesheet">
+  <link href="../css/custom.css?v=22" rel="stylesheet">
+</head>
+<body class="networks-page">
+  <div class="container">
+    <p class="back-link"><a href="../">Abhijit Tagade</a></p>
+
+    <header class="amp-header">
+      <p class="page-kicker">Patent Intelligence</p>
+      <h1 class="site-title">Company Patent Intelligence</h1>
+      <p class="amp-subtitle">Explore how each firm's inventors collaborate, which technologies anchor its portfolio, and how patent citations connect it to peers.</p>
+    </header>
+
+    <section class="section-block section-block-first">
+      <h2 class="section-title">Explore A Company</h2>
+      <p class="section-intro">Search across 18,959 precomputed company pages. Load a firm to see its inventor network, technology footprint, and citation behavior.</p>
+      <form id="company-form" class="network-controls">
+        <label for="company-search">Company name</label>
+        <input id="company-search" list="company-list" type="text" placeholder="Start typing a company name (e.g., APPLE)">
+        <datalist id="company-list"></datalist>
+        <button id="load-company" type="submit">Load Company</button>
+      </form>
+      <div class="search-toolbar">
+        <p class="entry-detail search-status" id="search-version">Precomputed search index covering the full site universe.</p>
+        <div class="search-toolbar-actions">
+          <button id="random-company" class="secondary-action-button" type="button">Random company</button>
+          <button id="copy-company-link" class="secondary-action-button" type="button">Copy deep link</button>
+        </div>
+      </div>
+      <div id="company-presets" class="company-presets" aria-label="Example companies"></div>
+    </section>
+
+    <section class="section-block company-overview-section">
+      <div class="company-overview-head">
+        <div>
+          <h2 class="section-title">Company Overview</h2>
+          <p class="section-intro section-intro-compact">Keep the profile visible, then switch between the firm's main analytical views.</p>
+        </div>
+      </div>
+      <div class="company-overview-grid">
+        <div id="company-profile" class="entry-detail">Load a company to view its profile.</div>
+      </div>
+      <div class="company-compare-shell">
+        <div class="company-compare-controls">
+          <label for="compare-company-search">Compare with</label>
+          <input id="compare-company-search" list="company-list" type="text" placeholder="Add a second company for a quick comparison">
+          <button id="load-compare-company" type="button">Compare</button>
+          <button id="clear-compare-company" class="secondary-action-button" type="button" hidden>Clear</button>
+        </div>
+        <div id="company-compare" class="entry-detail comparison-card" hidden></div>
+      </div>
+      <div class="analysis-view-shell">
+        <div id="analysis-view-controls" class="analysis-view-controls" aria-label="Analysis view">
+          <button type="button" class="analysis-view-button is-active" data-analysis-view="map">Map</button>
+          <button type="button" class="analysis-view-button" data-analysis-view="network">Inventor collaboration</button>
+          <button type="button" class="analysis-view-button" data-analysis-view="citation">Citation flow</button>
+          <button type="button" class="analysis-view-button" data-analysis-view="technology">Technology</button>
+          <button type="button" class="analysis-view-button" data-analysis-view="inventors">Top inventors</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block analysis-section">
+      <div id="analysis-panel-map" class="analysis-panel" data-analysis-panel="map">
+        <h2 class="section-title" id="geo-title">Geography</h2>
+        <p class="section-intro section-intro-compact">Choose whether the map shows inventor patents, distinct inventors, assignee patents, or assignee offices. Exact locations stay precise; world views can aggregate to cities or countries, and US views can aggregate to cities, states, counties, or commuting zones. The overall background density follows the current Show mode across full PatentsView.</p>
+        <div class="geo-controls">
+          <div class="geo-control-group">
+            <span class="geo-control-label">Show</span>
+            <div id="geo-show-controls" class="geo-chip-group" aria-label="Map data view">
+              <button type="button" class="geo-chip is-active" data-geo-show="inventor_patents">Inventor patents</button>
+              <button type="button" class="geo-chip" data-geo-show="inventor_count">Distinct inventors</button>
+              <button type="button" class="geo-chip" data-geo-show="assignee_patents">Assignee patents</button>
+              <button type="button" class="geo-chip" data-geo-show="assignee_offices">Assignee offices</button>
+            </div>
+          </div>
+          <div class="geo-control-group">
+            <span class="geo-control-label">Map</span>
+            <div id="geo-region-controls" class="geo-chip-group" aria-label="Geography extent">
+              <button type="button" class="geo-chip is-active" data-geo-region="us">US</button>
+              <button type="button" class="geo-chip" data-geo-region="world">World</button>
+            </div>
+          </div>
+          <div class="geo-control-group geo-control-group-detail">
+            <span id="geo-detail-label" class="geo-control-label">US detail</span>
+            <div id="geo-us-level-controls" class="geo-chip-group" aria-label="US geography level">
+              <button type="button" class="geo-chip is-active" data-geo-level="locations">Locations</button>
+              <button type="button" class="geo-chip" data-geo-level="country">Countries</button>
+              <button type="button" class="geo-chip" data-geo-level="city">Cities</button>
+              <button type="button" class="geo-chip" data-geo-level="state">States</button>
+              <button type="button" class="geo-chip" data-geo-level="county">Counties</button>
+              <button type="button" class="geo-chip" data-geo-level="commuting_zone">Commuting zones</button>
+            </div>
+          </div>
+          <div class="geo-control-actions">
+            <label class="geo-background-toggle">
+              <input id="geo-background-toggle" type="checkbox" checked>
+              <span>Overall background density</span>
+            </label>
+          </div>
+        </div>
+        <div id="geo-map-alert" class="entry-detail geo-map-alert" hidden></div>
+        <div class="geo-map-shell">
+          <svg id="geo-map" viewBox="0 0 960 560" role="img" aria-label="Company geography map"></svg>
+          <div id="geo-map-tooltip" class="geo-map-tooltip" aria-hidden="true"></div>
+        </div>
+        <p id="geo-map-status" class="entry-detail geo-map-status">Load a company to view geography.</p>
+        <div id="geo-map-summary" class="entry-detail geo-map-summary"></div>
+        <div id="geo-map-legend" class="entry-detail geo-map-legend"></div>
+        <div id="geo-map-scale" class="entry-detail geo-map-scale"></div>
+        <div id="geo-map-guide" class="entry-detail geo-map-guide">Map reading notes appear here once a company is loaded.</div>
+        <div class="analyst-card geo-highlights-card">
+          <div class="geo-highlights-head">
+            <div>
+              <p class="subsection-kicker">Map highlights</p>
+              <p id="geo-highlights-title" class="section-intro section-intro-compact">Top places in the current map view.</p>
+            </div>
+          </div>
+          <div id="geo-highlights" class="geo-highlights entry-detail">Load a company to inspect the geography in more detail.</div>
+        </div>
+      </div>
+
+      <div id="analysis-panel-network" class="analysis-panel" data-analysis-panel="network" hidden>
+        <h2 class="section-title" id="network-title">Inventor Collaboration</h2>
+        <p class="section-intro section-intro-compact">Each dot is an inventor. Links reflect repeated co-invention inside the firm.</p>
+        <div class="network-controls network-controls-compact">
+          <label for="min-edge">Minimum co-inventor ties shown</label>
+          <input id="min-edge" type="range" min="1" max="10" step="1" value="1">
+          <span id="min-edge-value">1</span>
+        </div>
+        <p class="entry-detail" id="cluster-note">The inventor graph combines granted and pregrant records, deduplicated where PatentsView links publications to granted patents. Inventors are colored by their dominant CPC4 bucket inside the firm's top technology classes.</p>
+        <div class="network-canvas-wrap">
+          <canvas id="network-canvas" width="960" height="620" role="img" aria-label="Co-inventor network graph"></canvas>
+          <div id="cluster-label-layer" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div id="analysis-panel-technology" class="analysis-panel analyst-card technology-footprint-card" data-analysis-panel="technology" hidden>
+        <p class="subsection-kicker">Technology footprint</p>
+        <p class="section-intro section-intro-compact">Top 20 CPC4 classes in the firm's inventor network.</p>
+        <div id="cluster-legend" class="entry-detail"></div>
+      </div>
+
+      <div id="analysis-panel-inventors" class="analysis-panel analyst-card inventors-card" data-analysis-panel="inventors" hidden>
+        <div class="inventor-panel-head">
+          <div>
+            <p class="subsection-kicker">Inventors</p>
+            <p class="section-intro section-intro-compact">Inventors ranked by patent presence in the firm.</p>
+          </div>
+          <div id="inventor-view-controls" class="inventor-view-controls" aria-label="Inventor view">
+            <button type="button" class="inventor-view-button is-active" data-inventor-view="core">Core</button>
+            <button type="button" class="inventor-view-button" data-inventor-view="rising">Rising</button>
+          </div>
+        </div>
+        <div id="top-inventors" class="entry-detail"></div>
+        <div id="top-emerging-inventors" class="entry-detail" hidden></div>
+      </div>
+
+      <div id="analysis-panel-citation" class="analysis-panel" data-analysis-panel="citation" hidden>
+        <h2 class="section-title" id="citation-title">Citation Behavior</h2>
+        <p class="section-intro section-intro-compact">Start with partner firms for the broad pattern, then switch to technology views to see which CPC buckets carry the relationship.</p>
+        <div id="citation-mode-controls" class="citation-mode-controls" aria-label="Citation flow view mode">
+          <button type="button" class="citation-mode-button is-active" data-citation-mode="firm">Firm</button>
+          <button type="button" class="citation-mode-button" data-citation-mode="primary_cpc">Primary CPC</button>
+          <button type="button" class="citation-mode-button" data-citation-mode="all_cpc">All CPC</button>
+        </div>
+        <div class="network-canvas-wrap citation-figure-wrap">
+          <canvas id="citation-canvas" width="960" height="680" role="img" aria-label="Patent citation flow"></canvas>
+        </div>
+        <div class="citation-analysis-grid">
+          <aside id="citation-insight" class="citation-insight entry-detail" aria-live="polite"></aside>
+          <div id="citation-summary" class="entry-detail citation-summary-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block page-end-section">
+      <h2 class="section-title">Coverage &amp; Diagnostics</h2>
+      <p class="section-intro section-intro-compact">Check how complete the current company is on inventor locations, assignee offices, and citation metadata.</p>
+      <div class="page-end-stack">
+        <div id="company-diagnostics" class="entry-detail diagnostics-card">Load a company to inspect data coverage and geography diagnostics.</div>
+        <details class="method-note">
+          <summary>How this page is built</summary>
+          <p class="entry-detail">Company pages are precomputed from PatentsView data. Citation views use granted patents only. Inventor networks and filing timelines use granted and pregrant records after PatentsView crosswalk deduplication. Primary CPC uses the first CPC4 in sequence; All CPC spreads citation weight across all CPC4 pairs.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="site-footer networks-footer">
+      <p class="footer-label">Patent Intelligence</p>
+      <p class="section-address">Precomputed company pages built from PatentsView and linked geography assets.</p>
+    </footer>
+  </div>
+  <script src="../js/vendor/d3.v7.min.js" defer></script>
+  <script src="../js/company-geo-map.js?v=36" defer></script>
+  <script src="../js/networks-page.js?v=69" defer></script>
+</body>
+</html>

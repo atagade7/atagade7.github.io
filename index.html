@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Abhijit Tagade</title>
+<meta name="description" content="Abhijit Tagade is a PhD candidate in the LSE Department of Economics studying innovation, firms, and networks.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://abhijittagade.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abhijit Tagade">
+<meta property="og:description" content="PhD candidate in the LSE Department of Economics studying innovation, firms, and networks.">
+<meta property="og:url" content="https://abhijittagade.github.io/">
+<meta property="og:image" content="https://abhijittagade.github.io/profilepic.jpeg">
+
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+
+<!-- IBM Plex superfamily: Plex Serif for the name, section headings, and
+     paper titles; Plex Sans for body and UI. Designed together — matched
+     x-heights and shared rhythm. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:     #ffffff;
+    --text:   #111111;
+    --muted:  #111111;
+    --rule:   #e8e8e8;
+    --accent: #7a231a;
+    --accent-dark: #631a13;
+
+    --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+    --sans:  "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --maxw: 1060px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; }
+
+  .page {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 44px 32px 0;
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+  }
+
+  /* ============================================================
+     SIDEBAR — name above photo, contact, section nav
+     ============================================================ */
+  .sidebar { flex: 0 0 252px; position: sticky; top: 36px; text-align: center; }
+
+  h1.name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+
+  .portrait img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact { margin-top: 16px; }
+  .contact-role { margin: 0; font-size: 1rem; color: var(--muted); line-height: 1.5; }
+  .contact-line { margin: 6px 0 0; font-size: 1rem; color: var(--muted); }
+  .contact-mail {
+    font-size: 1rem;
+    color: var(--muted);
+    text-decoration: none;
+    word-break: break-word;
+    transition: color 0.2s ease;
+  }
+  .contact-mail:hover { color: var(--accent); }
+
+  .socials { display: flex; gap: 10px; margin-top: 12px; justify-content: center; }
+  .socials a {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    transition: all 0.2s ease;
+  }
+  .socials a:hover { border-color: var(--accent); color: var(--accent); }
+  .socials svg { width: 16px; height: 16px; }
+
+  nav.side-nav { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 14px; text-align: left; }
+  .side-nav a {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    padding: 4px 0;
+    transition: color 0.2s ease;
+  }
+  .side-nav a:hover { color: var(--accent); }
+  .side-nav a .arr { font-size: 0.8em; }
+
+  /* ============================================================
+     CONTENT
+     ============================================================ */
+  main.content { flex: 1; min-width: 0; max-width: 690px; }
+
+  .about p {
+    margin: 0 0 12px;
+    max-width: 62ch;
+  }
+  .about .about-secondary { color: var(--muted); }
+  .about a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .about a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+  /* ---- section headings: serif title + hairline rule ---- */
+  .section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin: 28px 0 6px;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.42rem;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .section-head .rule { flex: 1; height: 1px; background: var(--rule); }
+
+  /* ============================================================
+     PAPER ENTRIES
+     ============================================================ */
+  .paper {
+    padding: 12px 18px;
+    margin: 0 -18px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+  .paper:hover { background-color: #f7f7f7; }
+  .paper + .paper { border-top: 1px solid var(--rule); }
+
+  .paper-title {
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--accent);
+    margin: 0 0 3px;
+  }
+
+  .paper-detail {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  .paper-detail:last-child { margin-bottom: 0; }
+
+  .links { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
+  .links a,
+  .links button.abstract-toggle {
+    font-family: var(--sans);
+    font-size: 0.8rem; font-weight: 500;
+    text-decoration: none;
+    padding: 2px 11px;
+    background: none;
+    border: 1px solid rgba(122, 35, 26, 0.3);
+    border-radius: 6px;
+    color: var(--accent);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .links a:hover,
+  .links button.abstract-toggle:hover { background-color: rgba(122, 35, 26, 0.06); border-color: rgba(122, 35, 26, 0.55); }
+
+  .links button.abstract-toggle .icon {
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: 400;
+    transition: transform 0.25s ease;
+  }
+  .links button.abstract-toggle.open { background-color: rgba(122, 35, 26, 0.08); border-color: rgba(122, 35, 26, 0.55); }
+  .links button.abstract-toggle.open .icon { transform: rotate(45deg); }
+
+  /* ---- abstract fold-out: expands in place below the buttons ---- */
+  .abstract {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+  }
+  .abstract.open { max-height: 1200px; opacity: 1; margin-top: 10px; }
+  .abstract-inner {
+    background: #f7f7f7;
+    border: 1px solid var(--rule);
+    border-left: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  /* ---- prose sections (LSE AMP) ---- */
+  .section-note { max-width: 66ch; margin: 6px 0 0; }
+  .section-note a { color: var(--accent); text-decoration: none; }
+  .section-note a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    margin-top: 60px;
+    border-top: 1px solid var(--rule);
+    background: #f7f6f4;
+  }
+  .foot-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 30px 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
+    flex-wrap: wrap;
+  }
+  .foot-id { flex: 0 0 252px; }
+  .foot-address { flex: 1; min-width: 240px; }
+  .foot-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
+  .foot-mail { display: block; font-size: 1rem; color: var(--muted); text-decoration: none; margin-top: 4px; }
+  .foot-mail:hover { color: var(--accent); }
+  .foot-address { font-style: normal; font-size: 1rem; color: var(--muted); line-height: 1.6; }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 820px) {
+    .page { flex-direction: column; gap: 28px; padding-top: 32px; }
+    .sidebar { position: static; width: 100%; }
+    h1.name { margin-bottom: 12px; }
+    .portrait img { max-width: 200px; margin: 0 auto; }
+    nav.side-nav { padding-top: 12px; }
+    .side-nav a { display: inline-block; padding: 3px 8px; }
+    main.content { max-width: none; }
+    .paper { padding: 12px 0; margin: 0; }
+    .paper:hover { background: none; }
+  }
+  @media (max-width: 520px) {
+    .page { padding-left: 22px; padding-right: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .abstract { transition: none; }
+  }
+</style>
+
+<!-- Structured data: invisible to visitors, read by search engines. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://abhijittagade.github.io/#abhijit-tagade",
+  "name": "Abhijit Tagade",
+  "url": "https://abhijittagade.github.io/",
+  "image": "https://abhijittagade.github.io/profilepic.jpeg",
+  "email": "mailto:a.tagade@lse.ac.uk",
+  "jobTitle": "PhD Candidate in Economics",
+  "knowsAbout": ["Innovation", "Firms", "Networks", "Competition", "Market Structure", "Diffusion of Ideas", "Patents"],
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "London School of Economics and Political Science",
+    "sameAs": "https://www.lse.ac.uk/"
+  },
+  "affiliation": [
+    { "@type": "Organization", "name": "Centre for Economic Performance", "sameAs": "https://cep.lse.ac.uk/" },
+    { "@type": "Organization", "name": "Programme on Innovation and Diffusion (POID)", "sameAs": "https://poid.lse.ac.uk/" },
+    { "@type": "Organization", "name": "Opportunity Insights", "sameAs": "https://opportunityinsights.org/" }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/abhijit-tagade-26048310b/",
+    "https://twitter.com/atagade1"
+  ]
+}
+</script>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+      <h1 class="name">Abhijit Tagade</h1>
+
+      <div class="portrait">
+        <img src="profilepic.jpeg" alt="Portrait of Abhijit Tagade" width="648" height="648">
+      </div>
+
+      <div class="contact">
+        <p class="contact-role">PhD Candidate in Economics</p>
+        <p class="contact-role">London School of Economics</p>
+        <p class="contact-line">Email: <a class="contact-mail" href="mailto:a.tagade@lse.ac.uk">a.tagade@lse.ac.uk</a></p>
+        <div class="socials">
+          <a href="https://drive.google.com/file/d/1DaEJ76aN5DJh-d8LCc_qQ9HOTgy4QIth/view?usp=share_link" target="_blank" rel="noopener" aria-label="Curriculum Vitae" title="CV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><text x="12" y="18" font-family="Helvetica, Arial, sans-serif" font-size="7.5" font-weight="700" text-anchor="middle" fill="currentColor" stroke="none" letter-spacing="0.4">CV</text></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/abhijit-tagade-26048310b/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0"/></svg>
+          </a>
+          <a href="https://twitter.com/atagade1" target="_blank" rel="noopener" aria-label="X (Twitter)" title="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="side-nav" aria-label="Site navigation">
+        <a href="#working-papers">Working Papers</a>
+        <a href="#publications">Publications</a>
+        <a href="#work-in-progress">Work in Progress</a>
+        <a href="#lse-amp">LSE AMP</a>
+        <a href="networks/">Patent Networks <span class="arr">&#8599;</span></a>
+      </nav>
+    </aside>
+
+    <!-- ===================== CONTENT ===================== -->
+    <main class="content">
+
+      <div class="about">
+        <p>
+          I am a PhD candidate in Economics at the London School of Economics.
+          I study innovation, firms, and networks, with a focus on competition,
+          market structure, and the diffusion of ideas.
+        </p>
+        <p class="about-secondary">
+          I am affiliated with the Centre for Economic Performance (CEP), the
+          Programme on Innovation and Diffusion (POID), and Opportunity Insights.
+        </p>
+        <p class="about-secondary">
+          Alongside my research, I build <a href="networks/">Company Patent
+          Intelligence</a>, an interactive atlas of patenting firms, their
+          inventors, and citation networks.
+        </p>
+      </div>
+
+      <!-- ---- WORKING PAPERS ---- -->
+      <div class="section-head" id="working-papers">
+        <h2>Working Papers</h2>
+        <span class="rule"></span>
+      </div>
+
+      <article class="paper">
+        <p class="paper-title">Innovation Networks and Business-Stealing</p>
+        <p class="paper-detail">with Philippe Aghion, Matthew O. Jackson, and Antoine Mayerowitz &middot; CEPR Discussion Paper 17911, 2023</p>
+        <div class="links">
+          <a href="https://cepr.org/publications/dp17911" target="_blank" rel="noopener">Link</a>
+          <a href="https://drive.google.com/file/d/1lx8989MSYuVp5WIh-9o-9YBv21apWclP/view?usp=share_link" target="_blank" rel="noopener">Slides</a>
+          <button class="abstract-toggle" type="button">Abstract<span class="icon">+</span></button>
+        </div>
+        <div class="abstract">
+          <div class="abstract-inner">
+            We use the universe of US Patent and Trademark Office (USPTO) data on patents and inventors from 1976 to 2017 to look at how inventors&rsquo; potential concern for business-stealing affects coauthorship on patents. First, we find an inverted-U shape in the fraction of coauthors that an inventor has per year who are new as a function number of other inventors also working in an inventor&rsquo;s field. Second, we find that after a breakthrough invention, an inventor brings in persistently fewer than usual new coauthors. Third, a higher potential concern for business stealing&mdash;as measured either by the number of others working or the average price markups by firms in the area&mdash;leads to a higher drop in the fraction of new co-authors per patent after a breakthrough. We show how these patterns can be explained via a simple model in which inventors trade off gains from collaboration against threats of business stealing.
+          </div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">On the Shoulders of Giants: Financial Spillovers in Innovation Networks</p>
+        <p class="paper-detail">with Bijan Aghdasi &middot; CEP Discussion Paper 2117, 2025</p>
+        <div class="links">
+          <a href="https://cep.lse.ac.uk/pubs/download/dp2117.pdf" target="_blank" rel="noopener">Link</a>
+          <a href="https://drive.google.com/file/d/1V14wctFb2fXubPr2qRUnXLWhICs9Yatt/view?usp=share_link" target="_blank" rel="noopener">Slides</a>
+          <button class="abstract-toggle" type="button">Abstract<span class="icon">+</span></button>
+        </div>
+        <div class="abstract">
+          <div class="abstract-inner">
+            Do markets price knowledge spillovers? We show that patent grants influence the stock returns of firms that are connected through technological knowledge dependencies. Using directed patent citations among publicly listed companies in the United States, we construct a granular measure of each firm&rsquo;s exposure to new patents granted to its technologically upstream firms. Patents granted to these upstream companies significantly boost its abnormal stock returns during the week of the grant. We find that these financial spillovers are predominantly localized within a firm&rsquo;s immediate technological connections. Additionally, we provide a novel empirical decomposition of financial spillovers generated from patent grants, by distinguishing those spillovers emerging from sources of technological knowledge, from those emerging from product market rivals (negative effect) and suppliers (positive effect). Our findings are robust to alternative specifications and placebo tests, and they suggest that technological knowledge spillovers create important market-priced ties between firms that are not fully captured by traditional product market relationships.
+          </div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">A Century of Unequal Opportunity in India</p>
+        <div class="links">
+          <a href="https://drive.google.com/file/d/1CH2HhCisywP1nU2n4_Ve_w7mju65F4ue/view?usp=share_link" target="_blank" rel="noopener">Slides</a>
+        </div>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">Foreign Competition and R&amp;D Specialization</p>
+        <p class="paper-detail">with Antoine Mayerowitz</p>
+      </article>
+
+      <!-- ---- PUBLICATIONS ---- -->
+      <div class="section-head" id="publications">
+        <h2>Publications</h2>
+        <span class="rule"></span>
+      </div>
+
+      <article class="paper">
+        <p class="paper-title">Innovation Networks and Business-Stealing</p>
+        <p class="paper-detail">with Matthew O. Jackson and Antoine Mayerowitz &middot; <em>The Economics of Creative Destruction</em>, ed. Ufuk Akcigit and John Van Reenen. Harvard University Press, 2023</p>
+        <div class="links">
+          <a href="https://www.hup.harvard.edu/catalog.php?isbn=9780674270367" target="_blank" rel="noopener">Link</a>
+        </div>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">Analytical Tools in Private Equity: Return Bridge</p>
+        <p class="paper-detail">with Victoria Ivashina &middot; Harvard Business School Background Note 220-119, 2019</p>
+        <div class="links">
+          <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=56482" target="_blank" rel="noopener">Link</a>
+        </div>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">Clayton, Dubilier &amp; Rice at 40</p>
+        <p class="paper-detail">with Josh Lerner and Terrence Shu &middot; Harvard Business School Case 819-055, 2018</p>
+        <div class="links">
+          <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=55036" target="_blank" rel="noopener">Link</a>
+        </div>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">Valuation Techniques in Private Equity: LBO Model</p>
+        <p class="paper-detail">with Victoria Ivashina and Alexey Tuzikov &middot; Harvard Business School Background Note 218-106, 2018</p>
+        <div class="links">
+          <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=54359" target="_blank" rel="noopener">Link</a>
+        </div>
+      </article>
+
+      <!-- ---- WORK IN PROGRESS ---- -->
+      <div class="section-head" id="work-in-progress">
+        <h2>Work in Progress</h2>
+        <span class="rule"></span>
+      </div>
+
+      <article class="paper">
+        <p class="paper-title">Perceptions of Innovations</p>
+        <p class="paper-detail">with Xavier Jaravel and Josh Lerner</p>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">Innovative Firms and Technology Power</p>
+        <p class="paper-detail">with Todd Lensman</p>
+      </article>
+
+      <article class="paper">
+        <p class="paper-title">Network Effects under Measurement Errors</p>
+        <p class="paper-detail">with Isaac Meza and Yu-Jia Wang</p>
+      </article>
+
+      <!-- ---- LSE AMP ---- -->
+      <div class="section-head" id="lse-amp">
+        <h2>LSE AMP</h2>
+        <span class="rule"></span>
+      </div>
+
+      <p class="section-note">
+        At LSE, I co-lead the Economics PhD Applicant Mentoring Program (AMP),
+        which supports students and research assistants from underprivileged and
+        underrepresented backgrounds in pursuing economics PhDs through 1-1
+        mentorship. More is available on the <a href="lse-amp/">AMP page</a>, the
+        <a href="https://sites.google.com/view/econphdamp/home" target="_blank" rel="noopener">AMP website</a>,
+        and the <a href="https://www.lse.ac.uk/economics/study/research/applicant-mentoring-programme" target="_blank" rel="noopener">LSE website</a>.
+      </p>
+
+    </main>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-id">
+        <div class="foot-name">Abhijit Tagade</div>
+        <a class="foot-mail" href="mailto:a.tagade@lse.ac.uk">a.tagade@lse.ac.uk</a>
+      </div>
+      <address class="foot-address">
+        LSE Department of Economics<br>
+        Sir Arthur Lewis Building<br>
+        32 Lincoln&rsquo;s Inn Fields<br>
+        London WC2A 3PH
+      </address>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle abstract fold-outs; the button stays in place, the panel
+    // expands below via a max-height transition.
+    document.querySelectorAll('.abstract-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('open');
+        var paper = btn.closest('.paper');
+        if (!paper) return;
+        var abstract = paper.querySelector('.abstract');
+        if (abstract) abstract.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

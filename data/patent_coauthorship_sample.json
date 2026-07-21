@@ -1,0 +1,441 @@
+{
+  "nodes": [
+    {
+      "id": "fl:jo_ln:moon-121",
+      "label": "Joohee Moon",
+      "strength": 21
+    },
+    {
+      "id": "fl:yu_ln:lee-467",
+      "label": "Yunglyul Lee",
+      "strength": 20
+    },
+    {
+      "id": "fl:ha_ln:kim-568",
+      "label": "Haekwang Kim",
+      "strength": 17
+    },
+    {
+      "id": "fl:je_ln:lim-70",
+      "label": "Jeongyeon Lim",
+      "strength": 17
+    },
+    {
+      "id": "fl:mi_ln:fargano-2",
+      "label": "Michael J. Fargano",
+      "strength": 11
+    },
+    {
+      "id": "fl:wi_ln:o'brien-10",
+      "label": "William Lawrence O'Brien",
+      "strength": 11
+    },
+    {
+      "id": "fl:ch_ln:cook-24",
+      "label": "Charles I. Cook",
+      "strength": 11
+    },
+    {
+      "id": "fl:ke_ln:mcbride-2",
+      "label": "Kevin M. McBride",
+      "strength": 11
+    },
+    {
+      "id": "fl:su_ln:kim-759",
+      "label": "Sunyeon Kim",
+      "strength": 10
+    },
+    {
+      "id": "fl:do_ln:kim-651",
+      "label": "Dongwon Kim",
+      "strength": 10
+    },
+    {
+      "id": "fl:ki_ln:kim-199",
+      "label": "Kibaek Kim",
+      "strength": 9
+    },
+    {
+      "id": "fl:wa_ln:conley-1",
+      "label": "Walter Conley, III",
+      "strength": 8
+    },
+    {
+      "id": "fl:st_ln:mangette-2",
+      "label": "Stephen T. Mangette",
+      "strength": 8
+    },
+    {
+      "id": "fl:hy_ln:park-481",
+      "label": "Hyoungmee Park",
+      "strength": 8
+    },
+    {
+      "id": "fl:mi_ln:park-175",
+      "label": "Mincheol Park",
+      "strength": 8
+    },
+    {
+      "id": "fl:ma_ln:addison-1",
+      "label": "Mark E. Addison",
+      "strength": 8
+    },
+    {
+      "id": "fl:jo_ln:hammer-6",
+      "label": "Joe K. Hammer",
+      "strength": 8
+    },
+    {
+      "id": "fl:ka_ln:dammeyer-1",
+      "label": "Karl L. Dammeyer",
+      "strength": 8
+    },
+    {
+      "id": "fl:jo_ln:mcmanus-12",
+      "label": "John McManus",
+      "strength": 8
+    },
+    {
+      "id": "fl:ju_ln:lee-863",
+      "label": "Juock Lee",
+      "strength": 7
+    },
+    {
+      "id": "fl:ji_ln:kim-496",
+      "label": "Jinmin Kim",
+      "strength": 7
+    },
+    {
+      "id": "fl:ki_ln:kim-331",
+      "label": "Kitae Kim",
+      "strength": 7
+    },
+    {
+      "id": "fl:hy_ln:ko-62",
+      "label": "Hyunsoo Ko",
+      "strength": 7
+    },
+    {
+      "id": "fl:ja_ln:chung-76",
+      "label": "Jaehoon Chung",
+      "strength": 7
+    },
+    {
+      "id": "fl:ja_ln:snell-3",
+      "label": "Jason Snell",
+      "strength": 6
+    },
+    {
+      "id": "fl:ga_ln:namani-1",
+      "label": "Gandhi Namani",
+      "strength": 6
+    },
+    {
+      "id": "fl:je_ln:saltzman-2",
+      "label": "Jeff Saltzman",
+      "strength": 6
+    },
+    {
+      "id": "fl:sa_ln:pulugurtha-1",
+      "label": "Sai Ravi Teja Pulugurtha",
+      "strength": 6
+    },
+    {
+      "id": "fl:ro_ln:mallet-1",
+      "label": "Ronald Mallet",
+      "strength": 6
+    },
+    {
+      "id": "fl:se_ln:mani-5",
+      "label": "Senthil Kumar Mani",
+      "strength": 6
+    },
+    {
+      "id": "fl:sr_ln:akella-6",
+      "label": "Srinivas Akella",
+      "strength": 6
+    },
+    {
+      "id": "fl:jo_ln:han-94",
+      "label": "Jongki Han",
+      "strength": 6
+    },
+    {
+      "id": "fl:yo_ln:hata-11",
+      "label": "Yoshiaki Hata",
+      "strength": 5
+    },
+    {
+      "id": "fl:ei_ln:iimori-1",
+      "label": "Eiji Iimori",
+      "strength": 5
+    }
+  ],
+  "links": [
+    {
+      "source": "fl:jo_ln:moon-121",
+      "target": "fl:yu_ln:lee-467",
+      "weight": 6
+    },
+    {
+      "source": "fl:je_ln:lim-70",
+      "target": "fl:jo_ln:moon-121",
+      "weight": 5
+    },
+    {
+      "source": "fl:ha_ln:kim-568",
+      "target": "fl:yu_ln:lee-467",
+      "weight": 5
+    },
+    {
+      "source": "fl:ha_ln:kim-568",
+      "target": "fl:jo_ln:moon-121",
+      "weight": 4
+    },
+    {
+      "source": "fl:je_ln:lim-70",
+      "target": "fl:yu_ln:lee-467",
+      "weight": 4
+    },
+    {
+      "source": "fl:do_ln:kim-651",
+      "target": "fl:ki_ln:kim-199",
+      "weight": 4
+    },
+    {
+      "source": "fl:hy_ln:ko-62",
+      "target": "fl:ja_ln:chung-76",
+      "weight": 3
+    },
+    {
+      "source": "fl:ji_ln:kim-496",
+      "target": "fl:ki_ln:kim-331",
+      "weight": 3
+    },
+    {
+      "source": "fl:ch_ln:cook-24",
+      "target": "fl:ke_ln:mcbride-2",
+      "weight": 3
+    },
+    {
+      "source": "fl:ch_ln:cook-24",
+      "target": "fl:mi_ln:fargano-2",
+      "weight": 3
+    },
+    {
+      "source": "fl:ch_ln:cook-24",
+      "target": "fl:wi_ln:o'brien-10",
+      "weight": 3
+    },
+    {
+      "source": "fl:ke_ln:mcbride-2",
+      "target": "fl:mi_ln:fargano-2",
+      "weight": 3
+    },
+    {
+      "source": "fl:ke_ln:mcbride-2",
+      "target": "fl:wi_ln:o'brien-10",
+      "weight": 3
+    },
+    {
+      "source": "fl:mi_ln:fargano-2",
+      "target": "fl:wi_ln:o'brien-10",
+      "weight": 3
+    },
+    {
+      "source": "fl:je_ln:lim-70",
+      "target": "fl:su_ln:kim-759",
+      "weight": 3
+    },
+    {
+      "source": "fl:jo_ln:moon-121",
+      "target": "fl:su_ln:kim-759",
+      "weight": 3
+    },
+    {
+      "source": "fl:ha_ln:kim-568",
+      "target": "fl:je_ln:lim-70",
+      "weight": 3
+    },
+    {
+      "source": "fl:ei_ln:iimori-1",
+      "target": "fl:yo_ln:hata-11",
+      "weight": 3
+    },
+    {
+      "source": "fl:hy_ln:ko-62",
+      "target": "fl:ji_ln:kim-496",
+      "weight": 2
+    },
+    {
+      "source": "fl:hy_ln:ko-62",
+      "target": "fl:ki_ln:kim-331",
+      "weight": 2
+    },
+    {
+      "source": "fl:ja_ln:chung-76",
+      "target": "fl:ji_ln:kim-496",
+      "weight": 2
+    },
+    {
+      "source": "fl:ja_ln:chung-76",
+      "target": "fl:ki_ln:kim-331",
+      "weight": 2
+    },
+    {
+      "source": "fl:ch_ln:cook-24",
+      "target": "fl:jo_ln:mcmanus-12",
+      "weight": 2
+    },
+    {
+      "source": "fl:jo_ln:mcmanus-12",
+      "target": "fl:ke_ln:mcbride-2",
+      "weight": 2
+    },
+    {
+      "source": "fl:jo_ln:mcmanus-12",
+      "target": "fl:mi_ln:fargano-2",
+      "weight": 2
+    },
+    {
+      "source": "fl:jo_ln:mcmanus-12",
+      "target": "fl:wi_ln:o'brien-10",
+      "weight": 2
+    },
+    {
+      "source": "fl:ga_ln:namani-1",
+      "target": "fl:sa_ln:pulugurtha-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:ga_ln:namani-1",
+      "target": "fl:se_ln:mani-5",
+      "weight": 2
+    },
+    {
+      "source": "fl:ga_ln:namani-1",
+      "target": "fl:sr_ln:akella-6",
+      "weight": 2
+    },
+    {
+      "source": "fl:sa_ln:pulugurtha-1",
+      "target": "fl:se_ln:mani-5",
+      "weight": 2
+    },
+    {
+      "source": "fl:sa_ln:pulugurtha-1",
+      "target": "fl:sr_ln:akella-6",
+      "weight": 2
+    },
+    {
+      "source": "fl:se_ln:mani-5",
+      "target": "fl:sr_ln:akella-6",
+      "weight": 2
+    },
+    {
+      "source": "fl:ja_ln:snell-3",
+      "target": "fl:je_ln:saltzman-2",
+      "weight": 2
+    },
+    {
+      "source": "fl:ja_ln:snell-3",
+      "target": "fl:ro_ln:mallet-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:je_ln:saltzman-2",
+      "target": "fl:ro_ln:mallet-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:do_ln:kim-651",
+      "target": "fl:mi_ln:park-175",
+      "weight": 2
+    },
+    {
+      "source": "fl:ha_ln:kim-568",
+      "target": "fl:su_ln:kim-759",
+      "weight": 2
+    },
+    {
+      "source": "fl:su_ln:kim-759",
+      "target": "fl:yu_ln:lee-467",
+      "weight": 2
+    },
+    {
+      "source": "fl:hy_ln:park-481",
+      "target": "fl:mi_ln:park-175",
+      "weight": 2
+    },
+    {
+      "source": "fl:hy_ln:park-481",
+      "target": "fl:jo_ln:han-94",
+      "weight": 2
+    },
+    {
+      "source": "fl:do_ln:kim-651",
+      "target": "fl:ju_ln:lee-863",
+      "weight": 2
+    },
+    {
+      "source": "fl:ju_ln:lee-863",
+      "target": "fl:ki_ln:kim-199",
+      "weight": 2
+    },
+    {
+      "source": "fl:jo_ln:hammer-6",
+      "target": "fl:ka_ln:dammeyer-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:jo_ln:hammer-6",
+      "target": "fl:ma_ln:addison-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:jo_ln:hammer-6",
+      "target": "fl:st_ln:mangette-2",
+      "weight": 2
+    },
+    {
+      "source": "fl:jo_ln:hammer-6",
+      "target": "fl:wa_ln:conley-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:ka_ln:dammeyer-1",
+      "target": "fl:ma_ln:addison-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:ka_ln:dammeyer-1",
+      "target": "fl:st_ln:mangette-2",
+      "weight": 2
+    },
+    {
+      "source": "fl:ka_ln:dammeyer-1",
+      "target": "fl:wa_ln:conley-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:ma_ln:addison-1",
+      "target": "fl:st_ln:mangette-2",
+      "weight": 2
+    },
+    {
+      "source": "fl:ma_ln:addison-1",
+      "target": "fl:wa_ln:conley-1",
+      "weight": 2
+    },
+    {
+      "source": "fl:st_ln:mangette-2",
+      "target": "fl:wa_ln:conley-1",
+      "weight": 2
+    }
+  ],
+  "meta": {
+    "source": "PatentsView inventor_disambiguated sample",
+    "sampled_patents_granted": 12000,
+    "sampled_patents_pregrant": 12000
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "commuting_zones": {
+    "path": "us_commuting_zones.geojson",
+    "count": 705,
+    "simplify_tolerance": 0.005
+  },
+  "world_countries": {
+    "path": "world_countries.geojson",
+    "count": 255,
+    "coordinate_precision": 5,
+    "simplify_tolerance": 0.0,
+    "project_overrides": [
+      "Taiwan standardized to world_id 158 / TWN for site joins",
+      "Arunachal Pradesh, Aksai Chin, and Jammu and Kashmir dispute polygons merged into India for site display"
+    ],
+    "source": {
+      "title": "United Nations Geodata simplified (BNDA_simplified)",
+      "url": "https://geoportal.un.org/arcgis/sharing/rest/content/items/e4ee80edac9d4e08b8303522dd4a5fc1/data"
+    },
+    "built_at_utc": "2026-03-13T18:26:25.021010+00:00"
+  },
+  "us_states": {
+    "path": "us_states.geojson",
+    "count": 56,
+    "coordinate_precision": 5,
+    "simplify_tolerance": 0.001,
+    "source": {
+      "title": "U.S. Census Bureau Cartographic Boundary Files 2024: States",
+      "url": "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_state_500k.zip"
+    },
+    "built_at_utc": "2026-03-13T18:26:25.021010+00:00"
+  },
+  "us_counties": {
+    "path": "us_counties.geojson",
+    "count": 3235,
+    "coordinate_precision": 5,
+    "simplify_tolerance": 0.001,
+    "source": {
+      "title": "U.S. Census Bureau Cartographic Boundary Files 2024: Counties",
+      "url": "https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip"
+    },
+    "built_at_utc": "2026-03-13T18:26:25.021010+00:00"
+  }
+}

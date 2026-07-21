@@ -1,0 +1,1361 @@
+{
+  "source": "/Users/atagade/Documents/GitHub/data/raw/openalex/paper_author_affiliations.csv",
+  "networks": {
+    "Quarterly Journal of Economics": {
+      "paper_count": 0,
+      "nodes": [],
+      "top_edges": [],
+      "total_edges": 0
+    },
+    "Econometrica": {
+      "paper_count": 6425,
+      "nodes": [
+        {
+          "author_id": "A5035293091",
+          "author_name": "Eberhard Fels",
+          "paper_count": 34,
+          "degree": 35
+        },
+        {
+          "author_id": "A5037463079",
+          "author_name": "Donald W. K. Andrews",
+          "paper_count": 32,
+          "degree": 10
+        },
+        {
+          "author_id": "A5113931380",
+          "author_name": "Whitney K. Newey",
+          "paper_count": 28,
+          "degree": 24
+        },
+        {
+          "author_id": "A5111373420",
+          "author_name": "Kenneth J. Arrow",
+          "paper_count": 24,
+          "degree": 20
+        },
+        {
+          "author_id": "A5063813970",
+          "author_name": "Ragnar Frisch",
+          "paper_count": 24,
+          "degree": 4
+        },
+        {
+          "author_id": "A5110144668",
+          "author_name": "Franklin M. Fisher",
+          "paper_count": 24,
+          "degree": 7
+        },
+        {
+          "author_id": "A5076177583",
+          "author_name": "Peter C.B. Phillips",
+          "paper_count": 23,
+          "degree": 14
+        },
+        {
+          "author_id": "A5052372964",
+          "author_name": "J. D. Sargan",
+          "paper_count": 22,
+          "degree": 4
+        },
+        {
+          "author_id": "A5113446726",
+          "author_name": "Herman Wold",
+          "paper_count": 21,
+          "degree": 20
+        },
+        {
+          "author_id": "A5058310804",
+          "author_name": "Gerhard Tintner",
+          "paper_count": 21,
+          "degree": 5
+        },
+        {
+          "author_id": "A5110540363",
+          "author_name": "Lawrence R. Klein",
+          "paper_count": 20,
+          "degree": 12
+        },
+        {
+          "author_id": "A5010816608",
+          "author_name": "David Schmeidler",
+          "paper_count": 18,
+          "degree": 18
+        },
+        {
+          "author_id": "A5109079434",
+          "author_name": "Peter C. Fishburn",
+          "paper_count": 18,
+          "degree": 4
+        },
+        {
+          "author_id": "A5050606907",
+          "author_name": "Arnold Zellner",
+          "paper_count": 17,
+          "degree": 14
+        },
+        {
+          "author_id": "A5008557073",
+          "author_name": "N. E. Savin",
+          "paper_count": 17,
+          "degree": 11
+        },
+        {
+          "author_id": "A5103455390",
+          "author_name": "Halbert White",
+          "paper_count": 16,
+          "degree": 9
+        },
+        {
+          "author_id": "A5108206606",
+          "author_name": "Jerry A. Hausman",
+          "paper_count": 16,
+          "degree": 12
+        },
+        {
+          "author_id": "A5064485567",
+          "author_name": "Drew Fudenberg",
+          "paper_count": 16,
+          "degree": 11
+        },
+        {
+          "author_id": "A5113443214",
+          "author_name": "Henri Theil",
+          "paper_count": 16,
+          "degree": 11
+        },
+        {
+          "author_id": "A5007700318",
+          "author_name": "Robert J. Aumann",
+          "paper_count": 16,
+          "degree": 4
+        },
+        {
+          "author_id": "A5110429533",
+          "author_name": "Jean Tirole",
+          "paper_count": 16,
+          "degree": 5
+        },
+        {
+          "author_id": "A5075977298",
+          "author_name": "Alvin E. Roth",
+          "paper_count": 16,
+          "degree": 5
+        },
+        {
+          "author_id": "A5085108704",
+          "author_name": "Philip J. Reny",
+          "paper_count": 16,
+          "degree": 12
+        },
+        {
+          "author_id": "A5057637999",
+          "author_name": "Gregory C. Chow",
+          "paper_count": 15,
+          "degree": 9
+        },
+        {
+          "author_id": "A5071160741",
+          "author_name": "Larry G. Epstein",
+          "paper_count": 15,
+          "degree": 12
+        },
+        {
+          "author_id": "A5077922455",
+          "author_name": "P. C. B. Phillips",
+          "paper_count": 15,
+          "degree": 3
+        },
+        {
+          "author_id": "A5058726534",
+          "author_name": "James J. Heckman",
+          "paper_count": 15,
+          "degree": 10
+        },
+        {
+          "author_id": "A5084485627",
+          "author_name": "Jean\u2010Jacques Laffont",
+          "paper_count": 15,
+          "degree": 15
+        },
+        {
+          "author_id": "A5014445268",
+          "author_name": "Leonid Hurwicz",
+          "paper_count": 15,
+          "degree": 19
+        },
+        {
+          "author_id": "A5020576268",
+          "author_name": "G. S. Maddala",
+          "paper_count": 15,
+          "degree": 12
+        },
+        {
+          "author_id": "A5064999142",
+          "author_name": "Paul A. Samuelson",
+          "paper_count": 15,
+          "degree": 3
+        },
+        {
+          "author_id": "A5048217036",
+          "author_name": "William R. Zame",
+          "paper_count": 15,
+          "degree": 18
+        },
+        {
+          "author_id": "A5001761955",
+          "author_name": "Robert M. Solow",
+          "paper_count": 15,
+          "degree": 9
+        },
+        {
+          "author_id": "A5111009974",
+          "author_name": "William J. Baum\u00f6l",
+          "paper_count": 14,
+          "degree": 14
+        },
+        {
+          "author_id": "A5052726702",
+          "author_name": "Guido W. Imbens",
+          "paper_count": 14,
+          "degree": 11
+        },
+        {
+          "author_id": "A5054280613",
+          "author_name": "Paul Milgrom",
+          "paper_count": 14,
+          "degree": 12
+        },
+        {
+          "author_id": "A5101741366",
+          "author_name": "Peter M. Robinson",
+          "paper_count": 14,
+          "degree": 3
+        },
+        {
+          "author_id": "A5016425001",
+          "author_name": "Tjalling C. Koopmans",
+          "paper_count": 14,
+          "degree": 17
+        },
+        {
+          "author_id": "A5004613422",
+          "author_name": "Dilip Abreu",
+          "paper_count": 14,
+          "degree": 13
+        },
+        {
+          "author_id": "A5078929011",
+          "author_name": "R. L. Basmann",
+          "paper_count": 14,
+          "degree": 6
+        },
+        {
+          "author_id": "A5091241744",
+          "author_name": "Jan Tinbergen",
+          "paper_count": 14,
+          "degree": 22
+        },
+        {
+          "author_id": "A5020421565",
+          "author_name": "Darrell Duffie",
+          "paper_count": 13,
+          "degree": 16
+        },
+        {
+          "author_id": "A5085178747",
+          "author_name": "Kenneth O. May",
+          "paper_count": 13,
+          "degree": 10
+        },
+        {
+          "author_id": "A5039946949",
+          "author_name": "Christian Gouri\u00e9roux",
+          "paper_count": 13,
+          "degree": 14
+        },
+        {
+          "author_id": "A5001427381",
+          "author_name": "Charles F. Manski",
+          "paper_count": 13,
+          "degree": 6
+        },
+        {
+          "author_id": "A5055887216",
+          "author_name": "Faruk G\u00fcl",
+          "paper_count": 13,
+          "degree": 5
+        },
+        {
+          "author_id": "A5058790920",
+          "author_name": "Trygve Haavelmo",
+          "paper_count": 13,
+          "degree": 3
+        },
+        {
+          "author_id": "A5090700584",
+          "author_name": "Takeshi Amemiya",
+          "paper_count": 13,
+          "degree": 3
+        },
+        {
+          "author_id": "A5068383641",
+          "author_name": "Victor Chernozhukov",
+          "paper_count": 13,
+          "degree": 19
+        },
+        {
+          "author_id": "A5033168114",
+          "author_name": "Jacob Marschak",
+          "paper_count": 13,
+          "degree": 8
+        }
+      ],
+      "top_edges": [
+        {
+          "authors": [
+            "A5064485567",
+            "A5101540394"
+          ],
+          "weight": 8
+        },
+        {
+          "authors": [
+            "A5043185084",
+            "A5109004846"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5052726702",
+            "A5082456527"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5039946949",
+            "A5082255082"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5033175061",
+            "A5055887216"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5028297557",
+            "A5058539967"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5005839139",
+            "A5080830918"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5064921026",
+            "A5112521096"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5035293091",
+            "A5060234381"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5000231573",
+            "A5033313135"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5004613422",
+            "A5090730720"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5037211228",
+            "A5039946949"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5110429533",
+            "A5110532426"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5014445268",
+            "A5111373420"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5014811671",
+            "A5041479930"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5008557073",
+            "A5111874464"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5019780693",
+            "A5068383641"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5089688599",
+            "A5114113233"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5011460148",
+            "A5085108704"
+          ],
+          "weight": 4
+        },
+        {
+          "authors": [
+            "A5080568246",
+            "A5110738785"
+          ],
+          "weight": 4
+        }
+      ],
+      "total_edges": 8266
+    },
+    "Journal of Political Economy": {
+      "paper_count": 12429,
+      "nodes": [
+        {
+          "author_id": "A5113974750",
+          "author_name": "Frank H. Knight",
+          "paper_count": 79,
+          "degree": 0
+        },
+        {
+          "author_id": "A5024744620",
+          "author_name": "George J. Stigler",
+          "paper_count": 55,
+          "degree": 2
+        },
+        {
+          "author_id": "A5114033397",
+          "author_name": "H. Parker Willis",
+          "paper_count": 52,
+          "degree": 1
+        },
+        {
+          "author_id": "A5111467202",
+          "author_name": "James Laughlin",
+          "paper_count": 50,
+          "degree": 15
+        },
+        {
+          "author_id": "A5051411103",
+          "author_name": "Chester W. Wright",
+          "paper_count": 48,
+          "degree": 0
+        },
+        {
+          "author_id": "A5008450532",
+          "author_name": "Martin Bronfenbrenner",
+          "paper_count": 47,
+          "degree": 1
+        },
+        {
+          "author_id": "A5086124866",
+          "author_name": "H. J. Davenport",
+          "paper_count": 41,
+          "degree": 0
+        },
+        {
+          "author_id": "A5043821058",
+          "author_name": "Jacob Viner",
+          "paper_count": 39,
+          "degree": 0
+        },
+        {
+          "author_id": "A5055771809",
+          "author_name": "Arthur W. Marget",
+          "paper_count": 36,
+          "degree": 0
+        },
+        {
+          "author_id": "A5108377844",
+          "author_name": "Paul H. Douglas",
+          "paper_count": 34,
+          "degree": 8
+        },
+        {
+          "author_id": "A5112524201",
+          "author_name": "Wesley C. Mitchell",
+          "paper_count": 34,
+          "degree": 0
+        },
+        {
+          "author_id": "A5091841718",
+          "author_name": "Bert F. Hoselitz",
+          "paper_count": 33,
+          "degree": 0
+        },
+        {
+          "author_id": "A5108352063",
+          "author_name": "Harry G. Johnson",
+          "paper_count": 31,
+          "degree": 0
+        },
+        {
+          "author_id": "A5081529337",
+          "author_name": "Edith Abbott",
+          "paper_count": 31,
+          "degree": 1
+        },
+        {
+          "author_id": "A5112784443",
+          "author_name": "Milton Friedman",
+          "paper_count": 30,
+          "degree": 4
+        },
+        {
+          "author_id": "A5037009155",
+          "author_name": "Robert F. Hoxie",
+          "paper_count": 28,
+          "degree": 0
+        },
+        {
+          "author_id": "A5079523675",
+          "author_name": "Melchior Palyi",
+          "paper_count": 28,
+          "degree": 0
+        },
+        {
+          "author_id": "A5102115027",
+          "author_name": "J. M. Clark",
+          "paper_count": 27,
+          "degree": 0
+        },
+        {
+          "author_id": "A5103792444",
+          "author_name": "John Cummings",
+          "paper_count": 27,
+          "degree": 0
+        },
+        {
+          "author_id": "A5080577749",
+          "author_name": "Frank Whitson Fetter",
+          "paper_count": 27,
+          "degree": 0
+        },
+        {
+          "author_id": "A5086017096",
+          "author_name": "Gary S. Becker",
+          "paper_count": 26,
+          "degree": 14
+        },
+        {
+          "author_id": "A5113580339",
+          "author_name": "William Hill",
+          "paper_count": 26,
+          "degree": 0
+        },
+        {
+          "author_id": "A5039902830",
+          "author_name": "Helen Fisher Hohman",
+          "paper_count": 26,
+          "degree": 0
+        },
+        {
+          "author_id": "A5080574642",
+          "author_name": "Amy Wolfe",
+          "paper_count": 24,
+          "degree": 6
+        },
+        {
+          "author_id": "A5058726534",
+          "author_name": "James J. Heckman",
+          "paper_count": 23,
+          "degree": 59
+        },
+        {
+          "author_id": "A5032496338",
+          "author_name": "Carlos C. Closson",
+          "paper_count": 23,
+          "degree": 1
+        },
+        {
+          "author_id": "A5110892968",
+          "author_name": "Henry Schultz",
+          "paper_count": 22,
+          "degree": 0
+        },
+        {
+          "author_id": "A5112807565",
+          "author_name": "Harold G. Moulton",
+          "paper_count": 22,
+          "degree": 23
+        },
+        {
+          "author_id": "A5111009974",
+          "author_name": "William J. Baum\u00f6l",
+          "paper_count": 21,
+          "degree": 5
+        },
+        {
+          "author_id": "A5002088217",
+          "author_name": "Thomas J. Sargent",
+          "paper_count": 21,
+          "degree": 12
+        },
+        {
+          "author_id": "A5113451082",
+          "author_name": "Joseph J. Spengler",
+          "paper_count": 21,
+          "degree": 0
+        },
+        {
+          "author_id": "A5047107447",
+          "author_name": "Donald Dewey",
+          "paper_count": 21,
+          "degree": 0
+        },
+        {
+          "author_id": "A5083366325",
+          "author_name": "Harry D. Gideonse",
+          "paper_count": 21,
+          "degree": 0
+        },
+        {
+          "author_id": "A5012301204",
+          "author_name": "Daron Acemo\u011flu",
+          "paper_count": 20,
+          "degree": 23
+        },
+        {
+          "author_id": "A5018029197",
+          "author_name": "Thorstein Veblen",
+          "paper_count": 20,
+          "degree": 0
+        },
+        {
+          "author_id": "A5089461344",
+          "author_name": "George G. Tunell",
+          "paper_count": 20,
+          "degree": 1
+        },
+        {
+          "author_id": "A5031196760",
+          "author_name": "James M. Buchanan",
+          "paper_count": 19,
+          "degree": 2
+        },
+        {
+          "author_id": "A5046433312",
+          "author_name": "Henry C. Simons",
+          "paper_count": 19,
+          "degree": 0
+        },
+        {
+          "author_id": "A5072405129",
+          "author_name": "Frank A. Fetter",
+          "paper_count": 19,
+          "degree": 0
+        },
+        {
+          "author_id": "A5017532808",
+          "author_name": "Herbert Heaton",
+          "paper_count": 19,
+          "degree": 0
+        },
+        {
+          "author_id": "A5082111292",
+          "author_name": "H. A. Millis",
+          "paper_count": 19,
+          "degree": 0
+        },
+        {
+          "author_id": "A5108877483",
+          "author_name": "Howard S. Ellis",
+          "paper_count": 18,
+          "degree": 1
+        },
+        {
+          "author_id": "A5002239474",
+          "author_name": "John V. Spielmans",
+          "paper_count": 18,
+          "degree": 0
+        },
+        {
+          "author_id": "A5079542324",
+          "author_name": "Edwin E. Witte",
+          "paper_count": 18,
+          "degree": 0
+        },
+        {
+          "author_id": "A5042188538",
+          "author_name": "Eugene Staley",
+          "paper_count": 18,
+          "degree": 0
+        },
+        {
+          "author_id": "A5001404035",
+          "author_name": "Percy W. Bidwell",
+          "paper_count": 18,
+          "degree": 0
+        },
+        {
+          "author_id": "A5053067795",
+          "author_name": "D. A. MacGibbon",
+          "paper_count": 18,
+          "degree": 0
+        },
+        {
+          "author_id": "A5108406018",
+          "author_name": "Martin Feldstein",
+          "paper_count": 17,
+          "degree": 5
+        },
+        {
+          "author_id": "A5023928854",
+          "author_name": "Theodore W. Schultz",
+          "paper_count": 17,
+          "degree": 0
+        },
+        {
+          "author_id": "A5090182070",
+          "author_name": "A. M. Wergeland",
+          "paper_count": 17,
+          "degree": 0
+        }
+      ],
+      "top_edges": [
+        {
+          "authors": [
+            "A5102627651",
+            "A5112033267"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5103503282",
+            "A5113776429"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "Cecile Gaubert",
+            "Melissa Dell"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5016626361",
+            "A5089753355"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5002256905",
+            "A5016626361"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5016626361",
+            "A5019266000"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5016626361",
+            "A5035970655"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5016626361",
+            "A5058726534"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5002256905",
+            "A5089753355"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5019266000",
+            "A5089753355"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5035970655",
+            "A5089753355"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5058726534",
+            "A5089753355"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5002256905",
+            "A5019266000"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5002256905",
+            "A5035970655"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5002256905",
+            "A5058726534"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5019266000",
+            "A5035970655"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5019266000",
+            "A5058726534"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5035970655",
+            "A5058726534"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "Gabriel Carroll",
+            "Melissa Dell"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5044098731",
+            "A5086017096"
+          ],
+          "weight": 5
+        }
+      ],
+      "total_edges": 26341
+    },
+    "American Economic Review": {
+      "paper_count": 9761,
+      "nodes": [
+        {
+          "author_id": "A5075095780",
+          "author_name": "John J. Siegfried",
+          "paper_count": 113,
+          "degree": 16
+        },
+        {
+          "author_id": "A5074218217",
+          "author_name": "Joseph E. Stiglitz",
+          "paper_count": 33,
+          "degree": 14
+        },
+        {
+          "author_id": "A5012301204",
+          "author_name": "Daron Acemo\u011flu",
+          "paper_count": 31,
+          "degree": 31
+        },
+        {
+          "author_id": "A5108406018",
+          "author_name": "Martin Feldstein",
+          "paper_count": 26,
+          "degree": 9
+        },
+        {
+          "author_id": "A5023874785",
+          "author_name": "Ernst Fehr",
+          "paper_count": 23,
+          "degree": 37
+        },
+        {
+          "author_id": "A5110429533",
+          "author_name": "Jean Tirole",
+          "paper_count": 23,
+          "degree": 12
+        },
+        {
+          "author_id": "A5086784344",
+          "author_name": "Robert E. Hall",
+          "paper_count": 23,
+          "degree": 7
+        },
+        {
+          "author_id": "A5109403831",
+          "author_name": "Alan J. Auerbach",
+          "paper_count": 23,
+          "degree": 12
+        },
+        {
+          "author_id": "A5083530241",
+          "author_name": "John A. List",
+          "paper_count": 23,
+          "degree": 34
+        },
+        {
+          "author_id": "A5090324651",
+          "author_name": "David Card",
+          "paper_count": 22,
+          "degree": 23
+        },
+        {
+          "author_id": "A5111009974",
+          "author_name": "William J. Baum\u00f6l",
+          "paper_count": 21,
+          "degree": 10
+        },
+        {
+          "author_id": "A5075977298",
+          "author_name": "Alvin E. Roth",
+          "paper_count": 20,
+          "degree": 18
+        },
+        {
+          "author_id": "A5083494527",
+          "author_name": "Alberto Alesina",
+          "paper_count": 20,
+          "degree": 22
+        },
+        {
+          "author_id": "A5058726534",
+          "author_name": "James J. Heckman",
+          "paper_count": 19,
+          "degree": 16
+        },
+        {
+          "author_id": "A5110890240",
+          "author_name": "Andrei Shleifer",
+          "paper_count": 19,
+          "degree": 14
+        },
+        {
+          "author_id": "A5012244489",
+          "author_name": "Amy Finkelstein",
+          "paper_count": 19,
+          "degree": 37
+        },
+        {
+          "author_id": "A5014156593",
+          "author_name": "James A. Robinson",
+          "paper_count": 18,
+          "degree": 11
+        },
+        {
+          "author_id": "A5029839974",
+          "author_name": "David Autor",
+          "paper_count": 18,
+          "degree": 23
+        },
+        {
+          "author_id": "A5038208961",
+          "author_name": "Dale W. Jorgenson",
+          "paper_count": 18,
+          "degree": 11
+        },
+        {
+          "author_id": "A5037232892",
+          "author_name": "Olivier Blanchard",
+          "paper_count": 18,
+          "degree": 13
+        },
+        {
+          "author_id": "A5040379196",
+          "author_name": "William D. Nordhaus",
+          "paper_count": 18,
+          "degree": 3
+        },
+        {
+          "author_id": "A5035113852",
+          "author_name": "Michael Kremer",
+          "paper_count": 18,
+          "degree": 21
+        },
+        {
+          "author_id": "A5002088217",
+          "author_name": "Thomas J. Sargent",
+          "paper_count": 17,
+          "degree": 14
+        },
+        {
+          "author_id": "A5077574905",
+          "author_name": "Michael Greenstone",
+          "paper_count": 17,
+          "degree": 29
+        },
+        {
+          "author_id": "A5074716987",
+          "author_name": "B. Douglas Bernheim",
+          "paper_count": 17,
+          "degree": 27
+        },
+        {
+          "author_id": "A5019266000",
+          "author_name": "Parag A. Pathak",
+          "paper_count": 17,
+          "degree": 22
+        },
+        {
+          "author_id": "A5026390628",
+          "author_name": "James M. Poterba",
+          "paper_count": 17,
+          "degree": 27
+        },
+        {
+          "author_id": "A5040961576",
+          "author_name": "Peter L. Rousseau",
+          "paper_count": 17,
+          "degree": 1
+        },
+        {
+          "author_id": "A5089574018",
+          "author_name": "Edward P. Lazear",
+          "paper_count": 16,
+          "degree": 4
+        },
+        {
+          "author_id": "A5000387389",
+          "author_name": "Claudia Goldin",
+          "paper_count": 16,
+          "degree": 9
+        },
+        {
+          "author_id": "A5108453089",
+          "author_name": "Alan B. Krueger",
+          "paper_count": 16,
+          "degree": 14
+        },
+        {
+          "author_id": "A5111429542",
+          "author_name": "Lawrence F. Katz",
+          "paper_count": 16,
+          "degree": 27
+        },
+        {
+          "author_id": "A5084218206",
+          "author_name": "Vernon L. Smith",
+          "paper_count": 16,
+          "degree": 8
+        },
+        {
+          "author_id": "A5072791098",
+          "author_name": "Michael Woodford",
+          "paper_count": 16,
+          "degree": 10
+        },
+        {
+          "author_id": "A5034703281",
+          "author_name": "Sendhil Mullainathan",
+          "paper_count": 15,
+          "degree": 23
+        },
+        {
+          "author_id": "A5004443266",
+          "author_name": "John Van Reenen",
+          "paper_count": 15,
+          "degree": 28
+        },
+        {
+          "author_id": "A5081252843",
+          "author_name": "Richard H. Thaler",
+          "paper_count": 15,
+          "degree": 15
+        },
+        {
+          "author_id": "A5101895488",
+          "author_name": "Ricardo J. Caballero",
+          "paper_count": 15,
+          "degree": 12
+        },
+        {
+          "author_id": "A5051645674",
+          "author_name": "Robert J. Shiller",
+          "paper_count": 15,
+          "degree": 6
+        },
+        {
+          "author_id": "A5033808702",
+          "author_name": "Mark R. Rosenzweig",
+          "paper_count": 15,
+          "degree": 9
+        },
+        {
+          "author_id": "A5089109218",
+          "author_name": "William B. Walstad",
+          "paper_count": 15,
+          "degree": 9
+        },
+        {
+          "author_id": "A5113776429",
+          "author_name": "Elhanan Helpman",
+          "paper_count": 14,
+          "degree": 15
+        },
+        {
+          "author_id": "A5054280613",
+          "author_name": "Paul Milgrom",
+          "paper_count": 14,
+          "degree": 15
+        },
+        {
+          "author_id": "A5010043276",
+          "author_name": "John Haltiwanger",
+          "paper_count": 14,
+          "degree": 21
+        },
+        {
+          "author_id": "A5111448825",
+          "author_name": "Stanley Fischer",
+          "paper_count": 14,
+          "degree": 8
+        },
+        {
+          "author_id": "A5045972447",
+          "author_name": "Janet Currie",
+          "paper_count": 14,
+          "degree": 13
+        },
+        {
+          "author_id": "A5081873388",
+          "author_name": "George A. Akerlof",
+          "paper_count": 14,
+          "degree": 3
+        },
+        {
+          "author_id": "A5017644096",
+          "author_name": "Laurence J. Kotlikoff",
+          "paper_count": 14,
+          "degree": 16
+        },
+        {
+          "author_id": "A5110461946",
+          "author_name": "Steven D. Levitt",
+          "paper_count": 14,
+          "degree": 14
+        },
+        {
+          "author_id": "A5059247979",
+          "author_name": "Jonathan Gruber",
+          "paper_count": 14,
+          "degree": 11
+        }
+      ],
+      "top_edges": [
+        {
+          "authors": [
+            "A5012301204",
+            "A5014156593"
+          ],
+          "weight": 13
+        },
+        {
+          "authors": [
+            "A5007422726",
+            "A5040498598"
+          ],
+          "weight": 9
+        },
+        {
+          "authors": [
+            "A5047002141",
+            "A5075095780"
+          ],
+          "weight": 9
+        },
+        {
+          "authors": [
+            "A5004443266",
+            "A5044421873"
+          ],
+          "weight": 8
+        },
+        {
+          "authors": [
+            "A5029839974",
+            "A5060691488"
+          ],
+          "weight": 7
+        },
+        {
+          "authors": [
+            "A5065176405",
+            "A5080219284"
+          ],
+          "weight": 7
+        },
+        {
+          "authors": [
+            "A5059834899",
+            "A5079637018"
+          ],
+          "weight": 7
+        },
+        {
+          "authors": [
+            "A5000387389",
+            "A5111429542"
+          ],
+          "weight": 7
+        },
+        {
+          "authors": [
+            "A5070119179",
+            "A5075095780"
+          ],
+          "weight": 7
+        },
+        {
+          "authors": [
+            "A5014156593",
+            "A5111446264"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5012301204",
+            "A5111446264"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5077574905",
+            "A5080582136"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5017568125",
+            "A5034004951"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5017105549",
+            "A5030866489"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5019266000",
+            "A5021223042"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5109307691",
+            "A5113794399"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5103503282",
+            "A5113776429"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5002133427",
+            "A5022034390"
+          ],
+          "weight": 6
+        },
+        {
+          "authors": [
+            "A5034703281",
+            "A5111433522"
+          ],
+          "weight": 5
+        },
+        {
+          "authors": [
+            "A5054280613",
+            "A5102913894"
+          ],
+          "weight": 5
+        }
+      ],
+      "total_edges": 11527
+    },
+    "Review of Economic Studies": {
+      "paper_count": 0,
+      "nodes": [],
+      "top_edges": [],
+      "total_edges": 0
+    }
+  }
+}
