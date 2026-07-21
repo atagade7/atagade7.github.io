@@ -1298,7 +1298,7 @@
     for (let i = 0; i < top.length; i += 1) {
       const item = top[i];
       const inventorsInBucket = (buckets.get(item.cpc4) || []).length;
-      const barColor = bucketColor.get(item.cpc4) || "#7a231a";
+      const barColor = `hsl(6, 60%, ${Math.round(30 + Math.min(i, 9) * 3.4)}%)`;
       lines.push(
         `<div class="cpc-footprint-row">` +
           `<div class="cpc-footprint-head"><span class="cpc-footprint-rank">${i + 1}.</span><span class="cpc-footprint-code">${item.cpc4}</span></div>` +

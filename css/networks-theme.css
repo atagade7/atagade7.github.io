@@ -1,21 +1,25 @@
 /* ============================================================
-   NETWORKS PAGE THEME
-   Layered over custom.css to bring the interactive tool fully in
-   line with the main site (site.css): IBM Plex type, serif section
-   headings with a hairline rule, and the maroon accent everywhere
-   (replacing the off-brand navy active states). Structure/layout
-   from custom.css + skeleton is left intact.
-   (custom.css uses a 62.5% html base, so 1rem = 10px here.)
+   NETWORKS PAGE THEME  (loaded after custom.css)
+   Brings the interactive tool fully in line with the main site
+   (site.css): IBM Plex type, serif section headings with hairline
+   rules, the maroon accent everywhere, a NEUTRAL card palette
+   (custom.css ships warm cream gradients), consistent rounded
+   corners, and flat borders instead of heavy warm shadows.
+   custom.css uses a 62.5% html base, so 1rem = 10px here.
    ============================================================ */
 
 :root {
   --accent: #7a231a;
   --accent-dark: #631a13;
+  --accent-soft: #f3e7e4;   /* faint maroon tint for hovers */
   --ink: #111111;
-  --hair: #e8e8e8;
+  --muted: #56606b;
+  --hair: #e7e7e7;
+  --card: #ffffff;
+  --card-2: #fafafa;        /* very light neutral fill */
 }
 
-/* ---- Typography ---- */
+/* ---- Typography ---------------------------------------------------- */
 body {
   font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
@@ -27,11 +31,10 @@ input, button, select, textarea, optgroup { font-family: inherit; }
   color: var(--ink);
   letter-spacing: -0.03rem;
 }
-
 .page-kicker { color: var(--accent); }
+.section-intro, .entry-detail { color: var(--muted); }
 
-/* ---- Section headings: serif, title-case, trailing hairline rule
-        (matches the homepage's .section-head look) ---- */
+/* ---- Section headings: serif, title-case, trailing hairline rule --- */
 .section-title,
 .geo-section-title,
 .inventor-section-title {
@@ -57,43 +60,142 @@ input, button, select, textarea, optgroup { font-family: inherit; }
   align-self: center;
 }
 
-/* small utility sub-labels stay as quiet uppercase eyebrows, but tuned
-   to the site's ink/spacing */
-.group-label { color: #5a5a5a; }
-
-/* ---- Active toggle pills: maroon, not navy ---- */
-.company-preset.is-active,
-.inventor-view-button.is-active,
-.geo-chip.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+/* small utility sub-labels → quiet neutral eyebrows */
+.group-label,
+.company-snapshot-label,
+.card-eyebrow,
+[class$="-eyebrow"] {
+  color: var(--muted);
+  letter-spacing: 0.09rem;
 }
 
-/* ---- Form controls / accents ---- */
-input[type="checkbox"],
-input[type="radio"] { accent-color: var(--accent); }
+/* ---- Cards & panels: neutral white, flat 1px border, soft radius,
+        no heavy warm shadows -------------------------------------- */
+.explore-card,
+.diagnostics-card,
+.comparison-card,
+.technology-footprint-card,
+.inventors-card,
+.citation-insight,
+.citation-summary-card,
+.geo-map-alert,
+.geo-map-guide,
+.geo-highlights-card,
+.geo-map-shell,
+.method-note,
+.page-end-stack,
+#company-profile,
+.company-snapshot {
+  background: var(--card) !important;
+  border: 1px solid var(--hair) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
 
+.network-canvas-wrap,
+#geo-map {
+  background: var(--card-2) !important;
+  border: 1px solid var(--hair) !important;
+  border-radius: 10px !important;
+}
+
+/* inner map/legend tint that reads as a sub-panel */
+.map-reading-guide,
+.geo-legend,
+.map-highlights,
+.diagnostics-grid > * {
+  background: var(--card-2);
+  border-color: var(--hair);
+}
+
+/* ---- Controls: pills → soft rounded rectangles, maroon active ----- */
+.secondary-action-button,
+.company-preset,
+.analysis-view-button,
+.inventor-view-button,
+.citation-mode-button,
+.geo-chip,
+.citation-insight-chip,
+#load-company,
+#load-compare-company {
+  background: var(--card) !important;
+  border: 1px solid #dcdcdc !important;
+  border-radius: 7px !important;
+  color: var(--ink);
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.secondary-action-button:hover,
+.company-preset:hover,
+.analysis-view-button:hover,
+.inventor-view-button:hover,
+.citation-mode-button:hover,
+.geo-chip:hover,
+#load-company:hover,
+#load-compare-company:hover {
+  background: var(--accent-soft) !important;
+  border-color: rgba(122, 35, 26, 0.5) !important;
+  color: var(--accent) !important;
+}
+
+/* active toggle states → maroon (replaces navy #29506a / #264f69) */
+.company-preset.is-active,
+.analysis-view-button.is-active,
+.inventor-view-button.is-active,
+.citation-mode-button.is-active,
+.geo-chip.is-active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+}
+
+.geo-chip:disabled,
+.geo-chip:disabled:hover {
+  background: #f4f4f4 !important;
+  border-color: #e2e2e2 !important;
+  color: #9a9a9a !important;
+}
+
+/* ---- Inputs ------------------------------------------------------- */
+.network-controls input[type="text"],
+.company-compare-controls input[type="text"],
+input[type="text"],
+input[type="search"],
+select {
+  background: var(--card);
+  border: 1px solid #d4d4d4;
+  border-radius: 7px;
+}
+.network-controls input[type="text"]:focus,
+.company-compare-controls input[type="text"]:focus,
 input[type="text"]:focus,
 input[type="search"]:focus,
 select:focus {
   border-color: var(--accent);
   outline: none;
+  box-shadow: 0 0 0 3px rgba(122, 35, 26, 0.12);
 }
 
-/* ---- Rounded corners to match the site's 6–8px language ---- */
-.company-snapshot,
-.comparison-card,
-.map-reading-guide,
-.geo-map-shell,
-#geo-map,
-.analysis-panel { border-radius: 8px; }
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] { accent-color: var(--accent); }
 
-.company-preset,
-.inventor-view-button,
-.geo-chip,
-.analysis-view-button,
-.citation-mode-button,
-.secondary-action-button,
-#load-company,
-#load-compare-company { border-radius: 6px; }
+/* ---- Data bars: neutral track, rounded; fill is maroon (set in JS)  */
+.cpc-footprint-bar {
+  background: #ededed;
+  border-radius: 999px;
+}
+.cpc-footprint-bar span { border-radius: 999px; }
+
+/* CPC descriptor line: quieter than SHOUTING caps */
+.cpc-footprint-title {
+  text-transform: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+.cpc-footprint-code { color: var(--accent); }
+
+/* links */
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
