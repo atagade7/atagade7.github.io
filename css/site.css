@@ -353,7 +353,7 @@
      lighter clay so it stays visible on dark.
      ============================================================ */
   :root[data-theme="dark"] {
-    --bg:          #17181b;   /* dark surface        */
+    --bg:          #101113;   /* dark surface        */
     --text:        #ffffff;   /* stark white         */
     --muted:       #ffffff;   /* white, not gray     */
     --rule:        #34353a;   /* hairline on dark    */
