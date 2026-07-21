@@ -54,10 +54,10 @@
 
   .portrait img {
     width: 100%;
-    max-width: 220px;
-    aspect-ratio: 4 / 5;
+    height: auto;               /* override the img height attribute so aspect-ratio governs */
+    aspect-ratio: 3 / 4;
     object-fit: cover;
-    object-position: center 30%;
+    object-position: center;
     display: block;
     margin: 0 auto;
     border-radius: 10px;
@@ -130,18 +130,32 @@
     white-space: nowrap;
   }
   .section-head .rule { flex: 1; height: 1px; background: var(--rule); }
+  /* a page whose content opens with a section heading (e.g. LSE AMP) aligns
+     that heading with the top of the sidebar name */
+  .content > .section-head:first-child { margin-top: 0; }
 
   /* ============================================================
      PAPER ENTRIES
      ============================================================ */
   .paper {
+    position: relative;
     padding: 12px 18px;
     margin: 0 -18px;
     border-radius: 8px;
     transition: background-color 0.2s ease;
   }
   .paper:hover { background-color: #f7f7f7; }
-  .paper + .paper { border-top: 1px solid var(--rule); }
+  /* separator: a flat line inset past the rounded corners, so the hover
+     shading's curves stay smooth and the line never reaches the corner */
+  .paper + .paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12px;
+    right: 12px;
+    height: 1px;
+    background: var(--rule);
+  }
 
   .paper-title {
     font-family: var(--serif);
@@ -159,31 +173,22 @@
   }
   .paper-detail:last-child { margin-bottom: 0; }
 
-  .links { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
-  .links a,
-  .links button.abstract-toggle {
-    font-family: var(--sans);
-    font-size: 0.8rem; font-weight: 500;
-    text-decoration: none;
-    padding: 2px 11px;
-    background: none;
-    border: 1px solid rgba(122, 35, 26, 0.3);
-    border-radius: 6px;
+  /* action links (Link / Slides / Abstract) live inline on the detail line,
+     dot-separated, at the same size as the surrounding text */
+  .paper-detail a,
+  .paper-detail .abstract-toggle {
     color: var(--accent);
+    font: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
   }
-  .links a:hover,
-  .links button.abstract-toggle:hover { background-color: rgba(122, 35, 26, 0.06); border-color: rgba(122, 35, 26, 0.55); }
-
-  .links button.abstract-toggle .icon {
-    display: inline-block;
-    margin-left: 5px;
-    font-weight: 400;
-    transition: transform 0.25s ease;
-  }
-  .links button.abstract-toggle.open { background-color: rgba(122, 35, 26, 0.08); border-color: rgba(122, 35, 26, 0.55); }
-  .links button.abstract-toggle.open .icon { transform: rotate(45deg); }
+  .paper-detail a:hover,
+  .paper-detail .abstract-toggle:hover,
+  .paper-detail .abstract-toggle.open { text-decoration: underline; }
+  .paper-detail .sep { color: var(--muted); margin: 0 0.4em; }
 
   /* ---- abstract fold-out: expands in place below the buttons ---- */
   .abstract {
@@ -268,18 +273,29 @@
   .amp-lead a { color: var(--accent); text-decoration: none; }
   .amp-lead a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-  .res-group { margin: 0 0 16px; }
+  .res-group { margin: 0 0 18px; }
   .res-group:last-child { margin-bottom: 0; }
   .res-label {
     font-weight: 600;
-    margin: 0 0 3px;
+    margin: 0 0 5px;
   }
-  .res-body { margin: 0; max-width: 66ch; }
-  .res-body a { color: var(--accent); text-decoration: none; }
-  .res-body a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-  .ref-list { list-style: none; margin: 0; padding: 0; max-width: 66ch; }
-  .ref-list li { margin: 0 0 8px; }
-  .ref-list li:last-child { margin-bottom: 0; }
-  .ref-list a { color: var(--accent); text-decoration: none; }
-  .ref-list a:hover { color: var(--accent-dark); text-decoration: underline; }
+  /* diamond-bulleted lists for references and resources */
+  .ref-list, .res-list { list-style: none; margin: 0; padding: 0; max-width: 66ch; }
+  .ref-list li, .res-list li {
+    position: relative;
+    padding-left: 20px;
+    margin: 0 0 6px;
+  }
+  .ref-list li:last-child, .res-list li:last-child { margin-bottom: 0; }
+  .ref-list li::before, .res-list li::before {
+    content: "\25C6";              /* ◆ small diamond, echoes IBM's geometric marks */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.6em;
+    line-height: 2.7;              /* ≈ body line-height ÷ 0.6, centers the glyph on the first line */
+    color: var(--accent);
+  }
+  .ref-list a, .res-list a { color: var(--accent); text-decoration: none; }
+  .ref-list a:hover, .res-list a:hover { color: var(--accent-dark); text-decoration: underline; }
