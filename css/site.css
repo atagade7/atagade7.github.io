@@ -138,19 +138,23 @@
   }
   .about a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-  /* ---- section headings: serif title + hairline rule ---- */
+  /* ---- section headings: serif black caps, hairline rule underneath ---- */
   .section-head {
-    display: flex; align-items: baseline; gap: 16px;
-    margin: 28px 0 6px;
+    margin: 30px 0 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
   }
   .section-head h2 {
     font-family: var(--serif);
     font-weight: 600;
-    font-size: 1.42rem;
+    font-size: 1.02rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;     /* barely-there tracking */
+    color: var(--text);
     margin: 0;
     white-space: nowrap;
   }
-  .section-head .rule { flex: 1; height: 1px; background: var(--rule); }
+  .section-head .rule { display: none; }   /* underline is the border-bottom now */
   /* a page whose content opens with a section heading (e.g. LSE AMP) aligns
      that heading with the top of the sidebar name */
   .content > .section-head:first-child { margin-top: 0; }
@@ -160,24 +164,14 @@
      ============================================================ */
   .paper {
     position: relative;
-    padding: 12px 18px;
+    padding: 13px 18px;
     margin: 0 -18px;
     border-radius: 8px;
     transition: background-color 0.2s ease;
   }
   /* hover shading only on real pointer devices — avoids sticky :hover on touch */
   @media (hover: hover) { .paper:hover { background-color: #f7f7f7; } }
-  /* separator: a flat line inset past the rounded corners, so the hover
-     shading's curves stay smooth and the line never reaches the corner */
-  .paper + .paper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 12px;
-    right: 12px;
-    height: 1px;
-    background: var(--rule);
-  }
+  /* entries are separated by whitespace only — no rules between papers */
 
   .paper-title {
     font-family: var(--serif);
@@ -309,9 +303,9 @@
     .page { padding-left: 22px; padding-right: 22px; }
     body { font-size: 16px; }
     h1.name { font-size: 1.5rem; }
-    .section-head h2 { font-size: 1.2rem; }
+    .section-head h2 { font-size: 1rem; }
     .paper-title { font-size: 1.04rem; }
-    .section-head { margin: 22px 0 4px; }
+    .section-head { margin: 24px 0 4px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
