@@ -164,8 +164,8 @@
      ============================================================ */
   .paper {
     position: relative;
-    padding: 13px 18px;
-    margin: 0 -18px;
+    padding: 10px 16px;
+    margin: 0 -16px;
     border-radius: 8px;
     transition: background-color 0.2s ease;
   }
@@ -296,7 +296,7 @@
     nav.side-nav { padding-top: 12px; }
     .side-nav a { display: inline-block; padding: 3px 8px; }
     main.content { max-width: none; }
-    .paper { padding: 12px 0; margin: 0; }
+    .paper { padding: 10px 0; margin: 0; }
     .paper:hover { background: none; }
   }
   @media (max-width: 520px) {
