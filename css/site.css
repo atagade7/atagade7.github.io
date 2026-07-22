@@ -199,7 +199,11 @@
     line-height: 1.4;
     background: none;
     border: 0;
-    padding: 1px 8px;
+    /* 6px side padding for the hover box, cancelled by -6px margin so the box
+       adds NO horizontal footprint — dots sit the same distance from every
+       glyph, padded link or plain text alike */
+    padding: 1px 6px;
+    margin: 0 -6px;
     border-radius: 6px;
     text-decoration: none;
     cursor: pointer;
@@ -230,7 +234,6 @@
   .paper-detail .pending-note {
     color: #9a9a9a;
     font-style: italic;
-    padding: 1px 8px;
   }
 
   .paper-detail .sep { color: var(--muted); margin: 0 0.15em; }
@@ -294,6 +297,7 @@
     .portrait img { max-width: 200px; margin: 0 auto; }
     nav.side-nav { padding-top: 12px; }
     .side-nav a { display: inline-block; padding: 3px 8px; }
+    .theme-toggle { padding: 12px 8px 0; }   /* match the 8px inset of the nav chips */
     main.content { max-width: none; }
     .paper { padding: 7px 0; margin: 0; }
     .paper:hover { background: none; }
