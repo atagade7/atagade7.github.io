@@ -164,8 +164,8 @@
      ============================================================ */
   .paper {
     position: relative;
-    padding: 10px 16px;
-    margin: 0 -16px;
+    padding: 7px 14px;
+    margin: 0 -14px;
     border-radius: 8px;
     transition: background-color 0.2s ease;
   }
@@ -185,9 +185,8 @@
   .paper-detail {
     font-size: 1rem;
     color: var(--muted);
-    margin: 0 0 6px;
+    margin: 0;   /* open abstract supplies its own top gap; no stray space when closed */
   }
-  .paper-detail:last-child { margin-bottom: 0; }
 
   /* action links (Link / Slides / Abstract) inline on the detail line,
      dot-separated; a soft rounded box appears on hover for affordance */
@@ -296,7 +295,7 @@
     nav.side-nav { padding-top: 12px; }
     .side-nav a { display: inline-block; padding: 3px 8px; }
     main.content { max-width: none; }
-    .paper { padding: 10px 0; margin: 0; }
+    .paper { padding: 7px 0; margin: 0; }
     .paper:hover { background: none; }
   }
   @media (max-width: 520px) {
