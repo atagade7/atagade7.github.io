@@ -29,6 +29,12 @@
 
   a { color: inherit; }
 
+  /* Focus rings: show only for keyboard navigation (not mouse clicks), and
+     tint to the accent so it's never a stray blue box — e.g. on the dark-mode
+     toggle. Keyboard users still get a clear, accessible indicator. */
+  :focus:not(:focus-visible) { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
   .page {
     max-width: var(--maxw);
     margin: 0 auto;
@@ -45,8 +51,8 @@
 
   h1.name {
     font-family: var(--serif);
-    font-weight: 700;
-    font-size: 1.7rem;
+    font-weight: 600;              /* lighter than bold — larger size carries the presence */
+    font-size: 1.9rem;
     line-height: 1.15;
     letter-spacing: -0.01em;
     margin: 0 0 16px;
@@ -287,6 +293,15 @@
   .foot-mail:hover { color: var(--accent); }
   .foot-address { font-style: normal; font-size: 1rem; color: var(--muted); line-height: 1.6; }
 
+  /* colophon — a quiet typeface credit; the family names are self-referential
+     (the serif name is set in the serif, the sans name in the sans) for flair */
+  .foot-colophon { max-width: var(--maxw); margin: 0 auto; padding: 2px 32px 30px; }
+  .foot-colophon p { margin: 0; font-size: 0.85rem; color: #8a8a8a; letter-spacing: 0.01em; }
+  .foot-colophon a { color: var(--accent); text-decoration: none; }
+  .foot-colophon a:hover { color: var(--accent-dark); text-decoration: underline; }
+  .foot-colophon .c-serif { font-family: var(--serif); font-weight: 600; }
+  .foot-colophon .c-sans  { font-family: var(--sans);  font-weight: 600; }
+
   /* ============================================================
      RESPONSIVE
      ============================================================ */
@@ -364,6 +379,7 @@
   }
   :root[data-theme="dark"] .abstract-inner { background: #212327; border-color: #34353a; border-left-color: var(--accent); }
   :root[data-theme="dark"] footer { background: #131417; }
+  :root[data-theme="dark"] .foot-colophon p { color: #9a9a9a; }
   @media (hover: hover) {
     :root[data-theme="dark"] .paper:hover { background-color: #212327; }
     :root[data-theme="dark"] .paper-detail a:hover,
