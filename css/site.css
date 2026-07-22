@@ -365,7 +365,7 @@
     --accent:      #e59079;   /* light clay (maroon lifted for contrast) */
     --accent-dark: #f0ab97;
   }
-  :root[data-theme="dark"] .abstract-inner { background: #212327; border-color: #34353a; }
+  :root[data-theme="dark"] .abstract-inner { background: #212327; border-color: #34353a; border-left-color: var(--accent); }
   :root[data-theme="dark"] footer { background: #131417; }
   @media (hover: hover) {
     :root[data-theme="dark"] .paper:hover { background-color: #212327; }
