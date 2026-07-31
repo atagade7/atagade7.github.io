@@ -1,0 +1,300 @@
+{
+  "generated_from": "/Users/atagade/Documents/GitHub/data/raw/openalex/paper_author_affiliations.csv",
+  "journals": [
+    {
+      "name": "American Economic Review",
+      "paper_count": 8281,
+      "distinct_authors": 8496,
+      "avg_authors_per_paper": 1.85,
+      "total_coauthor_pairs": 10432,
+      "top_authors": [
+        {
+          "author_id": "A5012301204",
+          "author_name": "Daron Acemo\u011flu",
+          "papers": 27
+        },
+        {
+          "author_id": "A5074218217",
+          "author_name": "Joseph E. Stiglitz",
+          "papers": 26
+        },
+        {
+          "author_id": "A5110429533",
+          "author_name": "Jean Tirole",
+          "papers": 23
+        },
+        {
+          "author_id": "A5086784344",
+          "author_name": "Robert E. Hall",
+          "papers": 21
+        },
+        {
+          "author_id": "A5090324651",
+          "author_name": "David Card",
+          "papers": 21
+        },
+        {
+          "author_id": "A5083530241",
+          "author_name": "John A. List",
+          "papers": 21
+        },
+        {
+          "author_id": "A5108406018",
+          "author_name": "Martin Feldstein",
+          "papers": 20
+        },
+        {
+          "author_id": "A5058726534",
+          "author_name": "James J. Heckman",
+          "papers": 19
+        },
+        {
+          "author_id": "A5083494527",
+          "author_name": "Alberto Alesina",
+          "papers": 19
+        },
+        {
+          "author_id": "A5075095780",
+          "author_name": "John J. Siegfried",
+          "papers": 19
+        }
+      ]
+    },
+    {
+      "name": "Econometrica",
+      "paper_count": 5989,
+      "distinct_authors": 5873,
+      "avg_authors_per_paper": 1.75,
+      "total_coauthor_pairs": 7794,
+      "top_authors": [
+        {
+          "author_id": "A5035293091",
+          "author_name": "Eberhard Fels",
+          "papers": 34
+        },
+        {
+          "author_id": "A5037463079",
+          "author_name": "Donald W. K. Andrews",
+          "papers": 31
+        },
+        {
+          "author_id": "A5113931380",
+          "author_name": "Whitney K. Newey",
+          "papers": 27
+        },
+        {
+          "author_id": "A5063813970",
+          "author_name": "Ragnar Frisch",
+          "papers": 24
+        },
+        {
+          "author_id": "A5111373420",
+          "author_name": "Kenneth J. Arrow",
+          "papers": 23
+        },
+        {
+          "author_id": "A5052372964",
+          "author_name": "J. D. Sargan",
+          "papers": 21
+        },
+        {
+          "author_id": "A5076177583",
+          "author_name": "Peter C.B. Phillips",
+          "papers": 21
+        },
+        {
+          "author_id": "A5110144668",
+          "author_name": "Franklin M. Fisher",
+          "papers": 21
+        },
+        {
+          "author_id": "A5113446726",
+          "author_name": "Herman Wold",
+          "papers": 20
+        },
+        {
+          "author_id": "A5058310804",
+          "author_name": "Gerhard Tintner",
+          "papers": 20
+        }
+      ]
+    },
+    {
+      "name": "Journal of Political Economy",
+      "paper_count": 6297,
+      "distinct_authors": 6162,
+      "avg_authors_per_paper": 1.52,
+      "total_coauthor_pairs": 20213,
+      "top_authors": [
+        {
+          "author_id": "A5111467202",
+          "author_name": "James Laughlin",
+          "papers": 31
+        },
+        {
+          "author_id": "A5024744620",
+          "author_name": "George J. Stigler",
+          "papers": 30
+        },
+        {
+          "author_id": "A5114033397",
+          "author_name": "H. Parker Willis",
+          "papers": 30
+        },
+        {
+          "author_id": "A5113974750",
+          "author_name": "Frank H. Knight",
+          "papers": 24
+        },
+        {
+          "author_id": "A5112784443",
+          "author_name": "Milton Friedman",
+          "papers": 23
+        },
+        {
+          "author_id": "A5086017096",
+          "author_name": "Gary S. Becker",
+          "papers": 22
+        },
+        {
+          "author_id": "A5112524201",
+          "author_name": "Wesley C. Mitchell",
+          "papers": 22
+        },
+        {
+          "author_id": "A5081529337",
+          "author_name": "Edith Abbott",
+          "papers": 19
+        },
+        {
+          "author_id": "A5043821058",
+          "author_name": "Jacob Viner",
+          "papers": 18
+        },
+        {
+          "author_id": "A5037009155",
+          "author_name": "Robert F. Hoxie",
+          "papers": 18
+        }
+      ]
+    },
+    {
+      "name": "Quarterly Journal of Economics",
+      "paper_count": 5195,
+      "distinct_authors": 4872,
+      "avg_authors_per_paper": 1.54,
+      "total_coauthor_pairs": 5946,
+      "top_authors": [
+        {
+          "author_id": "A5026649815",
+          "author_name": "F. W. Taussig",
+          "papers": 56
+        },
+        {
+          "author_id": "A5108809431",
+          "author_name": "Thomas Nixon Carver",
+          "papers": 21
+        },
+        {
+          "author_id": "A5110890240",
+          "author_name": "Andrei Shleifer",
+          "papers": 19
+        },
+        {
+          "author_id": "A5034703281",
+          "author_name": "Sendhil Mullainathan",
+          "papers": 16
+        },
+        {
+          "author_id": "A5064999142",
+          "author_name": "Paul A. Samuelson",
+          "papers": 16
+        },
+        {
+          "author_id": "A5017685817",
+          "author_name": "Emmanuel Saez",
+          "papers": 15
+        },
+        {
+          "author_id": "A5012301204",
+          "author_name": "Daron Acemo\u011flu",
+          "papers": 15
+        },
+        {
+          "author_id": "A5012818260",
+          "author_name": "William Z. Ripley",
+          "papers": 15
+        },
+        {
+          "author_id": "A5074218217",
+          "author_name": "Joseph E. Stiglitz",
+          "papers": 14
+        },
+        {
+          "author_id": "A5088958613",
+          "author_name": "Charles F. Dunbar",
+          "papers": 14
+        }
+      ]
+    },
+    {
+      "name": "Review of Economic Studies",
+      "paper_count": 3749,
+      "distinct_authors": 4232,
+      "avg_authors_per_paper": 1.72,
+      "total_coauthor_pairs": 3818,
+      "top_authors": [
+        {
+          "author_id": "A5110429533",
+          "author_name": "Jean Tirole",
+          "papers": 15
+        },
+        {
+          "author_id": "A5012301204",
+          "author_name": "Daron Acemo\u011flu",
+          "papers": 15
+        },
+        {
+          "author_id": "A5110532426",
+          "author_name": "Eric Maskin",
+          "papers": 15
+        },
+        {
+          "author_id": "A5060877516",
+          "author_name": "Nicholas Kaldor",
+          "papers": 14
+        },
+        {
+          "author_id": "A5089998471",
+          "author_name": "Richard Blundell",
+          "papers": 14
+        },
+        {
+          "author_id": "A5074218217",
+          "author_name": "Joseph E. Stiglitz",
+          "papers": 14
+        },
+        {
+          "author_id": "A5080093716",
+          "author_name": "John Hicks",
+          "papers": 12
+        },
+        {
+          "author_id": "A5110144668",
+          "author_name": "Franklin M. Fisher",
+          "papers": 11
+        },
+        {
+          "author_id": "A5007575883",
+          "author_name": "Douglas Gale",
+          "papers": 10
+        },
+        {
+          "author_id": "A5055671611",
+          "author_name": "Peter J. Hammond",
+          "papers": 10
+        }
+      ]
+    }
+  ]
+}

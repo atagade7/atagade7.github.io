@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page not found &middot; Abhijit Tagade</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+
+<!-- Recover from URLs that picked up stray punctuation when copied out of an
+     email or message (e.g. ".../cv-atagade.pdf," or "...pdf)"). Strip trailing
+     punctuation and send the visitor to the real file. Runs before paint so the
+     redirect is effectively invisible. -->
+<script>
+(function () {
+  try {
+    var p = window.location.pathname;
+    var fixed = p.replace(/[,.;:!?)\]}>'"’”»]+$/, "");
+    if (fixed && fixed !== p) {
+      window.location.replace(fixed + window.location.search + window.location.hash);
+    }
+  } catch (e) {}
+})();
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<script>try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}</script>
+
+<style>
+  .nf-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 15vh 32px 0;
+  }
+  .nf-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.9rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 26px;
+  }
+  .nf-head {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1.02rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nf-wrap p { margin: 0 0 14px; }
+  .nf-links { margin-top: 22px; }
+  .nf-links a {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 1px 6px;
+    margin: 0 -6px;
+    border-radius: 6px;
+  }
+  @media (hover: hover) { .nf-links a:hover { background-color: rgba(122, 35, 26, 0.08); } }
+</style>
+</head>
+<body>
+  <div class="nf-wrap">
+    <p class="nf-name">Abhijit Tagade</p>
+    <p class="nf-head">Page not found</p>
+    <p>
+      That link doesn&rsquo;t point to anything on this site. If it was copied
+      from an email or a message, it may have picked up an extra character at
+      the end.
+    </p>
+    <p class="nf-links">
+      <a href="/pdf/cv-atagade.pdf">Curriculum Vitae</a><span class="sep">&middot;</span><a href="/">Home</a>
+    </p>
+  </div>
+</body>
+</html>

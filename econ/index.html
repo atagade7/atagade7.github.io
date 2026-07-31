@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Econ Intelligence | Abhijit Tagade</title>
+  <meta name="description" content="Coauthorship intelligence for the top five economics journals." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../dist/css/normalize.css" />
+  <link rel="stylesheet" href="../dist/css/skeleton.css" />
+  <link rel="stylesheet" href="../css/custom.css?v=25" />
+</head>
+<body class="econ-page">
+  <div class="container">
+    <p class="back-link"><a href="../">Abhijit Tagade</a></p>
+    <header class="amp-header">
+      <p class="page-kicker">Econ Intelligence</p>
+      <h1 class="site-title">Top Economics Journals</h1>
+      <p class="amp-subtitle">
+        Coauthorship structure across AER, QJE, ECMA, REStud, and JPE.
+        Start with the composite network, then switch into any flagship journal.
+      </p>
+    </header>
+    <section class="econ-shell">
+      <div class="econ-toolbar">
+        <div class="econ-toolbar-copy">
+          <p class="page-kicker">Network View</p>
+          <h2 id="econ-current-title" class="section-title">Composite</h2>
+          <p id="econ-current-subtitle" class="section-intro section-intro-compact">
+            The cross-journal core of the five flagship economics journals.
+          </p>
+        </div>
+        <div id="econ-journal-buttons" class="econ-journal-buttons" aria-label="Journal selector"></div>
+      </div>
+      <div class="econ-stage">
+        <div class="econ-figure-card econ-figure-card-wide">
+          <div id="econ-figure-controls" class="econ-side-card econ-figure-controls"></div>
+          <div id="econ-network-frame" class="econ-network-frame">
+            <canvas id="econ-network" width="1200" height="620" role="img" aria-label="Economics collaboration network"></canvas>
+            <div id="econ-network-tooltip" class="econ-network-tooltip" hidden></div>
+          </div>
+          <p id="econ-figure-note" class="entry-detail econ-figure-note"></p>
+        </div>
+        <div class="econ-figure-card econ-figure-card-wide">
+          <div class="econ-side-title">Connectedness Only</div>
+          <div class="econ-side-subtitle">All economists in the full graph, with geometry driven only by coauthorship connectedness.</div>
+          <div id="econ-connected-frame" class="econ-network-frame">
+            <canvas id="econ-network-connected" width="1200" height="620" role="img" aria-label="Economics connectedness-only network"></canvas>
+            <div id="econ-connected-tooltip" class="econ-network-tooltip" hidden></div>
+          </div>
+          <p id="econ-connected-note" class="entry-detail econ-figure-note"></p>
+        </div>
+        <div class="econ-details">
+          <div id="econ-metrics" class="econ-metrics"></div>
+          <div id="econ-top-authors" class="econ-side-card"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-block" id="econ-footer">
+      <h2 class="section-title">Methodology</h2>
+      <p class="section-intro section-intro-compact">
+        Data comes from OpenAlex paper-author rows. Node radius and height track papers in the selected view, color tracks unique collaborators, and edge weight tracks repeated coauthorship.
+        Degree, closeness, and component-scaled eigenvector centrality are computed on the full graph for each journal or for the combined five-journal graph; betweenness is computed on the full graph and approximated only when the graph is very large.
+        The build keeps only OpenAlex records marked as journal articles and excludes obvious administration, comment, reply, and review-style pieces from the counts.
+        Re-run <code>scripts/build_econ_network_details.py</code> to refresh the artifact.
+      </p>
+    </section>
+  </div>
+  <script src="../js/vendor/d3.v7.min.js" defer></script>
+  <script src="../js/econ-page.js?v=14" defer></script>
+</body>
+</html>
