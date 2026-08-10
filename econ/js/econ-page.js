@@ -1,5 +1,5 @@
 (() => {
-  const dataUrl = '../data/econ_intel/top5_journal_network_details.json?v=6';
+  const dataUrl = './data/top5_journal_network_details.json?v=6';
   const JOURNAL_CODE_ORDER = ['AER', 'QJE', 'ECMA', 'REStud', 'JPE'];
   const RANKING_MODES = [
     { key: 'papers', label: 'Papers' },
