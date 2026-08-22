@@ -1,0 +1,1124 @@
+/* ============================================================
+   PATENT NETWORKS — self-contained. No framework, no legacy CSS.
+   Interface wears ink; colour belongs to the data.
+   ============================================================ */
+:root{
+  --paper:#fff; --ink:#111; --quiet:#6b6b6b; --faint:#bcbcbc;
+  --rule:#e6e6e6; --rule-soft:#f1f1f1; --plate:#fcfcfc; --surface:#fafafa;
+  --data:#a8463a; --data-d:#7a231a;
+  --gold:#b08a2e;
+  /* chart series. Validated all-pairs: OKLab dE>=15 normal vision, >=8 under
+     protan/deutan/tritan (Machado 1.0), both surfaces. The old c2/c4/c5 were
+     three greys -- indistinguishable the moment lines crossed. No green:
+     against the maroon it collapses under red-green CVD. Two blues at
+     different depths instead; "other" is pale AND dashed, recessive by
+     design. */
+  --ch2:#5b7ea0; --ch4:#333f5e; --ch5:#b5822f; --choth:#c9c9c9;
+  --ser2:#9a9187; --map-base:#edebe8; --tipshadow:rgba(0,0,0,.10);
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --rail:236px; --maxw:1380px;
+  /* the sidebar's gutter, and the page it and the column make together */
+  --gutter:56px; --pagew:1402px;
+  /* THE column. Every structural rule on a page -- Scotch rule, plate head,
+     section heads, footer bookend -- spans exactly this. Strips (decades,
+     technologies) centre at 940 inside it; nothing else invents a width. */
+  --colw:1020px;
+  /* type scale — every size on the page is one of these (SVG axis text: 10px) */
+  --t-h1:clamp(1.5rem,3.2vw,2.1rem);
+  --t-body:1rem; --t-table:.86rem; --t-small:.8rem; --t-micro:.7rem;
+  /* the two tiers the page lacked: chapter heads and headline figures.
+     Without them everything between the H1 and the body was body-sized,
+     and five chapters had to shout in caps to be seen at all. */
+  --t-h2:1.32rem; --t-stat:1.42rem;
+  /* spacing scale */
+  --s1:10px; --s2:20px; --s3:38px; --s4:72px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+/* [hidden] MUST WIN. A class that sets `display` outranks the UA's own
+   [hidden]{display:none}, so every element the JS hides by attribute kept
+   rendering: .ctxkey is .lg{display:flex}, and the county key stayed under
+   the world map -- a key describing a layer that is not there. Six
+   per-element `X[hidden]{display:none}` patches had accumulated, one per
+   time someone noticed. This is the rule all six were standing in for. */
+[hidden]{display:none!important;}
+/* THE FOOTER IS A FOOTER. It closes the page from the bottom of the SCREEN,
+   never halfway up it with dead white underneath. Chapters-as-tabs made this
+   visible: Citations on a small firm is a third of a window tall, so the
+   document ended above the fold and the closing rules floated mid-air. A
+   column flex body with one auto margin on the footer costs nothing when the
+   page is long -- the free space it absorbs is zero -- and fixes every page
+   that is short. dvh so a phone's collapsing toolbar cannot leave a gap. */
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+     font-size:var(--t-body);line-height:1.7;font-weight:440;-moz-osx-font-smoothing:auto;
+     min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;}
+/* named, not `body > *`: the theme toggle is absolutely positioned and a
+   width would stretch it across the page from its static position */
+body > .pagehead,body > .shell,body > .foot{flex-shrink:0;width:100%;}
+a{color:inherit;}
+:focus:not(:focus-visible){outline:none;}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:3px;}
+
+/* ---------------- the way home: a kicker, not a bar ---------------- */
+/* No page wears a masthead strip. Every subpage opens like an article:
+   a centred small-caps kicker naming the publication, linking home, with
+   the theme toggle floating free — the homepage's own grammar. */
+.kick{margin:0 0 16px;font-size:var(--t-micro);letter-spacing:.22em;
+  text-transform:uppercase;color:var(--quiet);font-weight:600;}
+.kick a{text-decoration:none;color:inherit;}
+.kick a:hover{color:var(--data);}
+
+/* ---------------- page head: firm name over the shell ---------------- */
+.pagehead{max-width:var(--maxw);margin:0 auto;padding:var(--s3) var(--s3) 0;}
+/* The arrival. A landing page that opens at article-h1 size reads as a
+   subpage of something else; this one is the front door of 88,000 pages
+   and says so. The short ink bar above is the one piece of pure graphic
+   weight on the page -- print's voice, NYT's opening move. */
+.pagehead.center{position:relative;max-width:var(--colw);
+  margin-left:auto;margin-right:auto;padding-left:0;padding-right:0;}
+/* the Scotch rule: thick over thin, the newspaper masthead's own ornament.
+   It obeys the cascade (heavy first) and frames the arrival in print's voice
+   without an icon's cheek. */
+.scotch{margin-top:26px;border-top:2.5px solid var(--ink);height:4px;
+  border-bottom:1px solid var(--ink);margin-bottom:0;}
+.pagehead.center h1{font-size:clamp(2.5rem,5vw,3.6rem);letter-spacing:-.022em;
+  line-height:1.04;font-weight:600;}
+.pagehead.center .pagemeta{margin-top:14px;font-size:var(--t-micro);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--quiet);}
+.pagehead h1{font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.9rem,3.6vw,2.6rem);
+  line-height:1.15;letter-spacing:-.01em;margin:0;}
+.pagemeta{margin:var(--s1) 0 0;font-size:var(--t-small);color:var(--quiet);
+  font-variant-numeric:tabular-nums;}
+/* the meta line's separators carry the gold, the plate titles' own mark */
+.pagemeta .dot{color:var(--gold);font-weight:700;}
+
+/* ---------------- shell ---------------- */
+/* THE FIRM PAGE, recomposed like the homepage: the body is a centred
+   column (--colw, the same span the footer's bookend rules close), and the
+   rail is a FLOATING CARD -- the county card's own dress -- parked in the
+   left gutter, halfway between the screen edge and the column. Fixed on
+   screen like the hero cards, scrolling its own contents. */
+/* The page is a two-column grid, and the sidebar owns the left column for the
+   whole of it. Head and chapters share the right column, so the name, the
+   scoreboard, the map and every table stand on ONE axis -- the thing a
+   floating card in the gutter could never give them. Stated as areas rather
+   than as source order, because stacked the order has to change: the name
+   must arrive before the search box, always (sec.1). */
+.shell{max-width:none;margin:0 auto;padding:var(--s2) var(--s3) var(--s4);
+  display:block;}
+.stage{max-width:var(--colw);margin:0 auto;min-width:0;}
+/* THE COLUMN IS CENTRED. Head, map, tables and footer all sit on the page's
+   own axis; the sidebar rides the left gutter and displaces nothing, which is
+   why it can be there at all. A grid column pushed the whole body 153px right
+   of centre -- the page stopped being centred to make room for a panel. */
+.firmshell .pagehead.firmhead{max-width:var(--colw);margin:0 auto;}
+.pagehead.firmhead{grid-area:head;}
+/* THE SIDEBAR. It keeps its plate, its hairline and its maroon edge -- but it
+   is a COLUMN of the page now, not a card floating past it: sticky from the
+   top, in the flow, beside the head and every chapter, which is how the
+   sidebar on atagade.com has always worked. Fixed at 50% it was a panel the
+   page scrolled behind, aligned to nothing, and it vanished entirely on any
+   screen under 1580 -- which is most of them. */
+/* THE SIDEBAR IS THE TOP-COUNTIES BOX. Same dress, same width class, same
+   density: plate ground, hairline, the maroon top edge, micro type and tabular
+   numerals throughout, maroon micro-caps heads over each block. It parks in
+   the gutter beside the centred column, where the leaderboard parks beside the
+   centred map. */
+.rail{position:fixed;top:50%;transform:translateY(-50%);width:var(--rail);
+  left:max(10px, calc((50vw - var(--colw)/2 - var(--rail))/2));
+  max-height:calc(100vh - 40px);overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;scrollbar-color:var(--rule) transparent;
+  background:var(--plate);border:1px solid var(--rule);
+  border-top:2px solid var(--data);border-radius:0 0 4px 4px;
+  padding:14px 16px 16px;box-shadow:0 6px 26px var(--tipshadow);z-index:5;
+  font-size:var(--t-small);}
+.rail::-webkit-scrollbar{width:7px;}
+.rail::-webkit-scrollbar-track{background:transparent;}
+.rail::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px;}
+/* Narrow enough that the column and the sidebar cannot stand side by side,
+   the page stacks -- the sidebar first, full width, still a plate. Same move,
+   same reason, as the homepage below 820. */
+/* Under 1470 a centred 1020 column leaves no gutter the card can stand in, so
+   it returns to the flow under the name -- still the same card, laid out wide:
+   the identity band across the top, its figures in as many ~270px columns as
+   fit (a label and its figure half a metre apart stop reading as one row), the
+   sparklines side by side, the search capped so it is not a trough. */
+@media (max-width:1559px){
+  .rail{position:static;transform:none;width:auto;max-width:var(--colw);
+        margin:var(--s3) auto 0;max-height:none;overflow:visible;
+        display:block;padding:12px 16px 16px;}
+  .rail > .cardhead{margin:-12px -16px 0;padding:12px 16px 12px;}
+  .cardhead .railstats{column-width:270px;column-gap:var(--s4);}
+  .cardhead .railstats li{break-inside:avoid;}
+  .railhead::before{left:-16px;right:-16px;}
+  .minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+         gap:var(--s1) var(--s3);}
+  .firmbar{max-width:340px;}
+}
+.eyebrow{font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--data);font-weight:600;margin:0 0 9px;}
+
+/* One universal divider inside the box -- the same hairline, full bleed to the
+   padding, then the title. Lifted wholesale from .ctycard h5, because the two
+   panels are the same object doing the same job. */
+.railhead{position:relative;margin:15px 0 7px;padding-top:13px;
+  font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--data);font-weight:700;}
+.railhead::before{content:"";position:absolute;top:0;left:-16px;right:-16px;
+  border-top:1px solid var(--rule);}
+/* The card opens the way the county card opens: a tinted band bled to the
+   card's own edges carrying the name, then the figures, then hairline-ruled
+   sections beneath it. That band is what makes the county card read as an
+   object rather than a list in a box. */
+.cardhead{background:var(--surface);margin:-14px -16px 0;
+  padding:14px 16px 13px;border-bottom:1px solid var(--rule);}
+.cardhead h4{margin:0;font-family:var(--serif);font-weight:600;
+  font-size:1.1rem;line-height:1.2;letter-spacing:-.008em;}
+.cardsub{margin:3px 0 11px;font-size:var(--t-micro);color:var(--quiet);
+  letter-spacing:.06em;text-transform:uppercase;}
+.cardsub .dot{color:var(--gold);font-weight:700;}
+/* the band already closes with a rule; the first section must not draw a
+   second one under it */
+.cardhead + .railblock > .railhead{margin-top:13px;padding-top:0;}
+.cardhead + .railblock > .railhead::before{display:none;}
+.railhead .rhsub{float:right;letter-spacing:.12em;color:var(--faint);font-weight:600;}
+/* Figures at reading size, not label size: sec.9 -- micro type is a LABEL
+   size, never a reading size, and every number in this card is something a
+   reader came to read. */
+.railstats{list-style:none;margin:0;padding:0;font-size:var(--t-small);
+  font-variant-numeric:tabular-nums;line-height:1.4;}
+.railstats li{display:flex;flex-wrap:wrap;align-items:baseline;
+  justify-content:space-between;gap:0 12px;padding:6px 0 5px;
+  border-top:1px solid var(--rule);}
+.railstats li:first-child{border-top:0;padding-top:0;}
+.railstats .sk{color:var(--quiet);min-width:0;}
+.railstats .sv{color:var(--ink);font-weight:600;margin-left:auto;}
+.railstats .srank{flex-basis:100%;text-align:right;color:var(--faint);
+  font-size:var(--t-micro);margin-top:1px;}
+
+/* rail nav -- the homepage's own side-nav: ink, uppercase, .8rem tracked at
+   .07em, a hairline above it, hover and current state in the accent. No
+   left-hand marker rail: the colour is the state, as it is on atagade.com. */
+/* THE CHAPTER BAR. Wayfinding belongs beside the thing it navigates, so the
+   chapters left the card and became a bar across the column -- the overview's
+   own .tabbar voice (serif, a 2px ink rule, the accent under the current one),
+   which is the grammar this site already uses for "a heading with a choice in
+   it". Sticky, so it rides down the page with the reader. */
+.chapbar{position:sticky;top:0;z-index:6;background:var(--paper);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:0 26px;
+  border-bottom:2px solid var(--ink);padding:13px 0 10px;margin-bottom:var(--s3);}
+.chapbar a{font-family:var(--serif);font-weight:600;font-size:1.12rem;
+  text-decoration:none;color:var(--quiet);padding:0 0 9px;margin-bottom:-11px;
+  border-bottom:2px solid transparent;transition:color .15s;}
+.chapbar a:hover{color:var(--ink);}
+.chapbar a.is-on{color:var(--ink);border-bottom-color:var(--data);}
+@media (max-width:620px){
+  .chapbar{gap:0 18px;font-size:.95rem;}
+  .chapbar a{font-size:1rem;}
+}
+
+
+/* ---------------- views ---------------- */
+.view{display:none;}
+.view.is-on{display:block;}
+
+.controls{display:flex;flex-wrap:wrap;gap:var(--s2) 26px;align-items:baseline;
+  padding-bottom:12px;margin-bottom:var(--s2);border-bottom:1px solid var(--rule);}
+.group{display:flex;align-items:baseline;gap:12px;}
+.group>span{font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--quiet);font-weight:600;}
+
+/* one segmented control, shared by .controls and .panel-head alike */
+.seg{display:inline-flex;gap:2px;}
+.seg button{font:inherit;font-size:var(--t-micro);line-height:1;letter-spacing:.02em;
+  border:1px solid var(--rule);background:var(--plate);color:var(--quiet);
+  padding:4px 8px;border-radius:3px;cursor:pointer;
+  transition:color .15s,border-color .15s;}
+.seg button:hover{color:var(--ink);}
+.seg button.is-on{border-color:var(--ink);color:var(--ink);}
+
+/* ---------------- the plate ---------------- */
+.plate{margin:0;border:1px solid var(--rule);border-radius:4px;background:var(--plate);padding:12px;}
+.map-wrap{position:relative;}
+.map-bg{display:block;width:100%;height:auto;border-radius:2px;}
+.map-bg path{fill:var(--map-base);stroke:var(--paper);stroke-width:0.6;}
+/* The circle layer sits over the counties, so it must not swallow their hover:
+   the SVG itself is transparent to the pointer and only the circles take events. */
+.map-fg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.map-fg circle{pointer-events:auto;}
+.map-fg circle{fill:var(--data-d);fill-opacity:.62;stroke:var(--paper);stroke-width:.4;
+  transition:fill-opacity .12s;}
+.map-fg circle:hover{fill-opacity:.92;stroke:var(--ink);stroke-width:.8;cursor:pointer;}
+.map-fg.dim circle{fill-opacity:.28;}
+.map-fg.dim circle:hover,.map-fg circle.on{fill-opacity:.95;}
+
+/* locations flagged by the geocoding audit: shown, but visibly provisional */
+.map-fg circle[data-q="suspect"]{fill:none;stroke:var(--data-d);stroke-width:1;
+  stroke-dasharray:2 2;}
+.map-fg circle[data-q="suspect"]:hover{fill:var(--data-d);fill-opacity:.25;}
+
+/* The ground is a THEMED token, never #fff. Hardcoded white here shipped a
+   tooltip whose near-white dark-mode ink sat on a white plate: 1.25:1, which
+   is not poor contrast but invisibility. Same plate as .ccard, which its own
+   comment has always claimed it shares a voice with. */
+.tip{position:absolute;z-index:5;pointer-events:none;background:var(--plate);color:var(--ink);
+  border:1px solid var(--rule);border-radius:4px;
+  padding:7px 10px;font-size:var(--t-micro);line-height:1.5;white-space:nowrap;
+  box-shadow:0 3px 14px var(--tipshadow);}
+.tip b{font-weight:600;display:block;}
+.tip span{color:var(--quiet);font-variant-numeric:tabular-nums;}
+
+.caption{margin:var(--s2) 0 0;font-family:var(--serif);font-style:italic;
+  font-size:var(--t-small);color:var(--quiet);line-height:1.6;max-width:none;}
+.caption b{font-style:normal;font-weight:600;color:var(--ink);}
+
+.legend{display:flex;flex-wrap:wrap;gap:26px;align-items:center;margin:var(--s2) 2px 0;
+  font-size:var(--t-micro);letter-spacing:.05em;color:var(--quiet);}
+.lg{display:flex;align-items:center;gap:9px;}
+/* the capsule read as a sticker; the scale is a BAR, square-shouldered
+   like the overview's, with a hairline so its pale end has an edge */
+.ramp{height:8px;width:110px;border-radius:1px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+  background:linear-gradient(90deg,#f6ded8,#dda491 45%,#a8462f 75%,#7a231a);}
+[data-theme="dark"] .ramp{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);}
+.quiet{color:var(--quiet);font-variant-numeric:tabular-nums;}
+.lg.nooff{flex-basis:100%;max-width:62ch;line-height:1.5;margin-top:2px;}
+
+/* numeric choropleth legend: one variant per address type, asg hidden at load */
+.binlab{font-size:var(--t-micro);color:var(--quiet);font-variant-numeric:tabular-nums;}
+
+/* national context: county choropleth, shaded by whichever address type is shown */
+.map-bg .outline path{fill:none;stroke:var(--paper);stroke-width:.9;}
+/* county choropleth fills: generated into choropleth.css by build_site_figures.py */
+.ctxkey{display:flex;align-items:center;gap:7px;}
+/* the seven context chips fuse into one stepped bar -- a single scale
+   object with one hairline, not seven loose tiles */
+.ctxkey{gap:10px;}
+.ctxkey .steps{display:inline-flex;gap:0;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+  border-radius:1px;}
+[data-theme="dark"] .ctxkey .steps{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);}
+.ctxkey i{display:block;width:13px;height:8px;margin:0;}
+
+/* ---------------- panels & tables ---------------- */
+.panel{margin-top:var(--s3);}
+/* The weight cascade, one rule: 2px ink OPENS a section (panel heads, the
+   tab bar), 1px ink closes the column-head row, pale hairlines separate
+   rows. Heaviest first, always -- a thick rule below a thin one reads as a
+   mistake because it is one. */
+.panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding-bottom:9px;border-bottom:2px solid var(--ink);}
+.panel-head.first{margin-bottom:0;}
+/* Chapter heads finally outrank the body. Mixed case at the new tier reads
+   as an essay's section title; the caps voice moves down to kickers and
+   column heads where it belongs. */
+.panel-head h3{font-family:var(--serif);font-weight:600;font-size:var(--t-h2);
+  letter-spacing:-.005em;margin:0;line-height:1.2;}
+.panel-head span{font-size:var(--t-small);color:var(--quiet);}
+table{width:100%;border-collapse:collapse;font-size:var(--t-table);}
+th{text-align:left;padding-bottom:9px;font-size:var(--t-small);letter-spacing:.07em;text-transform:uppercase;
+  color:var(--quiet);font-weight:600;padding:10px 8px 7px 0;white-space:nowrap;
+  border-bottom:1px solid var(--ink);}
+tbody tr:hover{background:var(--surface);}
+td{padding:10px 10px 10px 0;border-top:1px solid var(--rule-soft);font-variant-numeric:tabular-nums;}
+td.place,td.detail{font-variant-numeric:normal;}
+td.detail{color:var(--quiet);}
+td.code{font-family:var(--serif);font-weight:600;}
+.num{text-align:right;}
+th.rank,td.rank{width:26px;text-align:left;color:var(--faint);font-variant-numeric:tabular-nums;}
+td.quietcell{color:var(--quiet);white-space:nowrap;}
+td.strong{font-weight:600;}
+td.code[title]{cursor:help;}
+td.place[title]{cursor:help;}
+.barcell{width:34%;padding-left:24px;}
+.bar{display:block;height:5px;border-radius:999px;background:var(--data);}
+
+/* two-up layout under the plate */
+.under{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);align-items:start;}
+@media (max-width:900px){.under{grid-template-columns:1fr;gap:var(--s2);}}
+
+/* Summary time series: grouped lines, filings wear the accent, grants wear ink;
+   context series recede into greys. An outlined mark is a year still arriving. */
+.ts{display:block;width:100%;height:auto;margin:2px 0 0;overflow:visible;}
+.ts .ln{fill:none;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round;}
+.ts .ln.c1{stroke:var(--data);} .ts .ln.c2{stroke:var(--ch2);} .ts .ln.c3{stroke:var(--ink);}
+.ts .ln.c4{stroke:var(--ch4);} .ts .ln.c5{stroke:var(--ch5);}
+.ts .ln.coth{stroke:var(--choth);stroke-dasharray:3 3;}
+.ts .pt{stroke:var(--paper);stroke-width:.8;}
+.ts .pt.c1{fill:var(--data);} .ts .pt.c2{fill:var(--ch2);} .ts .pt.c3{fill:var(--ink);}
+.ts .pt.c4{fill:var(--ch4);} .ts .pt.c5{fill:var(--ch5);} .ts .pt.coth{fill:var(--choth);}
+/* legend swatches are still rects */
+.ts .lg rect{opacity:.95;}
+.ts .lg rect.c1{fill:var(--data);} .ts .lg rect.c2{fill:var(--ch2);}
+.ts .lg rect.c3{fill:var(--ink);}
+.ts .lg rect.c4{fill:var(--ch4);} .ts .lg rect.c5{fill:var(--ch5);}
+.ts .lg rect.coth{fill:var(--choth);}
+.ts .gl{stroke:var(--rule);stroke-width:.5;}
+.ts .ax{font:400 10px/1 "Source Sans 3",sans-serif;fill:var(--quiet);letter-spacing:.02em;}
+.ts .lgt{font:400 11.5px/1 "Source Sans 3",sans-serif;fill:var(--quiet);}
+.ts .ax.axv{font-weight:600;fill:var(--quiet);}
+.ts .gl.base{stroke:var(--faint);}
+
+/* chart readout: same voice as the map tip, minus the shadow */
+.tsread{margin:5px 0 0;padding:5px 9px;font-size:var(--t-micro);color:var(--quiet);
+  background:var(--plate);border:1px solid var(--rule);border-radius:4px;
+  font-variant-numeric:tabular-nums;}
+.tsread:empty::before{content:"\00a0";}
+.tsread b{color:var(--ink);font-weight:600;}
+
+/* Ownership block: parent entity and siblings under the same ultimate owner. */
+table.own{width:100%;border-collapse:collapse;margin:4px 0 0;}
+table.own td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule-soft);
+             font-size:var(--t-small);line-height:1.5;vertical-align:top;}
+table.own td.place{width:110px;color:var(--quiet);white-space:nowrap;}
+/* Every in-table link wears the same quiet hairline .peers and table.own
+   already used -- the browser's text-color underline on hundreds of firm
+   names made the citation tables read as one solid texture. The affordance
+   stays visible (a rule-grey hairline), and sharpens on hover. */
+td a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);}
+td a:hover{border-bottom-color:var(--ink);}
+table.own a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);}
+table.own a:hover{border-bottom-color:var(--ink);}
+
+/* peer firms in the Technology tab: one quiet line of links */
+.peers{margin:var(--s2) 2px 0;font-size:var(--t-small);color:var(--quiet);line-height:1.6;}
+.peers a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);}
+.peers a:hover{border-bottom-color:var(--ink);}
+
+/* Firm search on the index. */
+.searchbox{margin:var(--s2) 0 var(--s3);max-width:520px;}
+/* On the overview the search is the door into 16,984 firm pages: centred under
+   the map, a size up from the rail search on firm pages. */
+.stage.overview .searchbox{max-width:680px;margin:var(--s4) auto var(--s4);position:relative;}
+.stage.overview .searchbox .eyebrow{text-align:center;margin-bottom:7px;}
+.stage.overview .searchbox input{padding:13px 17px;font-size:var(--t-body);}
+/* appearance:none, or WebKit paints its own LIGHT native search chrome over
+   the authored background and the field shows up as a pale band in dark mode */
+.searchbox input{width:100%;padding:11px 14px;font:inherit;font-size:var(--t-body);
+  -webkit-appearance:none;appearance:none;
+  line-height:1.4;color:var(--ink);background:var(--plate);
+  border:1px solid var(--rule);border-radius:3px;}
+.searchbox input:focus{outline:none;border-color:var(--ink);}
+.searchbox ul{list-style:none;margin:var(--s1) 0 0;padding:0;border:1px solid var(--rule);
+  border-radius:3px;max-height:60vh;overflow-y:auto;}
+.searchbox li{display:flex;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--rule-soft);}
+.searchbox li:last-child{border-bottom:none;}
+.searchbox li a .cc,.simlist .cc{font-style:normal;color:var(--faint);
+  font-size:var(--t-micro);margin-left:7px;letter-spacing:.04em;}
+.simlist .cc{margin-left:0;}
+.searchbox li a{flex:1;padding:9px 13px;color:var(--ink);text-decoration:none;
+  font-size:var(--t-table);}
+.searchbox li a:hover{background:var(--surface);}
+.searchbox li span{padding:9px 13px;color:var(--quiet);font-size:var(--t-small);
+  font-variant-numeric:tabular-nums;}
+.searchbox li.none{padding:9px 13px;color:var(--quiet);font-size:var(--t-table);}
+.searchbox li a em{font-style:normal;color:var(--quiet);font-size:var(--t-small);}
+
+/* CPC titles expand in place rather than hiding in a tooltip. */
+button.expand{display:block;width:100%;text-align:left;padding:0;border:0;
+  background:none;font:inherit;color:inherit;cursor:pointer;}
+button.expand::after{content:"";display:inline-block;width:0;height:0;margin-left:6px;
+  vertical-align:middle;border-left:3.5px solid var(--faint);
+  border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;
+  transition:transform .12s;}
+button.expand[aria-expanded="true"]::after{transform:rotate(90deg);}
+button.expand:hover::after{border-left-color:var(--ink);}
+button.expand .full{display:none;margin-top:4px;color:var(--quiet);
+  font-size:var(--t-small);line-height:1.5;max-width:70ch;}
+button.expand[aria-expanded="true"] .full{display:block;}
+
+/* Small area charts in the stat rail; the .mpk peak label sits flush right. */
+.minis{margin:0;}
+.mrow{margin:0 0 11px;}
+.mlab{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s1);
+      font-size:var(--t-micro);letter-spacing:.04em;text-transform:uppercase;
+      color:var(--ink);margin:0 0 2px;}
+.mpk{font-size:var(--t-micro);color:var(--quiet);font-variant-numeric:tabular-nums;
+     letter-spacing:0;text-transform:none;}
+svg.mini{display:block;width:100%;height:30px;}
+svg.mini path{fill:var(--ink);fill-opacity:.13;stroke:var(--ink);stroke-width:.9;
+              stroke-opacity:.55;}
+
+/* Search inside the rail. */
+.railsearch{margin:0 0 4px;position:relative;}
+.railsearch input{width:100%;padding:8px 10px;font:inherit;font-size:var(--t-small);
+  line-height:1.3;color:var(--ink);background:var(--plate);
+  border:1px solid var(--rule);border-radius:3px;}
+.railsearch input:focus{outline:none;border-color:var(--ink);}
+.railsearch ul{list-style:none;margin:5px 0 0;padding:0;border:1px solid var(--rule);
+  border-radius:3px;background:var(--plate);max-height:44vh;overflow-y:auto;position:absolute;
+  left:0;right:0;z-index:20;}
+.railsearch li{border-bottom:1px solid var(--rule-soft);}
+.railsearch li:last-child{border-bottom:none;}
+.railsearch li a{display:block;padding:6px 9px;color:var(--ink);text-decoration:none;
+  font-size:var(--t-small);line-height:1.35;}
+.railsearch li a:hover{background:var(--surface);}
+.railsearch li a em{font-style:normal;color:var(--quiet);}
+.railsearch li span{display:none;}
+/* keyboard highlight, both search lists */
+.searchbox li.is-active,.railsearch li.is-active{background:var(--surface);}
+
+/* ---------------- notes: prose pages ---------------- */
+/* The notes are the atlas's one page of running prose; they read in the
+   serif, at a book's measure and leading. The sans is for working surfaces. */
+.prose{max-width:66ch;margin:0 auto;padding:var(--s3) var(--s3) var(--s4);}
+.prose p{font-family:var(--serif);font-size:1.05rem;line-height:1.72;}
+.prose h3{font-family:var(--serif);font-weight:600;font-size:1.25rem;
+  margin:30px 0 8px;letter-spacing:-.005em;}
+.prose h1{font-family:var(--serif);font-weight:600;font-size:var(--t-h1);
+  line-height:1.2;letter-spacing:-.01em;margin:0 0 var(--s2);}
+.prose h2{font-family:var(--serif);font-weight:700;font-size:var(--t-body);
+  text-transform:uppercase;letter-spacing:.02em;margin:var(--s3) 0 var(--s1);}
+.prose p{margin:0 0 var(--s2);line-height:1.7;}
+.prose a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--faint);
+  text-underline-offset:2px;}
+.prose a:hover{text-decoration-color:var(--ink);}
+
+/* ---------------- colophon ---------------- */
+/* margin-TOP auto is what pins it to the bottom of a short page; the sides
+   stay auto so it still centres. Declared as `margin:0 auto` in a rule above,
+   this shorthand quietly put margin-top back to 0. */
+.foot{max-width:calc(var(--colw) + 2*var(--s3));margin:auto auto 0;
+  padding:var(--s2) var(--s3) var(--s3);position:relative;
+  display:flex;flex-wrap:wrap;align-items:baseline;
+  justify-content:space-between;gap:var(--s1) var(--s2);
+  font-size:var(--t-small);color:var(--quiet);}
+/* the page closes as it opened: the Scotch rule, inverted -- both lines
+   drawn at the content edge so the pair shares one width */
+.foot::after{content:"";position:absolute;top:0;left:var(--s3);right:var(--s3);
+  border-top:1px solid var(--ink);}
+.foot::before{content:"";position:absolute;top:3px;left:var(--s3);right:var(--s3);
+  border-top:2.5px solid var(--ink);}
+.foot a{color:inherit;text-decoration:none;}
+.foot a:hover{text-decoration:underline;text-underline-offset:2px;}
+
+/* ---------------- responsive ---------------- */
+@media (max-width:700px){
+  /* charts keep a legible floor width; the chapter pans. The map is exempt by
+     construction -- it scales to any width without losing meaning. */
+  section.chap{overflow-x:auto;}
+  section.chap svg.ts{min-width:560px;}
+}
+@media (max-width:620px){
+  .pagehead,.shell,.foot,.prose{padding-left:20px;padding-right:20px;}
+  .pagehead{padding-top:var(--s2);}
+  .panel{overflow-x:auto;}
+  .barcell{display:none;}
+}
+@media (hover:none){
+  .map-fg circle:hover{fill-opacity:.62;}
+  .seg button{min-height:40px;padding:10px 14px;}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;} }
+
+/* Year marker under the cursor on the time-series charts, and the tip that
+   follows it (fixed to the viewport; the map's tip is absolute in its wrapper). */
+.ts .vrule{stroke:var(--ink);stroke-width:.6;opacity:.28;pointer-events:none;}
+.tip-fixed{position:fixed;}
+.tip-fixed span{display:block;}
+.tip-fixed span b{display:inline;font-weight:600;color:var(--ink);}
+
+/* The overview map is the landing image, not a figure inside an argument: no
+   frame, no padding, no tinted ground -- the coastline is the edge. It also runs
+   wider than the reading column, since a US map at text width is a postage stamp. */
+.plate.hero{border:0;border-radius:0;background:none;padding:0;margin:var(--s1) 0 var(--s2);
+  width:100vw;max-width:100vw;position:relative;
+  left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;}
+.plate.hero .map-bg,.plate.hero .map-fg{border-radius:0;}
+/* Sized by HEIGHT, not width: the map is 960x560, so a full-width map on a wide
+   screen is 840px tall and pushes everything below the fold. 94vh of width gives
+   ~55vh of map -- about half the screen, which is what it is for. */
+/* Sized so the FIRST SCREEN is complete: masthead + title + map + legend +
+   section chips inside one viewport height on common desktops. 122vh left the
+   country cut mid-Texas at 840px-tall windows -- the arrival moment was a
+   decapitated map. 106vh of width is ~62vh of map; the whole instrument lands
+   still and whole, and the scroll begins with the story already told once. */
+.plate.hero .map-wrap{width:min(1700px, 96vw, 106vh);margin:0 auto;padding:0;}
+.plate.hero .cty path{cursor:crosshair;}
+.plate.hero .cty path:hover{stroke:var(--ink);stroke-width:.8;}
+@media (max-width:620px){ .plate.hero .map-wrap{padding:0;} }
+
+/* Overview: the page is the landing surface, so it centres. */
+.stage.overview{margin:0 auto;max-width:var(--colw);}
+.twoup{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);align-items:start;}
+@media (max-width:820px){ .twoup{grid-template-columns:1fr;} }
+
+/* national map: the subject of the overview, so it runs edge to edge */
+/* Block margins only. The `margin` shorthand here would reset the -50vw side
+   margins that make .plate.hero full-bleed, and the map would shoot off-screen. */
+.stage.overview .plate.hero{margin-top:var(--s1);margin-bottom:6px;}
+.natmap{width:100%;}
+.natmap .map-bg{width:100%;height:auto;display:block;}
+.natmap path[data-n]{transition:none;}
+.natmap:hover path[data-n]:hover{stroke:var(--ink);stroke-width:.8;}
+#tip .tr{display:flex;justify-content:space-between;gap:18px;}
+#tip .tr i{font-style:normal;font-variant-numeric:tabular-nums;}
+/* One section legend is shown at a time; the global [hidden] rule hides the rest. */
+/* National key: a continuous bar with ten ranked ticks under it. */
+.seclg{display:block;max-width:min(680px,86vw);margin:10px auto 0;}
+.rampbar{display:block;height:9px;border-radius:2px;}
+.rampticks{position:relative;display:block;height:1.2em;margin-top:4px;
+  font-size:var(--t-micro);color:var(--quiet);font-variant-numeric:tabular-nums;}
+.rampticks span{position:absolute;transform:translateX(-50%);white-space:nowrap;}
+/* The end ticks are min and max; keep them inside the bar. */
+.rampticks span:first-child{transform:none;}
+.rampticks span:last-child{transform:translateX(-100%);}
+.rampbar{position:relative;}
+.rampbar::after{content:"";position:absolute;inset:0;border-radius:2px;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.07);}
+.rampnote{display:block;margin-top:5px;text-align:center;
+  font-size:var(--t-micro);letter-spacing:.02em;color:var(--quiet);}
+
+/* Section picker: chips that wear the hue they switch the map to, so the row is
+   also the key. Sits UNDER the map -- the map is the subject, not the controls. */
+@media (max-width:620px){ .rampnote{letter-spacing:.06em;} .rampticks{font-size:9px;} }
+
+/* Series names read as labels, not prose -- same voice as the panel heads. */
+.ts .lg text{text-transform:uppercase;letter-spacing:.06em;}
+/* The series tip is .tip-fixed, not #tip -- #tip is the map's, which lives
+   inside the map wrapper. */
+.tip-fixed > span{text-transform:uppercase;letter-spacing:.06em;}
+
+/* ---------------- overview layout ---------------- */
+.pagehead.center{text-align:center;padding-top:var(--s2);}
+.caption.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* the map's whole control surface in one centred strip below it */
+/* The lens strips are one instrument with the map. Each strip carries a
+   small centred kicker instead of a chapter head -- the chapter heads belong
+   to the record sections below (Documents, Inventors, the tables), and the
+   page's vertical rhythm is: tight inside the instrument, wide between
+   chapters. */
+.kicker{margin:0 0 6px;text-align:center;font-size:var(--t-micro);
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+  font-weight:700;flex-basis:100%;}
+.mapctl .kicker{margin-top:var(--s2);}
+.gallery{margin-top:var(--s2);}
+.gallery .kicker{margin-bottom:2px;}
+.mapctl{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:8px 14px;margin:var(--s2) auto 0;}
+/* WHERE and WHOSE ADDRESS sit together above the map, one cluster, each
+   question wearing its own colour when answered: geography in the maroon,
+   address in the slate. WHEN keeps its centred thumbnail row below. */
+/* THE PLATE. One composed figure in the Times' grammar: a 2px rule opens
+   it, the running title sits on the rule at left, the mode controls sit on
+   it at right as quiet text-tabs. Colour belongs to the data below, never
+   to these controls -- the filled pills read as consumer UI and are gone. */
+/* the hero bleeds; its head does not -- the rule sits on the page grid,
+   the same width as the masthead's Scotch rule, so the plate hangs FROM
+   the column even while its map runs wider */
+/* Firm tables ride deeper (25 rows at the source) inside scroll boxes, the
+   leaderboard's own pattern: ten-ish visible, the rest a scroll away, the
+   scrollbar quiet until asked. */
+.scrolltable{max-height:440px;overflow-y:auto;overscroll-behavior:contain;
+  scrollbar-width:thin;scrollbar-color:var(--rule) transparent;}
+.scrolltable::-webkit-scrollbar{width:7px;}
+.scrolltable::-webkit-scrollbar-track{background:transparent;}
+.scrolltable::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px;}
+.scrolltable:hover::-webkit-scrollbar-thumb{background:var(--faint);}
+.scrolltable thead th{position:sticky;top:0;background:var(--paper);z-index:2;}
+[data-theme="dark"] .scrolltable{scrollbar-color:#3a3a42 transparent;}
+[data-theme="dark"] .scrolltable::-webkit-scrollbar-thumb{background:#3a3a42;}
+/* Firm head: an article opening, everything on the column's centre axis --
+   kicker, name, lede, meta -- then the SCOREBOARD: the five headline figures
+   in one band across the column, label over value over rank. The page states
+   its facts before its prose, and the head has one axis, not two columns
+   with dead air between them. */
+/* width:100% and no auto margins: `margin:0 auto` on a GRID item shrinks it to
+   its content, and the head came out 791px inside a 1020 column -- the
+   scoreboard's rule stopping short of every rule beneath it. */
+.pagehead.firmhead{max-width:var(--colw);width:100%;margin:0;text-align:center;
+  padding:0;}
+.firmhead .lede{max-width:660px;margin-left:auto;margin-right:auto;}
+.statband{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  margin-top:30px;border-top:2px solid var(--data);
+  border-bottom:1px solid var(--rule);padding:15px 0 13px;}
+.statband .stat{padding:0 12px;border-left:1px solid var(--rule);min-width:0;}
+.statband .stat:first-child{border-left:0;}
+.statband .k{display:block;font-size:var(--t-micro);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink);font-weight:700;margin-bottom:4px;
+  white-space:nowrap;}
+.statband .v{display:block;font-family:var(--serif);font-size:var(--t-stat);
+  font-weight:600;line-height:1.15;font-variant-numeric:tabular-nums;}
+.statband .r{display:block;margin-top:3px;font-size:var(--t-small);
+  color:var(--quiet);font-variant-numeric:tabular-nums;}
+@media (max-width:900px){
+  .statband{grid-template-columns:repeat(2,1fr);row-gap:16px;}
+  .statband .stat:nth-child(odd){border-left:0;}
+}
+.shell.overviewshell{padding-top:0;}
+.stage.overview .plate.hero{margin-top:0;}
+.platehead{display:flex;align-items:baseline;justify-content:space-between;
+  gap:18px;border-bottom:2px solid var(--ink);padding:13px 0 12px;
+  margin:0 auto 16px;width:min(var(--colw), 92vw);}
+.plttl{font-size:var(--t-small);letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink);font-weight:700;;}
+.plttl .dot{color:var(--gold);font-weight:700;}
+.maptabs{display:flex;gap:0;align-self:baseline;}
+.maptabs .seg+.seg{border-left:1px solid var(--rule);margin-left:20px;padding-left:20px;}
+.maptabs .seg{display:inline-flex;gap:14px;}
+.maptabs .seg button{font:600 var(--t-micro)/1.2 var(--sans);letter-spacing:.1em;
+  text-transform:uppercase;background:none;border:0;padding:0 0 3px;cursor:pointer;
+  color:var(--faint);border-bottom:2px solid transparent;}
+.maptabs .seg button:hover{color:var(--quiet);}
+.maptabs .seg button.is-on{color:var(--ink);border-bottom-color:var(--ink);}
+/* the firm pages' extent/address controls speak the same voice */
+.controls .seg{display:inline-flex;gap:14px;}
+.controls .seg button{font:600 var(--t-micro)/1.2 var(--sans);letter-spacing:.1em;
+  text-transform:uppercase;background:none;border:0;padding:0 0 3px;cursor:pointer;
+  color:var(--faint);border-bottom:2px solid transparent;border-radius:0;}
+.controls .seg button:hover{color:var(--quiet);}
+.controls .seg button.is-on{color:var(--ink);border-bottom-color:var(--ink);background:none;}
+.mapbar{display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:6px;}
+
+.ctldiv{width:1px;height:20px;background:var(--rule);}
+@media (max-width:620px){ .ctldiv{display:none;} }
+
+/* tabbed tables: same voice as a panel-head, so the tab row reads as a heading
+   with a choice in it rather than a widget */
+.tabbar{display:flex;align-items:baseline;gap:26px;margin-top:var(--s3);
+  border-bottom:2px solid var(--ink);}
+.tabbar button{font-family:var(--serif);font-weight:600;font-size:1.15rem;
+  background:none;border:0;
+  padding:0 0 9px;margin-bottom:-2px;color:var(--quiet);cursor:pointer;
+  border-bottom:2px solid transparent;}
+.tabbar button:hover{color:var(--ink);}
+.tabbar button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--data);}
+.tabnote{margin-left:auto;font-size:var(--t-small);color:var(--quiet);}
+.oview{display:none;}
+.oview.is-on{display:block;}
+@media (hover:none){ .tabbar button{padding-bottom:12px;} }
+
+/* In-plot chart legends sit over the data; a paper-coloured halo keeps the
+   label legible where a line crosses behind it without boxing the legend in. */
+.ts .lg text{paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round;}
+
+/* rank numerals: quiet, serif, the same voice as the rail nav numbers */
+td.rk,th.rk{width:2.2em;color:var(--quiet);font-family:var(--serif);
+  font-variant-numeric:tabular-nums;text-align:right;padding-right:10px;}
+
+/* the "/" affordance inside the overview search; gone once you're typing */
+
+/* one breath between the page's major beats */
+.tabbar{margin-top:var(--s4);}
+
+/* ============================================================
+   MAP INSTRUMENT — firm lede, leaderboard, decade strip,
+   section gallery, county card. Interface still wears ink;
+   colour on these surfaces is the data, drawn by networks.js.
+   ============================================================ */
+
+/* Firm lede: one generated sentence under the H1. Body voice, not serif -- it is
+   the opening line of the page, not a pull-quote. Ink, so it reads as fact. */
+.lede{margin:10px 0 0;font-size:var(--t-body);color:var(--ink);
+  max-width:72ch;line-height:1.55;}
+
+/* Top-counties leaderboard. It must NEVER sit on geography -- floated over the
+   north-east corner it covered Maine. On wide screens it lives in the true
+   gutter BESIDE the centred map (JS adds .gutter only when the free space
+   fits it); otherwise it drops into flow under the map. Micro type, tabular
+   numerals, quiet -- a reference the map answers, not a headline. */
+/* Below the map (no gutter) the list must not stretch the full figure width:
+   a county name at the left margin and its count a thousand pixels away is two
+   unrelated facts, not a row. Capped and centred, it stays one object. */
+.natleader{margin:var(--s2) auto 0;font-size:var(--t-micro);color:var(--quiet);
+  font-variant-numeric:tabular-nums;max-width:340px;}
+.natleader h4{margin:0 0 5px;
+  font-size:var(--t-micro);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--data);font-weight:700;}
+/* The list scrolls the whole ranking -- thousands of counties, not ten. It is
+   capped by viewport height so the gutter card can never run off screen, and
+   the fade at the foot says "there is more" without a scrollbar having to. */
+.natleader ol{list-style:none;margin:0;padding:0;counter-reset:ld;
+  max-height:min(46vh,340px);overflow-y:auto;overscroll-behavior:contain;
+  scrollbar-width:thin;scrollbar-color:var(--rule) transparent;}
+.natleader ol::-webkit-scrollbar{width:7px;}
+.natleader ol::-webkit-scrollbar-track{background:transparent;}
+.natleader ol::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px;}
+.natleader ol:hover::-webkit-scrollbar-thumb{background:var(--faint);}
+.natleader .lfoot{margin:7px 0 0;padding-top:6px;border-top:1px solid var(--rule);
+  font-size:calc(var(--t-micro) - .5px);color:var(--quiet);letter-spacing:.01em;}
+.natleader li{display:flex;align-items:baseline;gap:9px;padding:2px 0;
+  cursor:pointer;counter-increment:ld;}
+.natleader li::before{content:counter(ld);color:var(--faint);
+  min-width:2.2em;text-align:left;}
+.natleader .lname{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.natleader .lval{color:var(--ink);font-weight:600;}
+.natleader li:hover .lname{color:var(--ink);}
+.natleader.gutter{position:absolute;left:100%;margin:0 0 0 20px;width:218px;max-width:218px;
+  top:50%;transform:translateY(-50%);z-index:4;max-height:82vh;
+  background:var(--plate);border:1px solid var(--rule);
+  border-top:2px solid var(--data);border-radius:0 0 4px 4px;
+  padding:12px 14px;box-shadow:0 6px 26px var(--tipshadow);}
+
+/* Decade strip: five small multiples that are also the decade selector, plus an
+   "All years" chip. Sits directly under the chips/layer row. */
+.decstrip{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:8px 10px;margin:0 auto;max-width:min(940px,94vw);}
+.decthumb-btn{flex:1 1 130px;max-width:190px;display:flex;flex-direction:column;
+  align-items:center;gap:4px;padding:4px;border:0;background:none;cursor:pointer;
+  font:inherit;border-radius:4px;}
+.decthumb{display:block;width:100%;height:auto;aspect-ratio:12/7;border-radius:3px;
+  background:var(--plate);box-shadow:inset 0 0 0 1px var(--rule);}
+.decthumb-btn .declab{font-size:var(--t-micro);letter-spacing:.02em;
+  color:var(--quiet);}
+.decthumb-btn:hover .decthumb{box-shadow:inset 0 0 0 1px var(--faint);}
+.decthumb-btn:hover .declab{color:var(--ink);}
+.decthumb-btn.is-on .decthumb{box-shadow:0 0 0 2px var(--ink);}
+.decthumb-btn.is-on .declab{color:var(--ink);font-weight:600;}
+
+/* Section gallery: eight small multiples, each a door to that section on the big
+   map. Two columns below 820px. */
+.gallery{margin-top:var(--s4);}
+/* Nine tiles, All leading: 3x3 keeps every mini-map the same size and the
+   grid square; 2 columns on small screens. */
+/* The gallery reads as a hierarchy: the whole (All, centred, its own row),
+   its eight parts (two rows of four), and the cross-cutting climate lens
+   (Y02, centred beneath). Tile order comes from the sections list; the
+   first and last tiles are the ones pulled out of the flow. */
+/* The decade thumbnails set the reference size for every mini-map on the
+   page. Ten lenses, two rows of five, the same strip width as the decades:
+   [All A B C D] / [E F G H Y02]. */
+.secgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  margin:var(--s1) auto 0;max-width:min(940px,94vw);}
+@media (max-width:820px){ .secgrid{grid-template-columns:repeat(3,1fr);} }
+.secthumb-btn{display:flex;flex-direction:column;align-items:stretch;gap:6px;
+  padding:5px;border:0;background:none;cursor:pointer;font:inherit;
+  border-radius:4px;text-align:left;}
+.secthumb{display:block;width:100%;height:auto;aspect-ratio:12/7;border-radius:3px;
+  background:var(--plate);box-shadow:inset 0 0 0 1px var(--rule);}
+.secthumb-btn .seclab{font-size:var(--t-micro);color:var(--quiet);line-height:1.3;}
+.secthumb-btn .seclab b{color:var(--ink);font-weight:600;margin-right:6px;
+  font-variant-numeric:tabular-nums;}
+.secthumb-btn:hover .secthumb{box-shadow:inset 0 0 0 1px var(--faint);}
+.secthumb-btn:hover .seclab{color:var(--ink);}
+.secthumb-btn.is-on .secthumb{box-shadow:0 0 0 2px var(--ink);}
+.secthumb-btn.is-on .seclab{color:var(--ink);}
+
+/* ---- selection + wayfinding on the national map ---- */
+/* The chosen county: accent stroke with a paper casing, riding above its
+   neighbours. Ink alone vanished on dark counties -- and the darkest counties
+   (Santa Clara, Dallas) are precisely the ones people click. The drop-shadow
+   is the casing: a thin halo in the page ground that separates the stroke
+   from any fill beneath it, in either theme. */
+#mapbg path.is-sel{stroke:var(--data);stroke-width:1.6;stroke-linejoin:round;
+  paint-order:stroke fill;
+  filter:drop-shadow(0 0 1.5px var(--paper)) drop-shadow(0 0 1.5px var(--paper));}
+/* state codes: quiet wayfinding, never interactive, never catching hover */
+.stcode{pointer-events:none;}
+.stcode text{font:600 11px/1 "Source Sans 3",sans-serif;letter-spacing:.08em;
+  fill:var(--quiet);opacity:.62;text-anchor:middle;
+  paint-order:stroke;stroke:var(--paper);stroke-width:2.5px;stroke-linejoin:round;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.18));}
+[data-theme="dark"] .stcode text{filter:drop-shadow(0 1px 2px rgba(0,0,0,.55));}
+[data-theme="dark"] .stcode text{opacity:.55;}
+
+.ctylens{margin:2px 0 7px;font-size:var(--t-small);color:var(--ink);
+  font-variant-numeric:tabular-nums;}
+.ctylens i{font-style:normal;font-weight:600;}
+.ctyall{margin:0 0 3px;font-size:var(--t-micro);color:var(--quiet);}
+.ctyhead{background:var(--surface);margin:-14px -16px 0;
+  padding:13px 16px 9px;border-bottom:1px solid var(--rule);}
+.ctyhead h4{margin-top:0;}
+/* one rhythm inside the card: 14px into a section head, 6px out of it,
+   lists flush so margins never stack */
+.ctycard ul{margin-top:0;margin-bottom:0;}
+/* leaderboard heading: title, then the lens (the one thing that changes,
+   so it gets the ink), then the quiet context line */
+.natleader .llens{margin:4px 0 0;font-size:var(--t-small);color:var(--ink);
+  font-weight:600;letter-spacing:0;text-transform:none;line-height:1.3;}
+.natleader .lctx{margin:1px 0 7px;font-size:var(--t-micro);color:var(--quiet);
+  letter-spacing:0;text-transform:none;}
+/* ---- the unashamed round ---- */
+/* the card's rank chip and the sidebar's answer to a map click */
+.ctyrank{font-family:var(--sans);font-size:var(--t-small);font-weight:700;
+  color:var(--data);margin-left:8px;letter-spacing:0;}
+.natleader li.is-here .lname{color:var(--data);font-weight:700;}
+.natleader li.is-here::before{color:var(--data);font-weight:700;}
+
+
+/* the firm map's controls stand on a plate rule, like the overview's --
+   and like the overview's platehead the strip has TWO sides: segments on
+   the left, the quiet count of places on the right. No strip trails off
+   into dead air. */
+.chap .controls{border-bottom:2px solid var(--ink);padding-bottom:10px;
+  margin-bottom:16px;margin-top:0;}
+.controls .ctlstat{margin-left:auto;font-size:var(--t-small);
+  color:var(--quiet);font-variant-numeric:tabular-nums;}
+
+/* the rail, unashamed: sparklines draw in ink and maroon. The roman numerals
+   are gone from the markup, not hidden by a third rule cancelling two above. */
+svg.mini path{fill:var(--data);fill-opacity:.14;stroke:var(--ink);
+  stroke-width:1.2;stroke-opacity:.85;}
+/* County card: the map's door. Same voice as .tip -- plate ground, hairline
+   border -- larger and interactive, THEMED (a hardcoded white card floated over
+   the dark map like a torn label). In the left gutter when it fits, mirroring
+   the leaderboard on the right, so the map itself is never covered; else it
+   floats in the map's top-left corner; bottom sheet on phones. */
+.ctycard{position:absolute;z-index:6;left:12px;top:12px;width:min(320px,86%);
+  max-height:82%;overflow:auto;background:var(--plate);color:var(--ink);
+  border:1px solid var(--rule);border-top:2px solid var(--data);
+  border-radius:0 0 4px 4px;padding:14px 16px 16px;
+  box-shadow:0 6px 26px var(--tipshadow);font-size:var(--t-small);line-height:1.5;
+  overscroll-behavior:contain;scrollbar-width:thin;
+  scrollbar-color:var(--rule) transparent;}
+.ctycard::-webkit-scrollbar{width:7px;}
+.ctycard::-webkit-scrollbar-track{background:transparent;}
+.ctycard::-webkit-scrollbar-thumb{background:var(--rule);border-radius:4px;}
+.ctycard:hover::-webkit-scrollbar-thumb{background:var(--faint);}
+[data-theme="dark"] .ctycard{scrollbar-color:#3a3a42 transparent;}
+[data-theme="dark"] .ctycard::-webkit-scrollbar-thumb{background:#3a3a42;}
+[data-theme="dark"] .ctycard:hover::-webkit-scrollbar-thumb{background:#4e4e58;}
+.ctycard.gutter{left:auto;right:100%;margin-right:18px;top:50%;
+  transform:translateY(-55%);width:250px;max-height:88%;}
+.ctycard h4{margin:0 20px 8px 0;font-family:var(--serif);font-weight:600;
+  font-size:var(--t-body);line-height:1.2;}
+.ctyx{position:absolute;top:7px;right:9px;border:0;background:none;cursor:pointer;
+  font-size:1.15rem;line-height:1;color:var(--faint);padding:2px 5px;}
+.ctyx:hover{color:var(--ink);}
+.ctycounts{display:block;margin:0;
+  font-size:var(--t-micro);color:var(--quiet);font-variant-numeric:tabular-nums;}
+.ctycounts span{display:flex;align-items:baseline;justify-content:space-between;
+  gap:12px;padding:1.5px 0;}
+.ctycounts i{font-style:normal;font-weight:600;color:var(--ink);}
+/* ONE universal divider: the same single clean hairline that closes the
+   header block, spanning the card's full width above each section. No
+   boxes, no double lines -- a rule and then the title. */
+.ctycard h5{position:relative;margin:10px 0 6px;padding-top:12px;
+  font-size:var(--t-micro);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--data);font-weight:700;}
+.ctycard h5::before{content:"";position:absolute;top:0;left:-16px;right:-16px;
+  border-top:1px solid var(--rule);}
+/* the header band already closes with this same line -- the first section
+   must not draw a second one beneath it */
+.ctyhead + h5{margin-top:0;padding-top:12px;}
+.ctyhead + h5::before{display:none;}
+.ctycard ul{list-style:none;margin:0;padding:0;}
+.ctyfirms li{display:flex;justify-content:space-between;gap:10px;padding:5.5px 0;
+  border-top:1px solid var(--rule-soft);font-variant-numeric:tabular-nums;
+  line-height:1.45;}
+.ctyfirms li:first-child{border-top:0;}
+.ctyfirms a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+.ctyfirms a:hover{border-bottom-color:var(--ink);}
+.ctyfirms span{color:var(--quiet);}
+.ctytech li{display:flex;gap:9px;padding:5.5px 0;border-top:1px solid var(--rule-soft);
+  line-height:1.45;
+  font-variant-numeric:tabular-nums;}
+.ctytech li:first-child{border-top:0;}
+.ctytech .tcode{font-family:var(--serif);font-weight:600;min-width:3em;}
+.ctytech .ttitle{flex:1;color:var(--quiet);}
+.ctytech .tval{color:var(--ink);}
+@media (max-width:620px){
+  .ctycard{position:fixed;left:0;right:0;bottom:0;top:auto;width:100%;
+    max-height:72vh;border-radius:12px 12px 0 0;border-bottom:0;
+    box-shadow:0 -6px 26px rgba(0,0,0,.18);}
+}
+@media (hover:none){
+  .decthumb-btn,.secthumb-btn{min-height:0;}
+}
+
+/* ---------------- dark theme ----------------
+   Set as data-theme on <html> by a tiny head script (saved choice, else the
+   system preference), so the page never flashes the wrong theme. The maps'
+   county fills come from shades.json ramps_dark (JS) and the generated
+   choropleth.css dark rules; everything else is these tokens. */
+[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#101012; --ink:#e8e6e2; --quiet:#c0bdb4; --faint:#8e8b84;
+  --rule:#2a2a2e; --rule-soft:#232327; --plate:#17171a; --surface:#1c1c20;
+  --data:#d07a6a; --data-d:#e08b78;
+  --gold:#d9b45c;
+  --ch2:#8db3d3; --ch4:#4f7cad; --ch5:#e2b95f; --choth:#4a4842;
+  --ser2:#8a867c; --map-base:#1c1c1f; --tipshadow:rgba(0,0,0,.5);
+}
+[data-theme="dark"] .seg button,
+[data-theme="dark"] .searchbox input{background:var(--plate);color:var(--ink);}
+[data-theme="dark"] .decthumb-btn,[data-theme="dark"] .secthumb-btn{background:var(--plate);}
+
+/* the toggle: two glyphs, one visible; same quiet voice as the masthead */
+.themetoggle.floating{position:absolute;top:14px;right:18px;float:none;z-index:6;}
+.themetoggle{float:right;font:inherit;background:none;border:0;cursor:pointer;
+  color:var(--quiet);font-size:var(--t-small);padding:2px 6px;border-radius:4px;}
+.themetoggle:hover{color:var(--ink);}
+.themetoggle .sun{display:none;}
+[data-theme="dark"] .themetoggle .sun{display:inline;}
+[data-theme="dark"] .themetoggle .moon{display:none;}
+
+.panel.gallery{margin-top:var(--s2);}
+
+/* linked highlighting: the row lit by its circle, in the table's own voice */
+tr[data-c]{cursor:default;}
+tr.is-lit td{background:var(--surface);}
+tr.is-lit td.place{color:var(--data-d);}
+
+.searchbox input::placeholder{color:var(--faint);opacity:1;}
+.searchbox input::-webkit-search-decoration{-webkit-appearance:none;}
+
+/* ============================================================
+   WORLD EXTENT + FIRM EDITORIAL SCROLL (CONTRACT2)
+   Interface still wears ink; the added surfaces reuse existing
+   tokens, so dark parity comes for free.
+   ============================================================ */
+
+/* Firm pages are one scroll of chapters: --s4 rhythm between them, the first
+   tight under the pagehead. scroll-margin-top keeps a smooth-scrolled chapter
+   clear of the top edge. The active rail link reuses the existing .nav a.is-on
+   voice set by the scrollspy -- no new active style is introduced. */
+/* CHAPTERS AS TABS. The markup is a plain scroll and so is this rule; only
+   html.tabs, set by the head script, turns them into panels. With scripting
+   off a reader still gets all five chapters, stacked -- they just don't
+   switch. */
+.chap{margin-top:var(--s4);}
+html.tabs .chap{display:none;margin-top:0;}
+html.tabs .chap.is-on{display:block;}
+/* Summary carries the ownership block as a second visible section; it needs
+   the chapter gap the first one gave up. */
+html.tabs .chap.is-on ~ .chap.is-on{margin-top:var(--s4);}
+.chap:first-of-type{margin-top:0;}
+
+/* World extent on the overview map: countries get the same crosshair pointer
+   and ink hairline the county choropleth uses. World paths also carry data-n,
+   so the existing .natmap:hover path[data-n]:hover rule already tints them; this
+   makes the affordance explicit and adds the pointer. */
+.natmap #mapbg path[data-cc]{cursor:crosshair;}
+.natmap:hover #mapbg path[data-cc]:hover{stroke:var(--ink);stroke-width:.8;}
+
+/* The extent segment leads the .mapctl strip (markup order per contract; the
+   order keeps it first even if the markup shifts). It is a .seg, so it already
+   wears the segmented-control voice in both themes. */
+.mapctl #natextent{order:-1;}
+
+/* ---- firm-page finish ---- */
+/* The firm's map is the hero of an editorial page, not a widget in a frame. */
+.chap .plate.mapplate{border:0;border-radius:0;background:none;padding:0;}
+/* readable ratio column and calmer scanning across every stage table */
+.stage tbody tr:hover td{background:var(--surface);}
+.stage thead tr:hover th{background:none;}
+/* the lede is a standfirst: a half-step larger than body, never wider than 62ch */
+/* Prose measure, used by EVERY running-text element on the page. Four
+   different max-widths (lede 62ch, caption 82ch, meta none) made the same
+   paragraph wrap at a different place in each block, which reads as broken
+   spacing rather than as a deliberate column. */
+:root{--measure:none;}
+/* The lede is the only running prose on the page -- the one generated
+   sentence. It wears the serif, like the caption already does; in the
+   interface sans it was indistinguishable from a control label. */
+.lede{font-family:var(--serif);font-size:1.13rem;line-height:1.6;max-width:104ch;
+  color:var(--ink);margin:0 0 var(--s1);}
+
+/* chart key: chip + label, wraps freely above the plot */
+.chartkey{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 2px 0;
+  font-size:var(--t-small);color:var(--quiet);}
+.chartkey .k{display:inline-flex;align-items:center;gap:7px;}
+.chartkey i{width:14px;height:3px;border-radius:2px;background:var(--faint);}
+.chartkey .c1 i{background:var(--data);} .chartkey .c2 i{background:var(--ch2);}
+.chartkey .c3 i{background:var(--ink);} .chartkey .c4 i{background:var(--quiet);}
+.chartkey .c5 i{background:var(--faint);}
+.chartkey .coth i{background:var(--faint);opacity:.5;}
+
+@media (max-width:620px){
+  .tabbar{flex-wrap:wrap;}
+  .tabnote{margin-left:0;flex-basis:100%;order:9;padding-bottom:6px;}
+  .twoup svg.ts{min-width:0;}   /* overview two-up charts are 470-unit and scale fine */
+}
+
+/* ---------------- the stat strip (DESIGN.md sec.1) ----------------
+   The firm's headline numbers ride with the arrival as the .statband. */
+
+/* Nearest in technology space: a ranked list in the table voice, numbers
+   quiet and tabular; the toggle wears the existing .seg grammar. */
+.simlist{list-style:none;margin:var(--s1) 0 0;padding:0;counter-reset:sim;
+  columns:2;column-gap:var(--s3);}
+.simlist li{counter-increment:sim;display:flex;align-items:baseline;gap:10px;
+  padding:4px 0;border-bottom:1px solid var(--rule-soft);break-inside:avoid;}
+.simlist li::before{content:counter(sim);color:var(--faint);
+  font-family:var(--serif);min-width:1.6em;text-align:right;
+  font-variant-numeric:tabular-nums;}
+.simlist a{flex:1;text-decoration:none;color:var(--ink);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.simlist a:hover{text-decoration:underline;text-underline-offset:3px;}
+.simlist .score{color:var(--quiet);font-variant-numeric:tabular-nums;
+  font-size:var(--t-small);}
+.simlist li.more{display:none;}
+.simlist li.more.unfolded{display:flex;}
+button.unfold{font:inherit;font-size:var(--t-micro);border:1px solid var(--rule);
+  background:var(--plate);color:var(--quiet);padding:4px 10px;border-radius:3px;
+  cursor:pointer;margin-top:var(--s1);}
+button.unfold:hover{color:var(--ink);border-color:var(--faint);}
+.simnone{color:var(--quiet);font-size:var(--t-small);margin-top:var(--s1);}
+@media (max-width:700px){ .simlist{columns:1;} }
+
+/* ---- firm page rhythm ----------------------------------------------------
+   The head block, the stat strip and the first chapter each carried their own
+   margins, so the gaps above and below the strip were unequal and the lede sat
+   tight against the name. One scale, applied once. */
+.pagehead{padding-bottom:0;}
+.pagehead h1{margin-bottom:10px;}
+.pagehead .pagemeta{max-width:none;margin-top:8px;}
+/* the overview head is centred: its measure must centre too, or the subtitle
+   hangs off to the left under a centred title */
+.pagehead.center .pagemeta,
+.pagehead.center .lede{margin-left:auto;margin-right:auto;}
+.chap:first-of-type{margin-top:0;}
+.chap > .panel-head:first-child{margin-top:0;}
+/* captions sit under their figure, not floating between blocks */
+figure + .caption, .plate + .caption{margin-top:10px;}
+
+/* the leaderboard's subtitle: what the number counts, and under which lens */
+.natleader h4{margin-bottom:8px;}
+.natleader .lsub{display:block;margin-top:3px;font-weight:400;letter-spacing:0;
+  text-transform:none;color:var(--quiet);font-size:var(--t-micro);line-height:1.35;}
+
+/* ---- breathing room -------------------------------------------------------
+   The page read as cramped: chapters, panel heads, figures and their captions
+   all sat on the tightest step of the scale. */
+.panel{margin-top:var(--s4);}
+.panel-head{padding-bottom:12px;margin-bottom:14px;}
+.panel-head.first{margin-bottom:var(--s2);}
+.legend{margin-top:var(--s2);}
+.tabbar{margin-top:var(--s4);}
+.stage.overview .searchbox{margin:var(--s4) 0;max-width:none;}
+.stage.overview .searchbox input{max-width:none;display:block;}
+.stage.overview .searchbox .panel-head{margin-bottom:14px;}
+.twoup{gap:var(--s4);}
+.mapctl{gap:12px 18px;margin-top:var(--s3);}
+.simlist li{padding:6px 0;}
+
+/* A caption ends a block; the next heading must not sit on top of it. Panel
+   heads take a top margin unless they open a chapter. */
+.panel-head{margin-top:var(--s4);}
+.panel-head.first,
+.chap > .panel-head:first-child,
+.panel > .panel-head:first-child{margin-top:0;}
+.caption + .panel-head{margin-top:var(--s4);}
+/* the figure/caption pair stays tight to itself */
+svg.ts + .caption,
+.plate + .caption,
+figure + .caption{margin-top:12px;}
+
+/* ---- dark-mode chrome: let the maps be the only bright thing ---------------
+   In dark mode the controls were louder than the data. The selected decade
+   pill inverted to near-white (#e8e6e2) and every thumbnail sat in a lifted
+   box with a 1px frame, while the maps themselves are deliberately frameless
+   (DESIGN.md sec.1: the coastline is the edge). Chrome now recedes: no boxes,
+   no frames, and "selected" is a quiet ring or a muted fill -- never a glare. */
+[data-theme="dark"]{
+  --chip-on:#33333a;          /* selected fill: a step above the page, not white */
+}
+[data-theme="dark"] .decthumb,
+[data-theme="dark"] .secthumb{background:transparent;box-shadow:none;}
+[data-theme="dark"] .decthumb-btn,
+[data-theme="dark"] .secthumb-btn{background:transparent;}
+[data-theme="dark"] .decthumb-btn:hover .decthumb,
+[data-theme="dark"] .secthumb-btn:hover .secthumb{
+  box-shadow:0 0 0 1px var(--faint);}
+[data-theme="dark"] .decthumb-btn.is-on .decthumb,
+[data-theme="dark"] .secthumb-btn.is-on .secthumb{
+  box-shadow:0 0 0 2px var(--ink);}
+/* the leaderboard keeps a panel, but a quieter one */
+[data-theme="dark"] .natleader ol{scrollbar-color:#3a3a42 transparent;}
+[data-theme="dark"] .natleader ol::-webkit-scrollbar-thumb{background:#3a3a42;}
+[data-theme="dark"] .natleader ol:hover::-webkit-scrollbar-thumb{background:#4e4e58;}
