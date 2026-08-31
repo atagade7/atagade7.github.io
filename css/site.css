@@ -175,19 +175,20 @@
   .socials a:hover { color: var(--accent); }
   .socials svg { width: 18px; height: 18px; }
 
-  /* the nav's sandwiching hairlines are replaced by ONE classical tailpiece:
-     the Aldine hedera (rotated floral heart), set from Garamont's punches
-     via the subset EB Garamond ornament font. */
+  /* the nav's sandwiching hairlines are replaced by ONE classical device:
+     a fleuron band — mirrored Garamont leaves flanking the floral heart
+     (\2619 \2766 \2767), the wide ornament row of book typography, set from
+     the subset EB Garamond ornament font. 26px air on BOTH sides. */
   nav.side-nav { margin-top: 26px; text-align: left; }
   nav.side-nav::before {
-    content: "\2767";
+    content: "\2619 \2766 \2767";
     display: block;
     font-family: "Garamond Ornaments", serif;
-    font-size: 21px;
+    font-size: 17px;
     line-height: 1;
     text-align: center;
     color: var(--accent);
-    margin: 0 0 13px;
+    margin: 0 0 26px;
   }
   .side-nav a {
     display: block;
