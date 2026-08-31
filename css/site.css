@@ -256,31 +256,33 @@
   }
 
   /* action links (Paper / Slides / Abstract) inline on the detail line,
-     dot-separated; a soft rounded box appears on hover for affordance */
+     dot-separated; hover = darker + underline, no box */
   .paper-detail a,
   .paper-detail .abstract-toggle {
-    display: inline-block;       /* uniform box: same height for Paper / Slides / Abstract */
+    display: inline-block;       /* uniform metrics for Paper / Slides / Abstract */
     vertical-align: baseline;
     color: var(--accent);
     font: inherit;
     line-height: 1.4;
     background: none;
     border: 0;
-    /* 6px side padding for the hover box, cancelled by -6px margin so the box
-       adds NO horizontal footprint — dots sit the same distance from every
-       glyph, padded link or plain text alike */
-    padding: 1px 6px;
-    margin: 0 -6px;
-    border-radius: 6px;
+    padding: 0;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: color 0.15s ease;
   }
   @media (hover: hover) {
     .paper-detail a:hover,
-    .paper-detail .abstract-toggle:hover { background-color: rgba(122, 35, 26, 0.08); }
+    .paper-detail .abstract-toggle:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
   }
-  .paper-detail .abstract-toggle.open { background-color: rgba(122, 35, 26, 0.10); }
+  .paper-detail .abstract-toggle.open {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 
   /* the "+" affordance on the Abstract toggle (rotates to × when open) */
   .paper-detail .abstract-toggle .icon {
@@ -424,9 +426,4 @@
   }
   :root[data-theme="dark"] .abstract-inner { border-left-color: var(--accent); }
   :root[data-theme="dark"] footer { background: #131417; }
-  @media (hover: hover) {
-    :root[data-theme="dark"] .paper-detail a:hover,
-    :root[data-theme="dark"] .paper-detail .abstract-toggle:hover { background-color: rgba(229, 144, 121, 0.16); }
-  }
-  :root[data-theme="dark"] .paper-detail .abstract-toggle.open { background-color: rgba(229, 144, 121, 0.20); }
   :root[data-theme="dark"] .paper-detail .pending-note { color: #b3b3b3; }
