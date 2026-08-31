@@ -71,6 +71,14 @@
     font-display: swap;
   }
 
+  /* EB Garamond's hedera (OFL) — Claude Garamont's 16th-century fleuron,
+     subset to the two ornament glyphs only (1.2KB). The site's one ornament. */
+  @font-face {
+    font-family: "Garamond Ornaments";
+    src: url("../fonts/garamond-ornaments.woff2") format("woff2");
+    font-display: swap;
+  }
+
   :root {
     --bg:     #ffffff;
     --text:   #111111;
@@ -168,19 +176,18 @@
   .socials svg { width: 18px; height: 18px; }
 
   /* the nav's sandwiching hairlines are replaced by ONE classical tailpiece:
-     a French swelled rule — the hairline that breathes into a spindle and
-     tapers to points; the chapter divider of the old university presses.
-     Drawn as a mask so it recolours with the theme. */
+     the Aldine hedera (rotated floral heart), set from Garamont's punches
+     via the subset EB Garamond ornament font. */
   nav.side-nav { margin-top: 26px; text-align: left; }
   nav.side-nav::before {
-    content: "";
+    content: "\2767";
     display: block;
-    width: 96px;
-    height: 6px;
-    margin: 0 auto 13px;
-    background: var(--accent);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8'%3E%3Cpath d='M0 4 Q 60 0.6 120 4 Q 60 7.4 0 4 Z'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8'%3E%3Cpath d='M0 4 Q 60 0.6 120 4 Q 60 7.4 0 4 Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    font-family: "Garamond Ornaments", serif;
+    font-size: 21px;
+    line-height: 1;
+    text-align: center;
+    color: var(--accent);
+    margin: 0 0 13px;
   }
   .side-nav a {
     display: block;
