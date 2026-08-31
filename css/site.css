@@ -171,7 +171,9 @@
     transition: color 0.2s ease;
   }
   .side-nav a:hover { color: var(--accent); }
-  .side-nav a .arr { font-size: 0.8em; }
+  /* inline SVG arrow — Heros has no U+2197, and the bare character falls
+     through to the emoji font on phones */
+  .side-nav a .arr svg { width: 9px; height: 9px; margin-left: 1px; }
 
   /* dark-mode toggle — sits right under the nav links */
   .theme-toggle {
@@ -359,7 +361,9 @@
   /* ============================================================
      RESPONSIVE
      ============================================================ */
-  @media (max-width: 820px) {
+  /* Stack whenever a real content column can't be afforded: below 1000px the
+     fixed sidebar + gutter would squeeze the column under ~600px. */
+  @media (max-width: 1000px) {
     .page { flex-direction: column; gap: 28px; padding-top: 32px; }
     .sidebar { position: static; width: 100%; }
     h1.name { margin-bottom: 12px; }
