@@ -208,7 +208,7 @@
 
   .about p {
     margin: 0 0 13px;
-    max-width: 62ch;
+    max-width: 569px;  /* was 62ch under Heros; px so font changes can't shrink it */
   }
   .about a {
     color: var(--accent);
@@ -327,7 +327,7 @@
   }
 
   /* ---- prose sections (LSE AMP) ---- */
-  .section-note { max-width: 66ch; margin: 6px 0 0; }
+  .section-note { max-width: 605px;  /* was 66ch under Heros */ margin: 6px 0 0; }
   .section-note a { color: var(--accent); text-decoration: none; }
   .section-note a:hover { color: var(--accent-dark); text-decoration: underline; }
 
@@ -386,7 +386,7 @@
   /* ============================================================
      AMP PAGE — resource groups (links list under labelled groups)
      ============================================================ */
-  .amp-lead p { margin: 0 0 12px; max-width: 66ch; }
+  .amp-lead p { margin: 0 0 12px; max-width: 605px;  /* was 66ch under Heros */ }
   .amp-lead a { color: var(--accent); text-decoration: none; }
   .amp-lead a:hover { color: var(--accent-dark); text-decoration: underline; }
 
@@ -398,7 +398,7 @@
   }
 
   /* diamond-bulleted lists for references and resources */
-  .ref-list, .res-list { list-style: none; margin: 0; padding: 0; max-width: 66ch; }
+  .ref-list, .res-list { list-style: none; margin: 0; padding: 0; max-width: 605px;  /* was 66ch under Heros */ }
   .ref-list li, .res-list li {
     position: relative;
     padding-left: 20px;
