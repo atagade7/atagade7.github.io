@@ -202,7 +202,6 @@
   .about p {
     margin: 0 0 14px;
     max-width: 62ch;
-    text-wrap: pretty;
   }
   .about a {
     color: var(--accent);
