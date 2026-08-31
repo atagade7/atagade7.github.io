@@ -167,7 +167,20 @@
   .socials a:hover { color: var(--accent); }
   .socials svg { width: 18px; height: 18px; }
 
-  nav.side-nav { margin-top: 26px; border-top: 1px solid var(--rule); padding-top: 13px; text-align: left; }
+  /* the nav's sandwiching hairlines are replaced by ONE classical tailpiece:
+     an estoile — the heraldic spark, the old printer's mark for the spark of
+     an idea. Drawn as a mask so it recolours with the theme; no glyph used. */
+  nav.side-nav { margin-top: 26px; text-align: left; }
+  nav.side-nav::before {
+    content: "";
+    display: block;
+    width: 17px;
+    height: 17px;
+    margin: 0 auto 13px;
+    background: var(--accent);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0L13.8 10.2L24 12L13.8 13.8L12 24L10.2 13.8L0 12L10.2 10.2Z'/%3E%3Cpath d='M12 5L13 11L19 12L13 13L12 19L11 13L5 12L11 11Z' transform='rotate(45 12 12)'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0L13.8 10.2L24 12L13.8 13.8L12 24L10.2 13.8L0 12L10.2 10.2Z'/%3E%3Cpath d='M12 5L13 11L19 12L13 13L12 19L11 13L5 12L11 11Z' transform='rotate(45 12 12)'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
   .side-nav a {
     display: block;
     font-size: 0.85rem;
@@ -185,10 +198,9 @@
   .theme-toggle {
     display: block;
     width: 100%;
-    margin-top: 13px;
-    padding: 13px 0 0;
+    margin-top: 26px;
+    padding: 0;
     border: 0;
-    border-top: 1px solid var(--rule);
     background: none;
     font-family: var(--serif);
     font-size: 0.85rem;
@@ -214,25 +226,11 @@
   }
   .about a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-  /* ---- section headings: serif black caps over a hairline rule broken at
-     its centre by a small maroon diamond — the book ornament, kept ON the
-     line so the full-width alignment edge survives ---- */
+  /* ---- section headings: serif black caps, hairline rule underneath ---- */
   .section-head {
-    position: relative;
     margin: 52px 0 0;         /* 4 units above; below, 13px pad + 13px entry pad = one full line */
     padding-bottom: 13px;
     border-bottom: 1px solid var(--rule);
-  }
-  .section-head::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -4.5px;              /* centred on the 1px rule */
-    width: 7px;
-    height: 7px;
-    background: var(--accent);
-    transform: translateX(-50%) rotate(45deg);
-    box-shadow: 0 0 0 6px var(--bg);   /* halo in page colour = small gaps in the rule */
   }
   .section-head h2 {
     font-family: var(--serif);
