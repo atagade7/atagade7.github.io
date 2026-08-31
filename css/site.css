@@ -183,12 +183,12 @@
   nav.side-nav::before {
     content: "";
     display: block;
-    width: 96px;
-    height: 18px;
+    width: 104px;   /* native SVG scale — hairlines land crisp on the pixel grid */
+    height: 20px;
     margin: 0 auto 26px;
     background: var(--accent);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 20'%3E%3Cpath d='M3 13 L22 6 L45 11 L70 5 L99 12 M45 11 L58 17 L70 5' stroke='black' stroke-width='0.8' fill='none'/%3E%3Ccircle cx='3' cy='13' r='2'/%3E%3Ccircle cx='22' cy='6' r='2.6'/%3E%3Ccircle cx='45' cy='11' r='3.4'/%3E%3Ccircle cx='70' cy='5' r='2.6'/%3E%3Ccircle cx='99' cy='12' r='2'/%3E%3Ccircle cx='58' cy='17' r='1.8'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 20'%3E%3Cpath d='M3 13 L22 6 L45 11 L70 5 L99 12 M45 11 L58 17 L70 5' stroke='black' stroke-width='0.8' fill='none'/%3E%3Ccircle cx='3' cy='13' r='2'/%3E%3Ccircle cx='22' cy='6' r='2.6'/%3E%3Ccircle cx='45' cy='11' r='3.4'/%3E%3Ccircle cx='70' cy='5' r='2.6'/%3E%3Ccircle cx='99' cy='12' r='2'/%3E%3Ccircle cx='58' cy='17' r='1.8'/%3E%3C/svg%3E") center / contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 20'%3E%3Cpath d='M3 13 L22 6 L45 11 L70 5 L99 12 M45 11 L58 17 L70 5' stroke='black' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='3' cy='13' r='2.1'/%3E%3Ccircle cx='22' cy='6' r='2.7'/%3E%3Ccircle cx='45' cy='11' r='3.4'/%3E%3Ccircle cx='70' cy='5' r='2.5'/%3E%3Ccircle cx='99' cy='12' r='1.9'/%3E%3Ccircle cx='58' cy='17' r='1.7'/%3E%3Ccircle cx='86' cy='2.5' r='1.1'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 20'%3E%3Cpath d='M3 13 L22 6 L45 11 L70 5 L99 12 M45 11 L58 17 L70 5' stroke='black' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='3' cy='13' r='2.1'/%3E%3Ccircle cx='22' cy='6' r='2.7'/%3E%3Ccircle cx='45' cy='11' r='3.4'/%3E%3Ccircle cx='70' cy='5' r='2.5'/%3E%3Ccircle cx='99' cy='12' r='1.9'/%3E%3Ccircle cx='58' cy='17' r='1.7'/%3E%3Ccircle cx='86' cy='2.5' r='1.1'/%3E%3C/svg%3E") center / contain no-repeat;
   }
   .side-nav a {
     display: block;
