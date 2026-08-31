@@ -168,17 +168,19 @@
   .socials svg { width: 18px; height: 18px; }
 
   /* the nav's sandwiching hairlines are replaced by ONE classical tailpiece:
-     the asterism (* * *) — the monograph section break, the most conservative
-     ornament in scholarly typesetting. Real STIX glyphs, so no fallback risk. */
+     a French swelled rule — the hairline that breathes into a spindle and
+     tapers to points; the chapter divider of the old university presses.
+     Drawn as a mask so it recolours with the theme. */
   nav.side-nav { margin-top: 26px; text-align: left; }
   nav.side-nav::before {
-    content: "*\2002*\2002*";     /* en-space separated */
+    content: "";
     display: block;
-    text-align: center;
-    color: var(--accent);
-    font-size: 1.05rem;
-    line-height: 13px;
-    margin: 0 0 13px;
+    width: 96px;
+    height: 6px;
+    margin: 0 auto 13px;
+    background: var(--accent);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8'%3E%3Cpath d='M0 4 Q 60 0.6 120 4 Q 60 7.4 0 4 Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8'%3E%3Cpath d='M0 4 Q 60 0.6 120 4 Q 60 7.4 0 4 Z'/%3E%3C/svg%3E") center / contain no-repeat;
   }
   .side-nav a {
     display: block;
