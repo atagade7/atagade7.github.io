@@ -214,11 +214,25 @@
   }
   .about a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-  /* ---- section headings: serif black caps, hairline rule underneath ---- */
+  /* ---- section headings: serif black caps over a hairline rule broken at
+     its centre by a small maroon diamond — the book ornament, kept ON the
+     line so the full-width alignment edge survives ---- */
   .section-head {
+    position: relative;
     margin: 52px 0 0;         /* 4 units above; below, 13px pad + 13px entry pad = one full line */
     padding-bottom: 13px;
     border-bottom: 1px solid var(--rule);
+  }
+  .section-head::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4.5px;              /* centred on the 1px rule */
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    transform: translateX(-50%) rotate(45deg);
+    box-shadow: 0 0 0 6px var(--bg);   /* halo in page colour = small gaps in the rule */
   }
   .section-head h2 {
     font-family: var(--serif);
