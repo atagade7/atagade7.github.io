@@ -200,7 +200,7 @@
   main.content { flex: 1; min-width: 0; max-width: 690px; }
 
   .about p {
-    margin: 0 0 12px;
+    margin: 0 0 14px;
     max-width: 62ch;
   }
   .about a {
@@ -211,7 +211,7 @@
 
   /* ---- section headings: serif black caps, hairline rule underneath ---- */
   .section-head {
-    margin: 36px 0 8px;
+    margin: 52px 0 10px;      /* sections breathe: the gap above outranks any gap inside */
     padding-bottom: 10px;
     border-bottom: 1px solid var(--rule);
   }
@@ -235,7 +235,7 @@
      ============================================================ */
   .paper {
     position: relative;
-    padding: 7px 0;
+    padding: 10px 0;
   }
   /* entries are separated by whitespace only — no rules between papers */
 
@@ -367,7 +367,7 @@
     h1.name { font-size: 1.5rem; }
     .section-head h2 { font-size: 1rem; }
     .paper-title { font-size: 1.04rem; }
-    .section-head { margin: 28px 0 6px; }
+    .section-head { margin: 40px 0 8px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
