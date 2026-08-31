@@ -1,13 +1,74 @@
+  /* TeX Gyre Heros — the open (GUST-licensed) Helvetica: URW's Nimbus Sans
+     extended. Self-hosted so every visitor gets the same voice, not just
+     Macs; the files are subset to Latin + punctuation (~17KB each) and a
+     face only downloads if the page actually uses it. */
+  @font-face {
+    font-family: "TeX Gyre Heros";
+    src: url("../fonts/texgyreheros-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "TeX Gyre Heros";
+    src: url("../fonts/texgyreheros-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "TeX Gyre Heros";
+    src: url("../fonts/texgyreheros-bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "TeX Gyre Heros";
+    src: url("../fonts/texgyreheros-bolditalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  /* STIX Two Text (OFL) — the modernized Times, drawn for scientific
+     publishing. Times + Helvetica is the canonical rational pairing; the
+     display voice reads like a well-set journal. Only the three display
+     weights the site uses ship: 500 footer, 600 name/titles, 700 headings. */
+  @font-face {
+    font-family: "STIX Two Text";
+    src: url("../fonts/stixtwotext-medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "STIX Two Text";
+    src: url("../fonts/stixtwotext-semibold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "STIX Two Text";
+    src: url("../fonts/stixtwotext-bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --bg:     #ffffff;
     --text:   #111111;
-    --muted:  #111111;
+    --muted:  #4c4c4c;   /* a genuine second tier: metadata recedes, titles carry */
     --rule:   #e8e8e8;
     --accent: #7a231a;
     --accent-dark: #631a13;
 
-    --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
-    --sans:  "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --serif: "STIX Two Text", "Times New Roman", Georgia, serif;
+    /* Heros first; Helvetica Neue is the metric-compatible fallback while it
+       loads, so the swap is invisible on Macs and harmless elsewhere */
+    --sans:  "TeX Gyre Heros", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     --maxw: 1060px;
   }
@@ -23,7 +84,9 @@
     font-family: var(--sans);
     font-size: 16.5px;
     line-height: 1.62;
-    font-weight: 440;
+    /* 400, not the old 440: that was tuned for the Plex Sans variable font;
+       against static Helvetica Neue faces, 440 would snap UP to Medium (500) */
+    font-weight: 400;
     text-rendering: optimizeLegibility;
   }
 
@@ -38,9 +101,9 @@
   .page {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 44px 32px 0;
+    padding: 56px 32px 0;
     display: flex;
-    gap: 56px;
+    gap: 72px;   /* the gutter must outrank every intra-column gap (52px sections) */
     align-items: flex-start;
   }
 
@@ -67,7 +130,6 @@
     display: block;
     margin: 0 auto;
     border-radius: 10px;
-    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
   }
 
   .contact { margin-top: 16px; }
@@ -82,23 +144,20 @@
   }
   .contact-mail:hover { color: var(--accent); }
 
-  .socials { display: flex; gap: 10px; margin-top: 12px; justify-content: center; }
+  /* bare icons, no enclosing circles — one ornament fewer */
+  .socials { display: flex; gap: 18px; margin-top: 14px; justify-content: center; }
   .socials a {
-    width: 34px; height: 34px; border-radius: 50%;
-    display: grid; place-items: center;
-    border: 1px solid var(--rule);
+    display: inline-flex;
     color: var(--muted);
-    transition: all 0.2s ease;
+    transition: color 0.2s ease;
   }
-  .socials a:hover { border-color: var(--accent); color: var(--accent); }
-  .socials svg { width: 16px; height: 16px; }
+  .socials a:hover { color: var(--accent); }
+  .socials svg { width: 18px; height: 18px; }
 
   nav.side-nav { margin-top: 22px; border-top: 1px solid var(--rule); padding-top: 14px; text-align: left; }
   .side-nav a {
     display: block;
-    font-size: 0.8rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
+    font-size: 0.85rem;
     text-decoration: none;
     color: var(--muted);
     padding: 4px 0;
@@ -117,9 +176,7 @@
     border-top: 1px solid var(--rule);
     background: none;
     font-family: var(--sans);
-    font-size: 0.8rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
+    font-size: 0.85rem;
     color: var(--muted);
     text-align: left;
     cursor: pointer;
@@ -134,10 +191,10 @@
   main.content { flex: 1; min-width: 0; max-width: 690px; }
 
   .about p {
-    margin: 0 0 12px;
+    margin: 0 0 14px;
     max-width: 62ch;
+    text-wrap: pretty;
   }
-  .about .about-secondary { color: var(--muted); }
   .about a {
     color: var(--accent);
     text-decoration: none;
@@ -146,7 +203,7 @@
 
   /* ---- section headings: serif black caps, hairline rule underneath ---- */
   .section-head {
-    margin: 30px 0 4px;
+    margin: 52px 0 10px;      /* sections breathe: the gap above outranks any gap inside */
     padding-bottom: 10px;
     border-bottom: 1px solid var(--rule);
   }
@@ -170,79 +227,82 @@
      ============================================================ */
   .paper {
     position: relative;
-    padding: 7px 14px;
-    margin: 0 -14px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
+    padding: 10px 0;
   }
-  /* hover shading only on real pointer devices — avoids sticky :hover on touch */
-  @media (hover: hover) { .paper:hover { background-color: #f7f7f7; } }
   /* entries are separated by whitespace only — no rules between papers */
 
+  /* Each entry has three fixed slots, each in its own voice:
+       title    — serif ink
+       detail   — gray metadata (coauthors · venue, year), nothing clickable
+       actions  — tracked caps in maroon, the only clickable line
+     The reader learns the anatomy once and stops re-parsing every entry. */
   .paper-title {
     font-family: var(--serif);
     font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.3;
-    color: var(--accent);
-    margin: 0 0 3px;
+    color: var(--text);      /* titles in ink; maroon is reserved for actions */
+    margin: 0 0 4px;
+    text-wrap: balance;
   }
 
   .paper-detail {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--muted);
     margin: 0;   /* open abstract supplies its own top gap; no stray space when closed */
   }
 
-  /* action links (Link / Slides / Abstract) inline on the detail line,
-     dot-separated; a soft rounded box appears on hover for affordance */
-  .paper-detail a,
-  .paper-detail .abstract-toggle {
-    display: inline-block;       /* uniform box: same height for Link / Slides / Abstract */
-    vertical-align: baseline;
+  /* actions row — same quiet voice as the side nav; the gap separates,
+     no dots needed */
+  .paper-actions {
+    margin: 5px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 18px;
+  }
+  .paper-actions a,
+  .paper-actions .abstract-toggle {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    line-height: 1.5;
     color: var(--accent);
-    font: inherit;
-    line-height: 1.4;
     background: none;
     border: 0;
-    /* 6px side padding for the hover box, cancelled by -6px margin so the box
-       adds NO horizontal footprint — dots sit the same distance from every
-       glyph, padded link or plain text alike */
-    padding: 1px 6px;
-    margin: 0 -6px;
-    border-radius: 6px;
+    padding: 0;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: color 0.15s ease;
   }
   @media (hover: hover) {
-    .paper-detail a:hover,
-    .paper-detail .abstract-toggle:hover { background-color: rgba(122, 35, 26, 0.08); }
+    .paper-actions a:hover,
+    .paper-actions .abstract-toggle:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
   }
-  .paper-detail .abstract-toggle.open { background-color: rgba(122, 35, 26, 0.10); }
+  .paper-actions .abstract-toggle.open {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
 
   /* the "+" affordance on the Abstract toggle (rotates to × when open) */
-  .paper-detail .abstract-toggle .icon {
+  .paper-actions .abstract-toggle .icon {
     display: inline-block;
-    margin-left: 3px;
+    margin-left: 4px;
     line-height: 1;             /* keep the icon from inflating the button's box height */
     font-weight: 400;
     transition: transform 0.25s ease;
   }
-  .paper-detail .abstract-toggle.open .icon { transform: rotate(45deg); }
+  .paper-actions .abstract-toggle.open .icon { transform: rotate(45deg); }
 
   /* forthcoming entries: gray, non-active */
-  .paper-detail .abstract-toggle.pending { color: #9a9a9a; }
-  .paper-detail .abstract-toggle.pending.open { background-color: rgba(0, 0, 0, 0.05); }
-  @media (hover: hover) {
-    .paper-detail .abstract-toggle.pending:hover { background-color: rgba(0, 0, 0, 0.05); }
-  }
   .paper-detail .pending-note {
     color: #9a9a9a;
     font-style: italic;
   }
 
-  .paper-detail .sep { color: var(--muted); margin: 0 0.15em; }
+  .paper-detail .sep { color: var(--muted); margin: 0 0.35em; }
 
   /* ---- abstract fold-out: expands in place below the buttons ---- */
   .abstract {
@@ -254,14 +314,11 @@
   }
   .abstract.open { max-height: 1200px; opacity: 1; margin-top: 10px; }
   .abstract-inner {
-    background: #f7f7f7;
-    border: 1px solid var(--rule);
     border-left: 2px solid var(--accent);
-    border-radius: 8px;
-    padding: 14px 18px;
-    font-size: 1rem;
+    padding: 2px 0 2px 16px;
+    font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--text);
+    color: var(--muted);
   }
 
   /* ---- prose sections (LSE AMP) ---- */
@@ -273,7 +330,7 @@
      FOOTER
      ============================================================ */
   footer {
-    margin-top: 60px;
+    margin-top: 84px;
     border-top: 1px solid var(--rule);
     background: #f7f6f4;
   }
@@ -283,7 +340,7 @@
     padding: 30px 32px;
     display: flex;
     align-items: flex-start;
-    gap: 56px;
+    gap: 72px;   /* mirrors .page so the address column tracks the content edge */
     flex-wrap: wrap;
   }
   .foot-id { flex: 0 0 252px; }
@@ -305,8 +362,6 @@
     .side-nav a { display: inline-block; padding: 3px 8px; }
     .theme-toggle { padding: 12px 8px 0; }   /* match the 8px inset of the nav chips */
     main.content { max-width: none; }
-    .paper { padding: 7px 0; margin: 0; }
-    .paper:hover { background: none; }
   }
   @media (max-width: 520px) {
     .page { padding-left: 22px; padding-right: 22px; }
@@ -314,7 +369,7 @@
     h1.name { font-size: 1.5rem; }
     .section-head h2 { font-size: 1rem; }
     .paper-title { font-size: 1.04rem; }
-    .section-head { margin: 24px 0 4px; }
+    .section-head { margin: 40px 0 8px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -357,24 +412,18 @@
 
   /* ============================================================
      DARK MODE  (toggled via [data-theme="dark"] on <html>)
-     Stark white fonts on a dark surface; maroon accent lifted to a
+     White for what matters, a quiet gray for metadata — the same
+     two-tier hierarchy as light mode; maroon accent lifted to a
      lighter clay so it stays visible on dark.
      ============================================================ */
   :root[data-theme="dark"] {
     --bg:          #101113;   /* dark surface        */
     --text:        #ffffff;   /* stark white         */
-    --muted:       #ffffff;   /* white, not gray     */
+    --muted:       #b4b6bc;   /* metadata recedes here too */
     --rule:        #34353a;   /* hairline on dark    */
     --accent:      #e59079;   /* light clay (maroon lifted for contrast) */
     --accent-dark: #f0ab97;
   }
-  :root[data-theme="dark"] .abstract-inner { background: #212327; border-color: #34353a; border-left-color: var(--accent); }
+  :root[data-theme="dark"] .abstract-inner { border-left-color: var(--accent); }
   :root[data-theme="dark"] footer { background: #131417; }
-  @media (hover: hover) {
-    :root[data-theme="dark"] .paper:hover { background-color: #212327; }
-    :root[data-theme="dark"] .paper-detail a:hover,
-    :root[data-theme="dark"] .paper-detail .abstract-toggle:hover { background-color: rgba(229, 144, 121, 0.16); }
-  }
-  :root[data-theme="dark"] .paper-detail .abstract-toggle.open { background-color: rgba(229, 144, 121, 0.20); }
-  :root[data-theme="dark"] .abstract-toggle.pending,
-  :root[data-theme="dark"] .paper-detail .pending-note { color: #b3b3b3; }
+  :root[data-theme="dark"] .paper-detail .pending-note { color: #85868c; }
