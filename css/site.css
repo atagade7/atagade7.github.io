@@ -32,14 +32,21 @@
   }
 
   /* STIX Two Text (OFL) — the modernized Times, drawn for scientific
-     publishing. Times + Helvetica is the canonical rational pairing; the
-     display voice reads like a well-set journal. Only the three display
-     weights the site uses ship: 500 footer, 600 name/titles, 700 headings. */
+     publishing. The site's ONLY active family since the all-serif switch:
+     400 body + italic venues, 500 footer name, 600 name/titles, 700 spare.
+     (TeX Gyre Heros faces below are retained but currently unreferenced.) */
   @font-face {
     font-family: "STIX Two Text";
     src: url("../fonts/stixtwotext-regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "STIX Two Text";
+    src: url("../fonts/stixtwotext-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
     font-display: swap;
   }
   @font-face {
@@ -88,7 +95,7 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: var(--serif);   /* all-serif site (2026-08-31, user's call after live preview) */
     font-size: 16.5px;
     line-height: 1.6;   /* 26px line = the page's vertical unit is half of this, 13px */
     /* 400, not the old 440: that was tuned for the Plex Sans variable font;
@@ -184,7 +191,7 @@
     border: 0;
     border-top: 1px solid var(--rule);
     background: none;
-    font-family: var(--sans);
+    font-family: var(--serif);
     font-size: 0.85rem;
     color: var(--muted);
     text-align: left;
