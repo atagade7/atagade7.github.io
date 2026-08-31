@@ -96,8 +96,8 @@
     background: var(--bg);
     color: var(--text);
     font-family: var(--serif);   /* all-serif site (2026-08-31, user's call after live preview) */
-    font-size: 16.5px;
-    line-height: 1.6;   /* 26px line = the page's vertical unit is half of this, 13px */
+    font-size: 17px;     /* serif needs a step up: STIX sets smaller than Heros at equal px */
+    line-height: 1.53;   /* 17 x 1.53 = 26px — the baseline grid's line is unchanged */
     /* 400, not the old 440: that was tuned for the Plex Sans variable font;
        against static Helvetica Neue faces, 440 would snap UP to Medium (500) */
     font-weight: 400;
@@ -147,10 +147,9 @@
   }
 
   .contact { margin-top: 13px; }
-  .contact-role { margin: 0; font-size: 1rem; color: var(--muted); line-height: 1.5; }
-  .contact-line { margin: 6px 0 0; font-size: 1rem; color: var(--muted); }
+  .contact-role { margin: 0; color: var(--muted); line-height: 1.5; }
+  .contact-line { margin: 6px 0 0; color: var(--muted); }
   .contact-mail {
-    font-size: 1rem;
     color: var(--muted);
     text-decoration: none;
     word-break: break-word;
@@ -255,9 +254,8 @@
     margin: 0;
   }
 
-  /* ONE body text size: the detail line matches the body exactly */
+  /* ONE body text size: the detail line inherits the body exactly */
   .paper-detail {
-    font-size: 1rem;
     color: var(--muted);
     margin: 0;   /* open abstract supplies its own top gap; no stray space when closed */
   }
@@ -321,8 +319,6 @@
   .abstract-inner {
     border-left: 2px solid var(--accent);
     padding: 2px 0 2px 16px;
-    font-size: 1rem;
-    line-height: 1.6;
     color: var(--text);
   }
 
@@ -351,9 +347,9 @@
   .foot-id { flex: 0 0 252px; }
   .foot-address { flex: 1; min-width: 240px; }
   .foot-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
-  .foot-mail { display: block; font-size: 1rem; color: var(--muted); text-decoration: none; margin-top: 4px; }
+  .foot-mail { display: block; color: var(--muted); text-decoration: none; margin-top: 4px; }
   .foot-mail:hover { color: var(--accent); }
-  .foot-address { font-style: normal; font-size: 1rem; color: var(--muted); line-height: 1.6; }
+  .foot-address { font-style: normal; color: var(--muted); }
 
   /* ============================================================
      RESPONSIVE
@@ -372,7 +368,7 @@
   }
   @media (max-width: 520px) {
     .page { padding-left: 22px; padding-right: 22px; }
-    body { font-size: 16px; }
+    body { font-size: 16.5px; }
     h1.name { font-size: 1.5rem; }
     .section-head h2 { font-size: 1rem; }
     .paper-title { font-size: 1.04rem; }
