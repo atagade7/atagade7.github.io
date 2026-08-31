@@ -168,18 +168,17 @@
   .socials svg { width: 18px; height: 18px; }
 
   /* the nav's sandwiching hairlines are replaced by ONE classical tailpiece:
-     an estoile — the heraldic spark, the old printer's mark for the spark of
-     an idea. Drawn as a mask so it recolours with the theme; no glyph used. */
+     the asterism (* * *) — the monograph section break, the most conservative
+     ornament in scholarly typesetting. Real STIX glyphs, so no fallback risk. */
   nav.side-nav { margin-top: 26px; text-align: left; }
   nav.side-nav::before {
-    content: "";
+    content: "*\2002*\2002*";     /* en-space separated */
     display: block;
-    width: 17px;
-    height: 17px;
-    margin: 0 auto 13px;
-    background: var(--accent);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0L13.8 10.2L24 12L13.8 13.8L12 24L10.2 13.8L0 12L10.2 10.2Z'/%3E%3Cpath d='M12 5L13 11L19 12L13 13L12 19L11 13L5 12L11 11Z' transform='rotate(45 12 12)'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0L13.8 10.2L24 12L13.8 13.8L12 24L10.2 13.8L0 12L10.2 10.2Z'/%3E%3Cpath d='M12 5L13 11L19 12L13 13L12 19L11 13L5 12L11 11Z' transform='rotate(45 12 12)'/%3E%3C/svg%3E") center / contain no-repeat;
+    text-align: center;
+    color: var(--accent);
+    font-size: 1.05rem;
+    line-height: 13px;
+    margin: 0 0 13px;
   }
   .side-nav a {
     display: block;
