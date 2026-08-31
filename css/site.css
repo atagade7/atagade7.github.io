@@ -298,7 +298,7 @@
     font-style: italic;
   }
 
-  .paper-detail .sep { color: var(--muted); margin: 0 0.15em; }
+  .paper-detail .sep { color: var(--muted); margin: 0 0.35em; }  /* airy dots — the tight 0.15em read as glued-together */
 
   /* ---- abstract fold-out: expands in place below the buttons ---- */
   .abstract {
