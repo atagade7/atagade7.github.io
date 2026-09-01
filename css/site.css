@@ -175,10 +175,11 @@
   .socials a:hover { color: var(--accent); }
   .socials svg { width: 18px; height: 18px; }
 
-  /* the site's one ornament: the word graph of a.tagade — LETTERS as nodes,
-     adjacent letters as edges; node radius = 1.2 + 0.7 x DEGREE (affine so
-     the degree-0 period survives): a=3, d=2, t/g/e=1, period=0. The period
-     is punctuation, so it floats UNCONNECTED, low, like a true full stop.
+  /* the site's one ornament: the WALK graph of a.tagade — every letter
+     occurrence is its own node (no merging), edges follow the sequence
+     a-t-a-g-a-d-e as a serpentine trail; radius = 1.2 + 0.7 x degree
+     (ends 1.9, interior 2.6). The period is punctuation: unconnected,
+     floating low after the first 'a', r1.2.
      Edges: a-t, a-g, a-d, d-e (hub-and-spoke + tail). Star-atlas manner;
      CSS mask recolours with the theme. 26px both sides. */
   nav.side-nav { margin-top: 26px; text-align: left; }
@@ -189,8 +190,8 @@
     height: 21px;
     margin: 0 auto 26px;
     background: var(--accent);
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M8 5 L34 11 L48 17 M34 11 L73 5 L99 12' stroke='black' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='8' cy='5' r='1.9'/%3E%3Ccircle cx='20' cy='18' r='1.2'/%3E%3Ccircle cx='34' cy='11' r='3.3'/%3E%3Ccircle cx='48' cy='17' r='1.9'/%3E%3Ccircle cx='73' cy='5' r='2.6'/%3E%3Ccircle cx='99' cy='12' r='1.9'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M8 5 L34 11 L48 17 M34 11 L73 5 L99 12' stroke='black' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='8' cy='5' r='1.9'/%3E%3Ccircle cx='20' cy='18' r='1.2'/%3E%3Ccircle cx='34' cy='11' r='3.3'/%3E%3Ccircle cx='48' cy='17' r='1.9'/%3E%3Ccircle cx='73' cy='5' r='2.6'/%3E%3Ccircle cx='99' cy='12' r='1.9'/%3E%3C/svg%3E") center / contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M4 13 L18 5 L32 14 L46 6 L60 15 L76 5 L99 12' stroke='black' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='4' cy='13' r='1.9'/%3E%3Ccircle cx='11' cy='18' r='1.2'/%3E%3Ccircle cx='18' cy='5' r='2.6'/%3E%3Ccircle cx='32' cy='14' r='2.6'/%3E%3Ccircle cx='46' cy='6' r='2.6'/%3E%3Ccircle cx='60' cy='15' r='2.6'/%3E%3Ccircle cx='76' cy='5' r='2.6'/%3E%3Ccircle cx='99' cy='12' r='1.9'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M4 13 L18 5 L32 14 L46 6 L60 15 L76 5 L99 12' stroke='black' stroke-width='0.9' fill='none'/%3E%3Ccircle cx='4' cy='13' r='1.9'/%3E%3Ccircle cx='11' cy='18' r='1.2'/%3E%3Ccircle cx='18' cy='5' r='2.6'/%3E%3Ccircle cx='32' cy='14' r='2.6'/%3E%3Ccircle cx='46' cy='6' r='2.6'/%3E%3Ccircle cx='60' cy='15' r='2.6'/%3E%3Ccircle cx='76' cy='5' r='2.6'/%3E%3Ccircle cx='99' cy='12' r='1.9'/%3E%3C/svg%3E") center / contain no-repeat;
   }
   .side-nav a {
     display: block;
