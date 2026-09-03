@@ -181,20 +181,21 @@
      arcs forming a lens, a-d and d-e single straight.
      Radius = 0.9 + 0.45 x multigraph degree (delicate): a=5 -> 3.15,
      t/g/d=2 -> 1.8, e=1 -> 1.35; the unconnected period floats low at
-     r0.9. Hairlines 0.6; the whole mark at 78% opacity so it recedes.
+     r0.9. Hairlines 0.7 in SVG units, rendered at 0.8x (84x17px) so ~0.56px;
+     the whole mark at 78% opacity so it recedes.
      Edges: a-t, a-g, a-d, d-e (hub-and-spoke + tail). Star-atlas manner;
      CSS mask recolours with the theme. 26px both sides. */
   nav.side-nav { margin-top: 26px; text-align: left; }
   nav.side-nav::before {
     content: "";
     display: block;
-    width: 104px;   /* native SVG scale — hairlines land crisp on the pixel grid */
-    height: 21px;
+    width: 84px;    /* 0.8x the 104x21 drawing — smaller, per user */
+    height: 17px;
     margin: 0 auto 26px;
     background: var(--accent);
     opacity: 0.78;
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M34 11 Q22.1 3.1 8 5 M34 11 Q19.9 12.9 8 5 M34 11 Q39 18.6 48 17 M34 11 Q43 9.4 48 17 M34 11 L73 5 L99 12' stroke='black' stroke-width='0.6' fill='none'/%3E%3Ccircle cx='8' cy='5' r='1.8'/%3E%3Ccircle cx='20' cy='18' r='0.9'/%3E%3Ccircle cx='34' cy='11' r='3.15'/%3E%3Ccircle cx='48' cy='17' r='1.8'/%3E%3Ccircle cx='73' cy='5' r='1.8'/%3E%3Ccircle cx='99' cy='12' r='1.35'/%3E%3C/svg%3E") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M34 11 Q22.1 3.1 8 5 M34 11 Q19.9 12.9 8 5 M34 11 Q39 18.6 48 17 M34 11 Q43 9.4 48 17 M34 11 L73 5 L99 12' stroke='black' stroke-width='0.6' fill='none'/%3E%3Ccircle cx='8' cy='5' r='1.8'/%3E%3Ccircle cx='20' cy='18' r='0.9'/%3E%3Ccircle cx='34' cy='11' r='3.15'/%3E%3Ccircle cx='48' cy='17' r='1.8'/%3E%3Ccircle cx='73' cy='5' r='1.8'/%3E%3Ccircle cx='99' cy='12' r='1.35'/%3E%3C/svg%3E") center / contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M34 11 Q22.1 3.1 8 5 M34 11 Q19.9 12.9 8 5 M34 11 Q39 18.6 48 17 M34 11 Q43 9.4 48 17 M34 11 L73 5 L99 12' stroke='black' stroke-width='0.7' fill='none'/%3E%3Ccircle cx='8' cy='5' r='1.8'/%3E%3Ccircle cx='20' cy='18' r='0.9'/%3E%3Ccircle cx='34' cy='11' r='3.15'/%3E%3Ccircle cx='48' cy='17' r='1.8'/%3E%3Ccircle cx='73' cy='5' r='1.8'/%3E%3Ccircle cx='99' cy='12' r='1.35'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 21'%3E%3Cpath d='M34 11 Q22.1 3.1 8 5 M34 11 Q19.9 12.9 8 5 M34 11 Q39 18.6 48 17 M34 11 Q43 9.4 48 17 M34 11 L73 5 L99 12' stroke='black' stroke-width='0.7' fill='none'/%3E%3Ccircle cx='8' cy='5' r='1.8'/%3E%3Ccircle cx='20' cy='18' r='0.9'/%3E%3Ccircle cx='34' cy='11' r='3.15'/%3E%3Ccircle cx='48' cy='17' r='1.8'/%3E%3Ccircle cx='73' cy='5' r='1.8'/%3E%3Ccircle cx='99' cy='12' r='1.35'/%3E%3C/svg%3E") center / contain no-repeat;
   }
   .side-nav a {
     display: block;
