@@ -83,7 +83,7 @@
     --bg:     #ffffff;
     --text:   #111111;
     --muted:  #111111;   /* black, not gray — one text color in the body (user's rule) */
-    --rule:   #CDCAC1;   /* Gutenberg Greige — the warm paper neutral */
+    --rule:   #e8e8e8;   /* hairlines: the light gray the site had since July (user reverted greige) */
     --accent: #7E261D;   /* Harvard Brick — action: links, hover, abstract rule, ornament */
     --accent-dark: #641d16;
     --structure: #4F79C0;   /* Regatta Blue — wayfinding: section labels only */
