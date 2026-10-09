@@ -404,7 +404,7 @@
     h1.name { font-size: 1.5rem; }
     .section-head h2 { font-size: 1rem; }
     .paper-title { font-size: 1.04rem; }
-    .section-head { margin: 39px 0 0; }
+    .section-head { margin: 39px 0 13px; }   /* keep the 13px rule-to-text gap on phones too */
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
