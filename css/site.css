@@ -201,7 +201,9 @@
   }
   .side-nav a {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.74rem;           /* small tracked caps, like the section labels (user, 2026-10-09) */
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     text-decoration: none;
     color: var(--muted);
     padding: 4px 0;
@@ -221,7 +223,9 @@
     border: 0;
     background: none;
     font-family: var(--serif);
-    font-size: 0.85rem;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     color: var(--muted);
     text-align: left;
     cursor: pointer;
