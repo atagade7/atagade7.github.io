@@ -93,7 +93,7 @@
        loads, so the swap is invisible on Macs and harmless elsewhere */
     --sans:  "TeX Gyre Heros", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-    --maxw: 1028px;   /* 64 padding + 252 sidebar + 72 gutter + 640 content */
+    --maxw: 988px;    /* 64 padding + 252 sidebar + 72 gutter + 600 content */
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -233,7 +233,7 @@
   /* ============================================================
      CONTENT
      ============================================================ */
-  main.content { flex: 1; min-width: 0; max-width: 640px; }  /* ~78ch at 17px STIX; longest title (620px) still fits one line */
+  main.content { flex: 1; min-width: 0; max-width: 600px; }  /* ~73ch at 17px STIX; every title still one line (user, 2026-10-09) */
 
   .about p {
     margin: 0 0 13px;   /* full column width — body text and rules share one right edge */
