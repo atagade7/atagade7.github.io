@@ -243,6 +243,8 @@
     text-decoration: none;
   }
   .about a:hover { color: var(--accent-dark); text-decoration: underline; }
+  .about .sep { color: var(--muted); margin: 0 0.35em; }   /* same dot as the paper rows */
+  .about .nowrap { white-space: nowrap; }                   /* keeps "2026-27 · CV" on one line on phones */
 
   /* ---- section headings: serif black caps, hairline rule underneath ---- */
   .section-head {
