@@ -83,9 +83,10 @@
     --bg:     #ffffff;
     --text:   #111111;
     --muted:  #111111;   /* black, not gray — one text color in the body (user's rule) */
-    --rule:   #e8e8e8;
-    --accent: #7a231a;
-    --accent-dark: #631a13;
+    --rule:   #CDCAC1;   /* Gutenberg Greige — the warm paper neutral */
+    --accent: #7E261D;   /* Harvard Brick — action: links, hover, abstract rule, ornament */
+    --accent-dark: #641d16;
+    --structure: #4F79C0;   /* Regatta Blue — wayfinding: section labels only */
 
     --serif: "STIX Two Text", "Times New Roman", Georgia, serif;
     /* Heros first; Helvetica Neue is the metric-compatible fallback while it
@@ -113,6 +114,7 @@
   }
 
   a { color: inherit; }
+  ::selection { background: rgba(79, 121, 192, 0.18); }
 
   /* Focus rings: show only for keyboard navigation (not mouse clicks), and
      tint to the accent so it's never a stray blue box — e.g. on the dark-mode
@@ -254,7 +256,7 @@
     font-size: 1.02rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;     /* regular-weight caps need air */
-    color: var(--text);
+    color: var(--structure);    /* blue says where you are; black what it is; brick what you can do */
     margin: 0;
     white-space: nowrap;
   }
@@ -360,7 +362,7 @@
   footer {
     margin-top: 78px;
     border-top: 1px solid var(--rule);
-    background: #f7f6f4;
+    background: #F3F1EC;   /* parchment tint of the greige */
   }
   .foot-inner {
     max-width: var(--maxw);
@@ -453,6 +455,7 @@
     --rule:        #34353a;   /* hairline on dark    */
     --accent:      #e59079;   /* light clay (maroon lifted for contrast) */
     --accent-dark: #f0ab97;
+    --structure:   #8FB0E6;   /* Regatta lifted for dark */
   }
   :root[data-theme="dark"] .abstract-inner { border-left-color: var(--accent); }
   :root[data-theme="dark"] footer { background: #131417; }
