@@ -88,14 +88,6 @@
                             links, hover, abstract rule, ornament, list diamonds */
     --accent-dark: #631a13;
     --structure: #4F79C0;   /* Regatta Blue — wayfinding: section labels only */
-    --panel:  #F3F1EC;      /* warm tint behind the sidebar; the footer has the same colour */
-    --panel-rule: #e2dfd6;  /* hairline where the footer meets the sidebar panel */
-    --footer-bg:   #7a231a; /* MAROON FOOTER, on trial (user, 2026-10-10). To restore the stone footer:
-                               --footer-bg #F3F1EC, --footer-text #111111, --footer-rule var(--panel-rule),
-                               --footer-hover var(--accent) */
-    --footer-text: #ffffff;   /* pure white (user, 2026-10-10) */
-    --footer-rule: #7a231a;
-    --footer-hover: #ffffff;
 
     --serif: "STIX Two Text", "Times New Roman", Georgia, serif;
     /* Heros first; Helvetica Neue is the metric-compatible fallback while it
@@ -144,17 +136,6 @@
      SIDEBAR — name above photo, contact, section nav
      ============================================================ */
   .sidebar { flex: 0 0 252px; position: sticky; top: 36px; text-align: center; }
-
-  /* WARM SIDEBAR PANEL (user, 2026-10-10). Pages with a sidebar tint the left of the
-     canvas up to the middle of the gutter: the page is 988px wide and centred, the
-     sidebar ends at 284px and the content starts at 356px, so the edge sits at
-     320px - 494px = 50% - 174px. Body-level, so it runs the full height and meets
-     the footer, which is the same colour. */
-  @media (min-width: 1001px) {
-    body.has-sidebar {
-      background: linear-gradient(to right, var(--panel) 0, var(--panel) calc(50% - 174px), var(--bg) calc(50% - 174px));
-    }
-  }
 
   h1.name {
     font-family: var(--serif);
@@ -414,9 +395,8 @@
      ============================================================ */
   footer {
     margin-top: 78px;
-    border-top: 1px solid var(--footer-rule);
-    background: var(--footer-bg);
-    color: var(--footer-text);
+    border-top: 1px solid var(--rule);
+    background: #F3F1EC;   /* parchment tint of the greige */
   }
   .foot-inner {
     max-width: var(--maxw);
@@ -430,9 +410,9 @@
   .foot-id { flex: 0 0 252px; }
   .foot-address { flex: 1; min-width: 240px; }
   .foot-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
-  .foot-mail { display: block; color: var(--footer-text); text-decoration: none; margin-top: 4px; }
-  .foot-mail:hover { color: var(--footer-hover); text-decoration: underline; }
-  .foot-address { font-style: normal; color: var(--footer-text); }
+  .foot-mail { display: block; color: var(--muted); text-decoration: none; margin-top: 4px; }
+  .foot-mail:hover { color: var(--accent); }
+  .foot-address { font-style: normal; color: var(--muted); }
 
   /* ============================================================
      RESPONSIVE
@@ -441,9 +421,7 @@
      fixed sidebar + gutter would squeeze the column under ~600px. */
   @media (max-width: 1000px) {
     .page { flex-direction: column; gap: 28px; padding-top: 32px; }
-    .sidebar { position: static; width: auto; align-self: stretch; background: var(--panel);
-               margin: -32px -32px 0; padding: 32px 32px 22px; }   /* full-bleed header block; stretch so a
-                                                                      short menu cannot shrink it */
+    .sidebar { position: static; width: 100%; }
     h1.name { margin-bottom: 12px; }
     .portrait img { max-width: 200px; margin: 0 auto; }
     nav.side-nav { padding-top: 12px; }
@@ -454,7 +432,6 @@
   }
   @media (max-width: 520px) {
     .page { padding-left: 22px; padding-right: 22px; }
-    .sidebar { margin: -32px -22px 0; padding: 32px 22px 18px; }
     body { font-size: 16.5px; }
     h1.name { font-size: 1.5rem; }
     .section-head h2 { font-size: 1rem; }
@@ -515,13 +492,7 @@
     --accent:      #e59079;   /* light clay (maroon lifted for contrast) */
     --accent-dark: #f0ab97;
     --structure:   #8FB0E6;   /* Regatta lifted for dark */
-    --panel:       #131417;   /* the dark footer tint, behind the sidebar too */
-    --panel-rule:  #34353a;
-    --footer-bg:   #131417;   /* dark mode keeps its dark footer */
-    --footer-text: #ffffff;
-    --footer-rule: #34353a;
-    --footer-hover: var(--accent);
   }
   :root[data-theme="dark"] .abstract-inner { border-left-color: var(--accent); }
-  :root[data-theme="dark"] .foot-mail:hover { text-decoration: none; }   /* as before in dark mode */
+  :root[data-theme="dark"] footer { background: #131417; }
   :root[data-theme="dark"] .paper-detail .pending-note { color: #b3b3b3; }
