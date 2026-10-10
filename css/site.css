@@ -230,6 +230,29 @@
      through to the emoji font on phones */
   .side-nav a .arr svg { width: 9px; height: 9px; margin-left: 1px; }
 
+  /* a quiet italic label inside the sidebar list: "On this page" on Resources,
+     "Resources" (a link back) on its sub-pages */
+  .side-nav .nav-label {
+    display: block;
+    margin: 13px 0 0;
+    padding: 4px 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-variant-caps: normal;
+    letter-spacing: 0;
+    line-height: 18.1152px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .side-nav a.nav-label:hover { color: var(--accent); }
+
+  /* pages with a long sidebar list (body.pin-nav): the whole sidebar would be taller
+     than a laptop screen, so it scrolls with the page and only the list stays pinned */
+  @media (min-width: 1001px) {
+    body.pin-nav .sidebar { position: static; align-self: stretch; }
+    body.pin-nav nav.side-nav { position: sticky; top: 26px; }
+  }
+
   /* dark-mode toggle — sits right under the nav links */
   .theme-toggle {
     display: block;
@@ -419,6 +442,7 @@
     nav.side-nav { padding-top: 12px; }
     .side-nav a { display: inline-block; padding: 3px 8px; }
     .theme-toggle { padding: 12px 8px 0; }   /* match the 8px inset of the nav chips */
+    .side-nav .nav-label { display: block; padding: 3px 8px; margin-top: 8px; }
     main.content { max-width: none; }
   }
   @media (max-width: 520px) {
