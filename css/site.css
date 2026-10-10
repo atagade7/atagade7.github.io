@@ -93,7 +93,7 @@
     --footer-bg:   #7a231a; /* MAROON FOOTER, on trial (user, 2026-10-10). To restore the stone footer:
                                --footer-bg #F3F1EC, --footer-text #111111, --footer-rule var(--panel-rule),
                                --footer-hover var(--accent) */
-    --footer-text: #FBF8F3;
+    --footer-text: #ffffff;   /* pure white (user, 2026-10-10) */
     --footer-rule: #7a231a;
     --footer-hover: #ffffff;
 
