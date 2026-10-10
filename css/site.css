@@ -201,9 +201,11 @@
   }
   .side-nav a {
     display: block;
-    font-size: 0.74rem;           /* small tracked caps, like the section labels (user, 2026-10-09) */
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    font-size: 1.02rem;           /* TRUE small caps (smcp + c2sc in the regular face): same height as the old
+                                     0.74rem capitals but with full-weight strokes — easier to read (user, 2026-10-10) */
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+    line-height: 18.1152px;       /* the old 0.74rem line box, so the sidebar keeps its exact height */
     text-decoration: none;
     color: var(--muted);
     padding: 4px 0;
@@ -223,9 +225,10 @@
     border: 0;
     background: none;
     font-family: var(--serif);
-    font-size: 0.74rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    font-size: 1.02rem;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+    line-height: 15px;
     color: var(--muted);
     text-align: left;
     cursor: pointer;
