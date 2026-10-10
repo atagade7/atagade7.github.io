@@ -84,8 +84,9 @@
     --text:   #111111;
     --muted:  #111111;   /* black, not gray — one text color in the body (user's rule) */
     --rule:   #e8e8e8;   /* hairlines: the light gray the site had since July (user reverted greige) */
-    --accent: #7E261D;   /* Harvard Brick — action: links, hover, abstract rule, ornament */
-    --accent-dark: #641d16;
+    --accent: #7a231a;   /* the site's own maroon, restored 2026-10-10 (user preferred it to Harvard Brick #7E261D):
+                            links, hover, abstract rule, ornament, list diamonds */
+    --accent-dark: #631a13;
     --structure: #4F79C0;   /* Regatta Blue — wayfinding: section labels only */
 
     --serif: "STIX Two Text", "Times New Roman", Georgia, serif;
