@@ -88,6 +88,8 @@
                             links, hover, abstract rule, ornament, list diamonds */
     --accent-dark: #631a13;
     --structure: #4F79C0;   /* Regatta Blue — wayfinding: section labels only */
+    --panel:  #F3F1EC;      /* warm tint behind the sidebar; the footer has the same colour */
+    --panel-rule: #e2dfd6;  /* hairline where the footer meets the sidebar panel */
 
     --serif: "STIX Two Text", "Times New Roman", Georgia, serif;
     /* Heros first; Helvetica Neue is the metric-compatible fallback while it
@@ -136,6 +138,17 @@
      SIDEBAR — name above photo, contact, section nav
      ============================================================ */
   .sidebar { flex: 0 0 252px; position: sticky; top: 36px; text-align: center; }
+
+  /* WARM SIDEBAR PANEL (user, 2026-10-10). Pages with a sidebar tint the left of the
+     canvas up to the middle of the gutter: the page is 988px wide and centred, the
+     sidebar ends at 284px and the content starts at 356px, so the edge sits at
+     320px - 494px = 50% - 174px. Body-level, so it runs the full height and meets
+     the footer, which is the same colour. */
+  @media (min-width: 1001px) {
+    body.has-sidebar {
+      background: linear-gradient(to right, var(--panel) 0, var(--panel) calc(50% - 174px), var(--bg) calc(50% - 174px));
+    }
+  }
 
   h1.name {
     font-family: var(--serif);
@@ -372,7 +385,7 @@
      ============================================================ */
   footer {
     margin-top: 78px;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--panel-rule);
     background: #F3F1EC;   /* parchment tint of the greige */
   }
   .foot-inner {
@@ -398,7 +411,9 @@
      fixed sidebar + gutter would squeeze the column under ~600px. */
   @media (max-width: 1000px) {
     .page { flex-direction: column; gap: 28px; padding-top: 32px; }
-    .sidebar { position: static; width: 100%; }
+    .sidebar { position: static; width: auto; align-self: stretch; background: var(--panel);
+               margin: -32px -32px 0; padding: 32px 32px 22px; }   /* full-bleed header block; stretch so a
+                                                                      short menu cannot shrink it */
     h1.name { margin-bottom: 12px; }
     .portrait img { max-width: 200px; margin: 0 auto; }
     nav.side-nav { padding-top: 12px; }
@@ -408,6 +423,7 @@
   }
   @media (max-width: 520px) {
     .page { padding-left: 22px; padding-right: 22px; }
+    .sidebar { margin: -32px -22px 0; padding: 32px 22px 18px; }
     body { font-size: 16.5px; }
     h1.name { font-size: 1.5rem; }
     .section-head h2 { font-size: 1rem; }
@@ -468,6 +484,8 @@
     --accent:      #e59079;   /* light clay (maroon lifted for contrast) */
     --accent-dark: #f0ab97;
     --structure:   #8FB0E6;   /* Regatta lifted for dark */
+    --panel:       #131417;   /* the dark footer tint, behind the sidebar too */
+    --panel-rule:  #34353a;
   }
   :root[data-theme="dark"] .abstract-inner { border-left-color: var(--accent); }
   :root[data-theme="dark"] footer { background: #131417; }
