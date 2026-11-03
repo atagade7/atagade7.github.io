@@ -212,6 +212,10 @@
     padding: 4px 0;
     transition: color 0.2s ease;
   }
+  /* the Innovation Atlas link is the one nav item in Regatta blue (user, 2026-11-03).
+     It sits before :hover on purpose: same specificity, so hover still wins and
+     it turns maroon like its neighbours. */
+  .side-nav a.atlas { color: var(--structure); }
   .side-nav a:hover { color: var(--accent); }
   /* inline SVG arrow — Heros has no U+2197, and the bare character falls
      through to the emoji font on phones */
